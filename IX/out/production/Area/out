@@ -1,0 +1,7 @@
+Test for area methods. 
+
+Area of equilateral triangle (side = 10) = 43.301270189221924
+Area of right-angled triangle (base = 10, height = 20) = 100.0
+Area of scalene triangle (sides = {2, 3, 4}) = 2.9047375096555625
+
+

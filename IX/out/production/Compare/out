@@ -1,0 +1,7 @@
+Test for compare methods. 
+
+Compare 10 and 20 : 20
+Compare 'a' and 'z' : z
+Compare "12345" and "123" : 12345
+
+

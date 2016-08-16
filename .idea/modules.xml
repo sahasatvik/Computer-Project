@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Area/Area.iml" filepath="$PROJECT_DIR$/Area/Area.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Compare/Compare.iml" filepath="$PROJECT_DIR$/Compare/Compare.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FineForBooks/FineForBooks.iml" filepath="$PROJECT_DIR$/FineForBooks/FineForBooks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Palindrome/Palindrome.iml" filepath="$PROJECT_DIR$/Palindrome/Palindrome.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Series/Series.iml" filepath="$PROJECT_DIR$/Series/Series.iml" />
+    </modules>
+  </component>
+</project>

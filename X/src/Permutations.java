@@ -1,7 +1,7 @@
 
 /*
- *	A program which displays all permutations of a word (entered in the command line).
- *	NOTE : The permutaions displayed are ordered and with repetitions
+ *	A program which displays all permutations of a word 
+ *	(entered in the command line).
  *
  *	Example :
  *	  (word = "ABC")
@@ -12,7 +12,6 @@
  *	  	CAB
  *	  	CBA
  */
-
 
 class Permutations {
 	public static void main (String[] args) {
@@ -27,7 +26,6 @@ class Permutations {
 				str.substring(0, i) + str.substring(i + 1));
 	}
 }
-
 
 /*
  * 	Variable Description :

@@ -9,12 +9,10 @@
  *		 n...1
  *
  *	Example :
- *	  (n = 5)
+ *	  (n = 3)
  *	  	     1
  *		    21
  *		   321
- *		  4321
- *		 54321
  */
 
 import java.util.Scanner;

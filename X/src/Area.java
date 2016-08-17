@@ -10,10 +10,10 @@
 
 
 class Area {
-	public static double area (double side) {				// Square
+	public static double area (double side) {			// Square
 		return area(side, side);
 	}
-	public static double area (double length, double breadth) {		// Rectangle
+	public static double area (double length, double breadth) {	// Rectangle
 		return area(length, length, breadth);
 	}
 	public static double area (double a, double b, double height) {	// Trapezium

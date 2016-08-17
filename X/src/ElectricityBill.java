@@ -11,9 +11,7 @@
  *		    150  -  200		|	   	7
  *		  > 	    200		|	   	8
  *		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *
  */
-
 
 import java.util.Scanner;
 
@@ -29,11 +27,11 @@ class ElectricityBill {
 		else if (units < 200)
 			bill += (5.00 * 100) + (6.00 * 50) + (7.00 * (units - 150));
 		else
-			bill += (5.00 * 100) + (6.00 * 50) + (7.00 * 50) + (8.00 * (units - 200));
+			bill += (5.00 * 100) + (6.00 * 50) + (7.00 * 50) 
+				+ (8.00 * (units - 200));
 		System.out.printf("Your bill amount is : Rs. %9.2f%n", bill);
 	}
 }
-
 
 /*
  * 	Variable Description :

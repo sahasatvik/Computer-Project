@@ -15,7 +15,8 @@ class ReverseOrder {
 		System.out.print("Enter a sentence : ");
 		String sentence = (new Scanner(System.in)).nextLine();
 		while (sentence.lastIndexOf(' ') > 0) {
-			System.out.print(sentence.substring(sentence.lastIndexOf(' ') + 1) + " ");
+			System.out.print(sentence.substring(
+					 sentence.lastIndexOf(' ') + 1) + " ");
 			sentence = sentence.substring(0, sentence.lastIndexOf(' '));
 		}
 		System.out.print(sentence + "\n");

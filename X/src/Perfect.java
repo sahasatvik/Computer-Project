@@ -2,14 +2,15 @@
 /*
  *	A program which checks whether the number entered is a perfect number.
  *
- *	A number is perfect if it is equal to the sum of all of its factors (excluding itself).
+ *	A number is perfect if it is equal to the sum of all of its factors 
+ * 	(excluding itself).
  *
  *	Example :
  *		6 = 1 * 2 * 3
  *		   ^---------^ 1 + 2 + 3 = 6	--->	Perfect!
  *		
  *		28 = 1 * 2 * 4 * 7 * 14
- *		    ^------------------^ 1 + 2 + 4 + 7 + 14 = 28	--->	Perfect!
+ *		    ^------------------^ 1 + 2 + 4 + 7 + 14 = 28    --->    Perfect!
  */
 
 

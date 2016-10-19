@@ -1,4 +1,4 @@
-// com/github/sahasatvik/math/FunctionNotFoundException.java
+// src/com/github/sahasatvik/math/FunctionNotFoundException.java
 
 package com.github.sahasatvik.math;
 

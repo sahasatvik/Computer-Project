@@ -1,4 +1,4 @@
-// com/github/sahasatvik/math/NullExpressionException.java
+// src/com/github/sahasatvik/math/NullExpressionException.java
 
 package com.github.sahasatvik.math;
 

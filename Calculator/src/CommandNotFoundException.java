@@ -1,4 +1,4 @@
-// com/github/sahasatvik/math/CommandNotFoundException.java
+// src/CommandNotFoundException.java
 
 /**
  * Exception thrown when an unrecognized command is passed to Calculator.

@@ -1,4 +1,4 @@
-// com/github/sahasatvik/math/Calculator.java
+// src/Calculator.java
 
 import java.util.Scanner;
 import com.github.sahasatvik.math.*;

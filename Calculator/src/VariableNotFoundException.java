@@ -1,4 +1,4 @@
-// com/github/sahasatvik/math/VariableNotFoundException.java
+// src/com/github/sahasatvik/math/VariableNotFoundException.java
 
 package com.github.sahasatvik.math;
 

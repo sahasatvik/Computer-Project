@@ -1,0 +1,31 @@
+
+\chapquote{``Simplicity is the ultimate sophistication."}{Leonardo da Vinci}
+
+\problem A {\em Caesar cipher} is a type of monoalphabetic substitution cipher in which each letter
+in the plaintext is replaced by a letter some fixed number of positions down the alphabet. The positions
+are circular, i.e., after reaching $Z$, the position wraps around to $A$. For example, following is some encrypted
+text, using a right shift of 5.
+
+\begin{lstlisting}[numbers=none, xleftmargin=.25\textwidth, xrightmargin=.2\textwidth]
+Plain:    ABCDEFGHIJKLMNOPQRSTUVWXYZ
+Cipher:   FGHIJKLMNOPQRSTUVWXYZABCDE
+\end{lstlisting}
+
+Thus, after mapping the alphabet according to the scheme $A\mapsto 0, B\mapsto 1,\dots,Z\mapsto 23$, we can define
+an encryption function $E_n$, in which a letter $x$ is shifted rightwards by $n$ as follows.
+\begin{equation*}
+	E_n(x)	\;=\;	(x + n)	\quad\bmod 26
+\end{equation*}
+
+The corresponding decryption function $D_n$ is simply
+\begin{equation*}
+	D_n(x)	\;=\;	(x - n)	\quad\bmod 26
+\end{equation*}
+
+Implement a simple version of a {\em Caesar cipher}, encrypting capitalized plaintext by shifting it by a given value.
+Interpret positive shifts as rightwards, negative as leftwards.
+
+\solution
+
+\sourcecode
+\lstinputlisting{src/CaesarShift.java}

@@ -1,0 +1,53 @@
+
+\chapquote{``To iterate is human, to recurse divine"}{L. Peter Deutsch}
+
+\problem The {\em determinant} of a square matrix $A_{n,n}$ is defined recursively as follows.
+
+\begin{equation*}
+	det(A_{n,n}) \;=\;
+	\begin{vmatrix}
+		a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
+		a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+		\vdots  & \vdots  & \ddots & \vdots  \\
+		a_{n,1} & a_{n,2} & \cdots & a_{n,n} 
+	\end{vmatrix}
+	\;=\;   \sum_{j=1}^{n}(-1)^{i+j}a_{i,j}\cdot det(M_{i,j})
+\end{equation*}
+where $M_{i,j}$ is defined as the minor of $A_{n,n}$, an $(n-1)\times(n-1)$ matrix formed by removing the $i$th row
+and $j$th column from $A_{n,n}$.
+
+The determinant of a $(2 \times 2)$ matrix is simply given by
+\begin{equation*}
+	\begin{vmatrix}
+		a	&	b	\\
+		c	&	d
+	\end{vmatrix}
+	\;=\;	ad \;-\; bc
+\end{equation*}
+
+For example, the determinant of a $(3 \times 3)$ matrix is given by the following expression.
+
+\begin{align*}
+	\begin{vmatrix}
+		a	&	b	&	c	\\
+		d	&	e	&	f	\\
+		g	&	h	&	i
+	\end{vmatrix}
+\;&=\;	 a	\begin{vmatrix}
+				e	&	f	\\
+				h	&	i
+			\end{vmatrix}
+		-b  \begin{vmatrix}
+				d	&	f	\\
+				g	&	i
+			\end{vmatrix}
+		+c  \begin{vmatrix}
+				d	&	e	\\
+				g	&	h
+			\end{vmatrix}	\\
+\;&=\;	aei + bfg + cdh - ceg - bdi - afh
+\end{align*}
+
+Calculate the {\em determinant} of an inputted $(n \times n)$ square matrix.
+
+\solution

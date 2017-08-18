@@ -1,0 +1,58 @@
+\documentclass[12pt, reqno]{article}
+\usepackage{geometry}        
+\geometry{letterpaper} 
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{color}
+\geometry{
+	left=30mm,
+	right=30mm
+}
+
+\newcounter{prob}
+
+\def\problem{\stepcounter{prob}\paragraph{Problem \arabic{prob}}}
+\def\solution{\paragraph{Solution}}
+\def\sourcecode{\paragraph{Source Code}\leavevmode}
+
+\newcommand{\chapquote}[2]{\begin{quotation}\begin{center} \textit{#1} \end{center}\end{quotation} \begin{flushright} --- \textbf{#2}\end{flushright}}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codemauve}{rgb}{0.58,0,0.82}
+
+\lstset{
+	language=Java,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	numbers=left,
+	basicstyle={\small\ttfamily\footnotesize},
+	numberstyle=\tiny\color{codegray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{codegreen},
+	stringstyle=\color{codemauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=8
+}
+
+\title{Computer Project}
+\author{Satvik Saha}
+\begin{document}
+
+\include{tex/quote}
+
+\include{tex/unique}
+\include{tex/partition}
+\include{tex/cipher}
+\include{tex/palindrome}
+\include{tex/chart}
+\include{tex/determinant}
+
+\end{document}
+\end
+

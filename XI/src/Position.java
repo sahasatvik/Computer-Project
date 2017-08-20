@@ -7,6 +7,18 @@ public class Position {
 		this.y = y;
 	}
 
+	public Position (String s) {
+		int x = 0;
+		int i = 0;
+		while (i < s.length() && Character.isAlphabetic(s.charAt(i))) {
+			x = (x * 26) + Character.toLowerCase(s.charAt(i)) - 'a' + 1;
+			i++;
+		}
+		int y = Integer.parseInt(s.substring(i));
+		this.x = x - 1;
+		this.y = y - 1;
+	}
+
 	public int getX () {
 		return x;
 	}
@@ -22,12 +34,16 @@ public class Position {
 
 	@Override
 	public String toString () {
-		int x = this.x + 1;
+		return xToString(this.x) + (this.y + 1);
+	}
+
+	public static String xToString (int n) {
+		int x = n + 1;
 		String letters = "";
 		while (x > 0) {
 			letters = (char) ('a' + (--x % 26)) + letters;
 			x /= 26;
 		}
-		return letters + (this.y + 1);
+		return letters;
 	}
 } 

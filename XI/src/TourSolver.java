@@ -4,7 +4,10 @@ public class TourSolver {
 	private int numberOfMoves;
 
 	private int[][] board;
+	private int[][] degreesOfFreedom;
 
+	private Position initPosition;
+	
 	private static final int[][] KNIGHT_MOVES = {
 		{-1, -2}, {-1, 2}, {1, -2}, {1, 2},
 		{-2, -1}, {-2, 1}, {2, -1}, {2, 1}
@@ -12,24 +15,31 @@ public class TourSolver {
 
 	public TourSolver (int size, Position initPosition) {
 		this.size = size;
-		path = new Position[size * size];
+		this.initPosition = initPosition;
+		this.path = new Position[size * size];
+		this.numberOfMoves = 0;
+		initBoard();
+		initDegreesOfFreedom();
+	}
+
+	private void initBoard () {
 		board = new int[size][size];
 		for (int i = 0; i < size; i++)
 			for (int j = 0; j < size; j++)
 				board[i][j] = 0;
-		numberOfMoves = 0;
-		addMove(initPosition);
-		solve(initPosition);
 	}
 
-	public Position[] getSolution () {
-		return path;
+	private void initDegreesOfFreedom () {
+		degreesOfFreedom = new int[size][size];
+		for (int i = 0; i < size; i++)
+			for (int j = 0; j < size; j++)
+				degreesOfFreedom[i][j] = getPossibleMovesCount(new Position(i, j));
 	}
 
 	public boolean addMove (Position p) {
 		if (numberOfMoves < (size * size)) {
 			path[numberOfMoves++] = p;
-			board[p.getX()][p.getY()] = 1;
+			board[p.getX()][p.getY()] = numberOfMoves;
 			return true;
 		}
 		return false;
@@ -45,29 +55,67 @@ public class TourSolver {
 		return false;
 	}
 
+	public int[][] getBoard () {
+		return board;
+	}
+	
+	public Position[] getSolution () {
+		if (size < 5)
+			return null;
+		addMove(initPosition);
+		if(solve(initPosition))
+			return path;
+		return null;
+	}
+	
 	public boolean solve (Position p) {
-		if (numberOfMoves  == (size * size)) {
+		if (numberOfMoves  == (size * size))
 			return true;
-		}
-		Position[] possibleMoves = getPossibleMoves(p, path);
-		if (possibleMoves[0] == null) {
+		Position[] possibleMoves = getPossibleMoves(p);
+		if (possibleMoves[0] == null)
 			return false;
-		}
+		sortMoves(possibleMoves);
 		for (Position move : possibleMoves) {
 			if (move != null) {
 				addMove(move);
-				if (solve(move)) {
+				if (solve(move))
 					return true;
-				} else {
-					removeMove();
-				}
+				removeMove();
 			}
 		}
 		return false;
 	}
+
+	public void sortMoves (Position[] moves) {
+		int count = 0;
+		for (Position p : moves)
+			if (p != null)
+				count++;
+		for (int right = count; right > 0; right--)
+			for (int i = 1; i < right; i++)
+				if (compareMoves(moves[i-1], moves[i]) > 0)
+					swapMoves(i-1, i, moves);
+	}
 	
-	
-	public Position[] getPossibleMoves (Position start, Position[] forbidden) {
+	public int compareMoves (Position a, Position b) {
+		int aCount = getPossibleMovesCount(a);
+		int bCount = getPossibleMovesCount(b);
+		if (aCount != bCount)
+			return aCount - bCount;
+		int aFree = degreesOfFreedom[a.getX()][a.getY()];
+		int bFree = degreesOfFreedom[b.getX()][b.getY()];
+		if (aFree != bFree)
+			return aFree - bFree;
+		return (Math.random() < 0.5)? 1 : -1;
+	}
+
+	private static void swapMoves (int x, int y, Position[] moves) {
+		Position t = moves[x];
+		moves[x] = moves[y];
+		moves[y] = t;
+	}
+
+	public Position[] getPossibleMoves (Position start) {
 		Position[] possibleMoves = new Position[KNIGHT_MOVES.length];
 		int i = 0;
 		for (int[] move : KNIGHT_MOVES) {
@@ -79,38 +127,15 @@ public class TourSolver {
 		}
 		return possibleMoves;
 	}
-	
-	/*	
-	public Position[] getPossibleMoves (Position start, Position[] forbidden) {
-		Position[] possibleMoves = new Position[KNIGHT_MOVES.length];
+
+	public int getPossibleMovesCount (Position start) {
 		int i = 0;
-		for (int[] move : KNIGHT_MOVES) {
-			int x = start.getX() + move[0];
-			int y = start.getY() + move[1];
-			if (isWithinBoard(x, y)) {
-				Position possible = new Position(x, y);
-				if (!containsPosition(possible, forbidden)) {
-					possibleMoves[i++] = possible;
-				}
-			}
-		}
-		return possibleMoves;
+		for (Position p : getPossibleMoves(start))
+			if (p != null)
+				i++;
+		return i;
 	}
-	*/
-
-	public boolean containsPosition (Position pos, Position[] list) {
-		for (Position candidate : list) {
-			if (candidate != null && pos.equals(candidate)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public int getSize () {
-		return size;
-	}
-
+	
 	public boolean isWithinBoard (int x, int y) {
 		return (x >= 0 && x < size && y >= 0 && y < size);
 	}

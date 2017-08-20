@@ -86,7 +86,7 @@ class Marksheet {
 
 	public static String multiplyString (String s, int n) {
 		String out = "";
-		for (int i = 0; i < n; i++)
+		while (n --> 0)
 			out += s;
 		return out;
 	}

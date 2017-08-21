@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
-class ScoreRecorder {
+public class ScoreRecorder {
 	public static void main (String[] args) {
 		Scanner inp = new Scanner(System.in);
 		double maxMarks = 0.0;
@@ -20,8 +20,7 @@ class ScoreRecorder {
 				System.exit(0);
 			}
 			Marksheet sheet = new Marksheet(maxMarks, numberOfStudents);
-			System.out.println("Enter " + numberOfStudents 
-						    + " students' names and marks : ");
+			System.out.println("Enter " + numberOfStudents + " students' names and marks : ");
 			for (int i = 0; i < numberOfStudents; i++) {
 				String name = "";
 				while (!inp.hasNextDouble()) {
@@ -34,7 +33,6 @@ class ScoreRecorder {
 				}
 				sheet.addMarks(name.trim(), marks);
 			}
-
 			sheet.sortByName();
 			sheet.displayChart();
 			sheet.displayMaxScorers();

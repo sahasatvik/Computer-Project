@@ -64,7 +64,7 @@
 		   b5-d4
 }
 
-\def\myktour{d4-b3, b3-a1, a1-c2, c2-a3, a3-b1, b1-d2, d2-f1, f1-h2, h2-g4, g4-h6, h6-g8, g8-e7, e7-c8, c8-a7, a7-b5, b5-c7, c7-a8, a8-b6, b6-a4, a4-b2, b2-d1, d1-f2, f2-h1, h1-g3, g3-h5, h5-g7, g7-e8, e8-f6, f6-h7, h7-f8, f8-d7, d7-b8, b8-a6, a6-b4, b4-a2, a2-c1, c1-e2, e2-g1, g1-h3, h3-g5, g5-e4, e4-c3, c3-d5, d5-e3, e3-f5, f5-h4, h4-g2, g2-e1, e1-f3, f3-e5, e5-g6, g6-h8, h8-f7, f7-d6, d6-c4, c4-a5, a5-c6, c6-d8, d8-b7, b7-c5, c5-d3, d3-f4, f4-e6}
+\def\myktourTen{b2-d1, d1-f2, f2-h1, h1-j2, j2-i4, i4-j6, j6-i8, i8-j10, j10-h9, h9-f10, f10-d9, d9-b10, b10-a8, a8-b6, b6-a4, a4-c3, c3-a2, a2-c1, c1-e2, e2-g1, g1-i2, i2-j4, j4-h3, h3-i1, i1-j3, j3-h2, h2-j1, j1-i3, i3-j5, j5-i7, i7-j9, j9-h10, h10-f9, f9-d10, d10-b9, b9-a7, a7-b5, b5-a3, a3-b1, b1-d2, d2-f1, f1-g3, g3-h5, h5-g7, g7-i6, i6-j8, j8-i10, i10-g9, g9-e10, e10-c9, c9-a10, a10-b8, b8-a6, a6-c7, c7-e8, e8-f6, f6-e4, e4-g5, g5-h7, h7-i9, i9-j7, j7-i5, i5-g4, g4-h6, h6-g8, g8-e9, e9-c10, c10-a9, a9-c8, c8-e7, e7-d5, d5-b4, b4-c2, c2-a1, a1-b3, b3-a5, a5-b7, b7-d6, d6-c4, c4-e3, e3-f5, f5-h4, h4-g2, g2-e1, e1-f3, f3-d4, d4-c6, c6-d8, d8-f7, f7-h8, h8-g10, g10-f8, f8-e6, e6-c5, c5-d7, d7-e5, e5-g6, g6-f4, f4-d3, d3-b2}
 
 \chapquote{``My project is 90\% done. I hope the second half goes as well."}{Scott W. Ambler}
 
@@ -75,7 +75,7 @@ from the beginning square, the tour is {\em closed} forming a closed loop, other
 There are many ways of constructing such paths on an empty board. On an $ 8\times 8$ board, there are no less
 than $26,534,728,821,064$ {\em directed\footnote{Two tours along the same path that travel in opposite directions are counted separately, as are rotations and reflections.} closed} tours. Below is one of them.
 \[\chessboard[boardfontsize=25pt,
-			  setfen=8/8/8/8/3N4/8/8/8 - - - 0 0,
+			  setpieces={Nd4},
 			  showmover=false,
 			  arrow=to, linewidth=0.7pt, shorten=-1pt,
 			  pgfstyle=straightmove,
@@ -88,4 +88,34 @@ a given square.\\
 Mark the starting square $1$.)}\clearpage
 
 \solution
+
+A knight on a chessboard can move to a square that is two squares away horizontally and one square vertically, or two squares vertically and one square horizontally.
+\vspace{-5mm}
+\[\chessboard[smallboard, maxfield=e5,
+			  labelleft=false, labelbottom=false,
+			  setpieces={Nc3},
+			  showmover=false,
+			  pgfstyle=straightmove,
+			  linewidth=0.7pt,
+			  markmoves={c3-b1, c3-d1, c3-e2, c3-a2, c3-a4, c3-e4, c3-b5, c3-d5}]
+\chessboard[smallboard, maxfield=e5,
+			  labelleft=false, labelbottom=false,
+			  setpieces={Na3},
+			  showmover=false,
+			  linewidth=0.7pt,
+			  pgfstyle=straightmove,
+			  markmoves={a3-b1, a3-b5, a3-c2, a3-c4}]
+\chessboard[smallboard, maxfield=e5,
+			  labelleft=false, labelbottom=false,
+			  setpieces={Na1},
+			  showmover=false,
+			  linewidth=0.7pt,
+			  pgfstyle=straightmove,
+			  markmoves={a1-b3, a1-c2}]
+\]
+
+\sourcecode
+\lstinputlisting{src/TourSolver.java}
+\lstinputlisting{src/Position.java}
+\lstinputlisting{src/KnightTour.java}
 

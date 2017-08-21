@@ -1,10 +1,9 @@
-class CaesarShift {
+public class CaesarShift {
 	public static void main (String[] args) {
 		try {
 			int shift = Integer.parseInt(args[0]) % 26;
 			String plaintext = args[1].toUpperCase();
 			String ciphertext = "";
-			
 			for (int i = 0; i < plaintext.length(); i++) {
 				char plain = plaintext.charAt(i);
 				char crypt = ' ';
@@ -17,11 +16,9 @@ class CaesarShift {
 			}
 			System.out.println(ciphertext);
 		} catch (NumberFormatException e) {
-			System.out.println("Enter an integer "
-					   + "as the first argument!");
+			System.out.println("Enter an integer as the first argument!");
 		} catch (IndexOutOfBoundsException e) {
-			System.out.println("Enter 2 arguments "
-					   + "(shift, plaintext)!");
+			System.out.println("Enter 2 arguments (shift, plaintext)!");
 		}
 	}
 

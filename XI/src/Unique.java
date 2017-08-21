@@ -1,4 +1,4 @@
-class Unique {
+public class Unique {
 	public static void main (String[] args) {
 		try {
 			long number = Long.parseLong(args[0]);
@@ -13,13 +13,13 @@ class Unique {
 			System.out.println("Enter 1 argument (integer)!");
 		}
 	}
+
 	public static boolean isUnique (long number) {
 		int[] count = new int[10];
-		String rawNumber = Long.toString(Math.abs(number));
-		for (int i = 0; i < rawNumber.length(); i++) {
-			int digit = rawNumber.charAt(i) - '0';
+		for (long n = Math.abs(number); n > 0; n /= 10) {
+			int digit = (int) n % 10;
 			count[digit]++;
-			if (count[digit] > 1) {
+			if (count[digit] > 1){
 				return false;
 			}
 		}

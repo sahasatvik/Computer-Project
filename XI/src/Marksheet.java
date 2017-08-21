@@ -1,23 +1,20 @@
-class Marksheet {
-
+public class Marksheet {
 	public static final int SCREEN_WIDTH = 80;
+	private final double maxMarks;
+	private final int numberOfStudents;
+	private int lastStudent;
+	private String[] names;
+	private double[] marks;
 
-	double maxMarks;
-	int numberOfStudents;
-	int lastStudent;
-
-	String[] names;
-	double[] marks;
-
-	Marksheet (double maxMarks, int numberOfStudents) {
+	public Marksheet (double maxMarks, int numberOfStudents) {
 		this.maxMarks = maxMarks;
 		this.numberOfStudents = numberOfStudents;
-		names = new String[numberOfStudents];
-		marks = new double[numberOfStudents];
-		lastStudent = -1;
+		this.names = new String[numberOfStudents];
+		this.marks = new double[numberOfStudents];
+		this.lastStudent = -1;
 	}
 	
-	boolean addMarks (String name, double score) {
+	public boolean addMarks (String name, double score) {
 		try {
 			names[++lastStudent] = name;
 			marks[lastStudent] = score;
@@ -27,7 +24,7 @@ class Marksheet {
 		}
 	}
 
-	void displayChart () {
+	public void displayChart () {
 		System.out.println(Marksheet.multiplyString("-", Marksheet.SCREEN_WIDTH));
 		for (int i = 0; i <= lastStudent; i++) {
 			double fraction = marks[i] / maxMarks;
@@ -45,7 +42,7 @@ class Marksheet {
 		System.out.println(Marksheet.multiplyString("-", Marksheet.SCREEN_WIDTH));
 	}
 
-	void displayMaxScorers () {
+	public void displayMaxScorers () {
 		String maxScorers = "";
 		double maxScore = getMaxScore();
 		for (int i = 0; i <= lastStudent; i++) {
@@ -59,7 +56,7 @@ class Marksheet {
 					+ maxMarks +  ")");
 	}
 
-	void sortByName () {
+	public void sortByName () {
 		for (int right = lastStudent; right > 0; right--)
 			for (int i = 1; i <= right; i++)
 				if (names[i-1].compareTo(names[i]) > 0)
@@ -67,7 +64,7 @@ class Marksheet {
 				
 	}
 
-	double getMaxScore () {
+	public double getMaxScore () {
 		double max = Integer.MIN_VALUE;
 		for (int i = 0; i <= lastStudent; i++) {
 			max = Math.max(max, marks[i]);
@@ -75,7 +72,7 @@ class Marksheet {
 		return max;
 	}
 
-	void swapRecords (int x, int y) {
+	private void swapRecords (int x, int y) {
 		String tempName = names[x];
 		double tempMark = marks[x];
 		names[x] = names[y];

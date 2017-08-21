@@ -1,11 +1,29 @@
-class KnightTour {
+public class KnightTour {
 	public static void main (String[] args) {
-		TourSolver t = new TourSolver(Integer.parseInt(args[0]), new Position(args[1]));
-		Position[] solution = t.getSolution();
-		showBoard(t.getBoard());
-		if (isClosed(solution))
-			System.out.println("\nThe tour is Closed!");
-		showMoves(solution);
+		try {
+			int boardSize = Integer.parseInt(args[0]);
+			if (boardSize <= 0)
+				throw new NumberFormatException();
+			String initSquare = (args.length > 1)? args[1] : "a1";
+			TourSolver t = new TourSolver(boardSize, new Position(initSquare));
+			Position[] solution = t.getSolution();
+			if (solution != null) {
+				showBoard(t.getBoard());
+				showMoves(solution);
+				if (isClosed(solution))
+					System.out.println("\nThe tour is Closed!");
+			} else {
+				System.out.println("No Knight's Tours found!");
+			}
+		} catch (Exception e) {
+			System.out.print("Enter an integer (> 1) as the first argument, ");
+			System.out.println("and a well formed chessboard coordinate as the second! [size, startSquare]\n");
+			System.out.println("(size          -> Solve a Tour on a (size x size) board)");
+			System.out.println("(startSquare   -> A square in algebraic chess notation of the form 'fr',");
+			System.out.println("                  where f = the letter representing the file(column)");
+			System.out.println("                  and   r = the number representing the rank(row).)");
+			System.out.println("(startSquare is set to 'a1' by default)");
+		}
 	}
 
 	public static void showBoard (int[][] board) {
@@ -19,7 +37,7 @@ class KnightTour {
 			System.out.printf("|%n%s%n", hLine);
 		}
 		System.out.print("   ");
-		for (int i = 0; i < board.length; i++){
+		for (int i = 0; i < board.length; i++) {
 			System.out.printf("  %2s  ", Position.xToString(i));
 		}
 		System.out.println();

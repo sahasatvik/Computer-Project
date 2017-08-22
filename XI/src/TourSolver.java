@@ -5,17 +5,19 @@ public class TourSolver {
 	private int[][] board;
 	private int[][] degreesOfFreedom;
 	private Position initPosition;
-	
+	private	double tieBreakRandomness;
+
 	private static final int[][] KNIGHT_MOVES = {
 		{-1, -2}, {-1, 2}, {1, -2}, {1, 2},
 		{-2, -1}, {-2, 1}, {2, -1}, {2, 1}
 	};
 
-	public TourSolver (int size, Position initPosition) {
+	public TourSolver (int size, Position initPosition, double randomness) {
 		this.size = size;
 		this.initPosition = initPosition;
 		this.path = new Position[size * size];
 		this.numberOfMoves = 0;
+		this.tieBreakRandomness = randomness / 2.0;
 		this.initBoard();
 		this.initDegreesOfFreedom();
 	}
@@ -104,7 +106,7 @@ public class TourSolver {
 		int bFree = degreesOfFreedom[b.getX()][b.getY()];
 		if (aFree != bFree)
 			return aFree - bFree;
-		return (Math.random() < 0.4)? 1 : -1;
+		return (Math.random() < tieBreakRandomness)? 1 : -1;
 	}
 
 	private static void swapMoves (int x, int y, Position[] moves) {

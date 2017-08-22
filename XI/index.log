@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  22 AUG 2017 14:02
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  22 AUG 2017 14:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -953,10 +953,6 @@ Package: etoolbox 2017/01/02 v2.4 e-TeX tools for LaTeX (JAW)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-
-LaTeX Warning: Unused global option(s):
-    [a4].
-
 (./index.aux (./tex/cover.aux) (./tex/quote.aux) (./tex/unique.aux)
 (./tex/partition.aux) (./tex/cipher.aux) (./tex/palindrome.aux)
 (./tex/chart.aux) (./tex/knight.aux) (./tex/determinant.aux))
@@ -1022,7 +1018,7 @@ LaTeX Font Info:    ... okay on input line 65.
 * \headsep=25.0pt
 * \topskip=12.0pt
 * \footskip=30.0pt
-* \marginparwidth=44.0pt
+* \marginparwidth=35.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
 * \skip\footins=10.8pt plus 4.0pt minus 2.0pt
@@ -1242,10 +1238,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 84--86
 (./tex/partition.aux) (./tex/cipher.aux) (./tex/palindrome.aux)
 (./tex/chart.aux) (./tex/knight.aux) (./tex/determinant.aux)) ) 
 Here is how much of TeX's memory you used:
- 28356 strings out of 493005
- 570035 string characters out of 6134596
- 733043 words of memory out of 5000000
- 31837 multiletter control sequences out of 15000+600000
+ 28354 strings out of 493005
+ 570022 string characters out of 6134596
+ 732967 words of memory out of 5000000
+ 31835 multiletter control sequences out of 15000+600000
  10624 words of font info for 63 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  62i,14n,87p,10366b,1484s stack positions out of 5000i,500n,10000p,200000b,80000s

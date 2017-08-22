@@ -5,7 +5,9 @@ public class KnightTour {
 			if (boardSize <= 0)
 				throw new NumberFormatException();
 			String initSquare = (args.length > 1)? args[1] : "a1";
-			TourSolver t = new TourSolver(boardSize, new Position(initSquare));
+			double randomness = (args.length > 2)? Double.parseDouble(args[2])
+							     : Math.pow(0.8, boardSize) * 2;
+			TourSolver t = new TourSolver(boardSize, new Position(initSquare), randomness);
 			Position[] solution = t.getSolution();
 			if (solution != null) {
 				showBoard(t.getBoard());
@@ -17,12 +19,23 @@ public class KnightTour {
 			}
 		} catch (Exception e) {
 			System.out.print("Enter an integer (> 1) as the first argument, ");
-			System.out.println("and a well formed chessboard coordinate as the second! [size, startSquare]\n");
+			System.out.println("and a well formed chessboard coordinate as the second!");
+			System.out.println("                                 (size, startSquare * , randomness * )");
+			System.out.println();
 			System.out.println("(size          -> Solve a Tour on a (size x size) board)");
-			System.out.println("(startSquare   -> A square in algebraic chess notation of the form 'fr',");
+			System.out.println("(startSquare * -> A square in algebraic chess notation of the form 'fr',");
 			System.out.println("                  where f = the letter representing the file(column)");
 			System.out.println("                  and   r = the number representing the rank(row).)");
 			System.out.println("(startSquare is set to 'a1' by default)");
+			System.out.println("(randomness *  -> A number between 0(no randomness) and 1(even chances),");
+			System.out.println("                  determining the randomness in ranking positions of");
+			System.out.println("                  the same weightage while searching. A randomness of 0 will");
+			System.out.println("                  produce the same tour every time, for a specific size and");
+			System.out.println("                  startSquare. Keep extremely small values of randomness for");
+			System.out.println("                  very large boards.)");
+			System.out.println("(randomness is set to 2 * (0.8)^boardSize by default)");
+			System.out.println();
+			System.out.println("                                                  < * = optional arguments >");
 		}
 	}
 

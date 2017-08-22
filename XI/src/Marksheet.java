@@ -1,5 +1,5 @@
 public class Marksheet {
-	public static final int SCREEN_WIDTH = 80;
+	public static final int SCREEN_WIDTH = 100;
 	private final double maxMarks;
 	private final int numberOfStudents;
 	private int lastStudent;
@@ -31,10 +31,10 @@ public class Marksheet {
 			String name = (names[i].length() < 16)
 					? names[i] 
 					: (names[i].substring(0,13) + "...");
-			int points = (int) (fraction * (SCREEN_WIDTH - 32));
+			int points = (int) (fraction * (SCREEN_WIDTH - 34));
 			String bar = multiplyString("*", points) 
-				+ multiplyString(" ", SCREEN_WIDTH - 32 - points);
-			System.out.printf("| %16s | %s | %5.2f %%%n"
+				+ multiplyString(" ", SCREEN_WIDTH - 34 - points);
+			System.out.printf("| %16s | %s | %6.2f %% |%n"
 							, name
 							, bar
 							, fraction * 100);
@@ -59,7 +59,7 @@ public class Marksheet {
 	public void sortByName () {
 		for (int right = lastStudent; right > 0; right--)
 			for (int i = 1; i <= right; i++)
-				if (names[i-1].compareTo(names[i]) > 0)
+				if (names[i-1].compareToIgnoreCase(names[i]) > 0)
 					swapRecords(i, i - 1);
 				
 	}

@@ -8,6 +8,7 @@
 \usepackage{color}
 \usepackage{chessboard}
 \usepackage{fontspec}
+\usepackage{etoolbox}
 \geometry{
 	left=30mm,
 	right=30mm
@@ -25,7 +26,11 @@
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codestring}{rgb}{0.066,0.5,0.066}
 \definecolor{codeblue}{rgb}{0,0.4,0.795}
+\definecolor{codelightblue}{rgb}{0.4,0.3,0.8}
 \definecolor{codegreen}{rgb}{0,0.4,0.1}
+\definecolor{codepink}{rgb}{0.8,0.4,0.3}
+\definecolor{codenull}{rgb}{0.6,0.3,0.3}
+\definecolor{codepurple}{rgb}{0.6,0.2,0.5}
 \definecolor{codeannotation}{rgb}{0.75,0.25,0}
 
 \lstset{
@@ -36,9 +41,15 @@
 	columns=flexible,
 	numbers=left,
 	morecomment=[l][\color{codeannotation}]{@},
-	emph={return},
-    emphstyle={\color{codegreen}},
-	basicstyle={\small\ttfamily\footnotesize},
+	emph=[1]{return},
+    emphstyle=[1]{\color{codegreen}},
+    emph=[2]{true, false, null},
+    emphstyle=[2]{\color{codepink}},
+    emph=[3]{new},
+    emphstyle=[3]{\color{codepurple}},
+    emph=[4]{for, while, if, else, try, catch, finally},
+    emphstyle=[4]{\color{codelightblue}},
+    basicstyle={\small\ttfamily\footnotesize},
 	numberstyle=\tiny\color{codegray},
 	keywordstyle=\color{codeblue},
 	commentstyle=\color{codecomment},

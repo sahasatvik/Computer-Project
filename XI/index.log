@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  22 AUG 2017 14:13
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  23 AUG 2017 00:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1217,7 +1217,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
 \openout2 = `tex/knight.aux'.
 
  (./tex/knight.tex
-Underfull \hbox (badness 10000) in paragraph at lines 84--86
+(./tex/ktourData.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 18--20
 
  []
 
@@ -1226,11 +1227,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 84--86
 
 ] (./src/TourSolver.java [12
 
-] [13] [14]) (./src/Position.java [15])
-(./src/KnightTour.java [16] [17])) [18]
+] [13] [14] [15]) (./src/Position.java [16])
+(./src/KnightTour.java [17] [18])) [19]
 \openout2 = `tex/determinant.aux'.
 
- (./tex/determinant.tex) [19
+ (./tex/determinant.tex) [20
 
 
 ]
@@ -1238,12 +1239,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 84--86
 (./tex/partition.aux) (./tex/cipher.aux) (./tex/palindrome.aux)
 (./tex/chart.aux) (./tex/knight.aux) (./tex/determinant.aux)) ) 
 Here is how much of TeX's memory you used:
- 28354 strings out of 493005
- 570022 string characters out of 6134596
- 732967 words of memory out of 5000000
- 31835 multiletter control sequences out of 15000+600000
- 10624 words of font info for 63 fonts, out of 8000000 for 9000
+ 32672 strings out of 493005
+ 635355 string characters out of 6134596
+ 1175389 words of memory out of 5000000
+ 36150 multiletter control sequences out of 15000+600000
+ 10784 words of font info for 64 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 62i,14n,87p,10366b,1484s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,14n,87p,10366b,1515s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on index.pdf (21 pages).
+Output written on index.pdf (22 pages).

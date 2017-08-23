@@ -15,11 +15,17 @@ public class TourSolver {
 	public TourSolver (int size, Position initPosition, double randomness) {
 		this.size = size;
 		this.initPosition = initPosition;
+		this.tieBreakRandomness = randomness / 2.0;
 		this.path = new Position[size * size];
 		this.numberOfMoves = 0;
-		this.tieBreakRandomness = randomness / 2.0;
 		this.initBoard();
 		this.initDegreesOfFreedom();
+	}
+	
+	public void resetSolution () {
+		this.path = new Position[size * size];
+		this.numberOfMoves = 0;
+		this.initBoard();
 	}
 
 	private void initBoard () {

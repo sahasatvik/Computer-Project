@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  23 AUG 2017 15:39
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  23 AUG 2017 18:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**index.tex
-(./index.tex
+**project.tex
+(./project.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
@@ -953,8 +953,8 @@ Package: etoolbox 2017/01/02 v2.4 e-TeX tools for LaTeX (JAW)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-No file index.aux.
-\openout1 = `index.aux'.
+No file project.aux.
+\openout1 = `project.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
 LaTeX Font Info:    ... okay on input line 66.
@@ -1232,16 +1232,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--20
 
 
 ]
-(./index.aux (./tex/cover.aux) (./tex/quote.aux) (./tex/unique.aux)
+(./project.aux (./tex/cover.aux) (./tex/quote.aux) (./tex/unique.aux)
 (./tex/partition.aux) (./tex/cipher.aux) (./tex/palindrome.aux)
 (./tex/chart.aux) (./tex/knight.aux) (./tex/determinant.aux)) ) 
 Here is how much of TeX's memory you used:
- 29998 strings out of 493005
- 594597 string characters out of 6134596
- 959825 words of memory out of 5000000
+ 29999 strings out of 493005
+ 594616 string characters out of 6134596
+ 959827 words of memory out of 5000000
  33496 multiletter control sequences out of 15000+600000
  10944 words of font info for 65 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 62i,14n,87p,10366b,1484s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,14n,87p,10368b,1484s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on index.pdf (23 pages).
+Output written on project.pdf (23 pages).

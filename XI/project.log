@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  23 AUG 2017 18:41
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  24 AUG 2017 17:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -953,7 +953,9 @@ Package: etoolbox 2017/01/02 v2.4 e-TeX tools for LaTeX (JAW)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-No file project.aux.
+(./project.aux (./tex/cover.aux) (./tex/quote.aux) (./tex/unique.aux)
+(./tex/partition.aux) (./tex/cipher.aux) (./tex/palindrome.aux)
+(./tex/sieve.aux) (./tex/chart.aux) (./tex/knight.aux) (./tex/determinant.aux))
 \openout1 = `project.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
@@ -1204,44 +1206,53 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
 
 ])) [6]
+\openout2 = `tex/sieve.aux'.
+
+ (./tex/sieve.tex
+(./src/SieveOfEratosthenes.java [7
+
+
+]) (./src/Primes.java)) [8]
 \openout2 = `tex/chart.aux'.
 
- (./tex/chart.tex (./src/Marksheet.java
-[7
+ (./tex/chart.tex
+(./src/Marksheet.java [9
 
 
-] [8]) (./src/ScoreRecorder.java [9])) [10]
+] [10]) (./src/ScoreRecorder.java [11])) [12]
 \openout2 = `tex/knight.aux'.
 
- (./tex/knight.tex
-(./tex/ktourData.tex)
+
+(./tex/knight.tex (./tex/ktourData.tex)
 Underfull \hbox (badness 10000) in paragraph at lines 18--20
 
  []
 
-[11
+[13
 
 
-] [12
+] [14
 
-] (./src/TourSolver.java [13] [14] [15]) (./src/Position.java [16])
-(./src/KnightTour.java [17] [18] [19])) [20]
+] (./src/TourSolver.java [15] [16] [17]) (./src/Position.java [18])
+(./src/KnightTour.java [19] [20] [21])) [22]
 \openout2 = `tex/determinant.aux'.
 
- (./tex/determinant.tex) [21
+ (./tex/determinant.tex
+(./src/Matrix.java [23
 
 
-]
-(./project.aux (./tex/cover.aux) (./tex/quote.aux) (./tex/unique.aux)
-(./tex/partition.aux) (./tex/cipher.aux) (./tex/palindrome.aux)
-(./tex/chart.aux) (./tex/knight.aux) (./tex/determinant.aux)) ) 
+]) (./src/SquareMatrix.java [24]) (./src/Determinant.java [25])) [26] (./projec
+t.aux (./tex/cover.aux) (./tex/quote.aux)
+(./tex/unique.aux) (./tex/partition.aux) (./tex/cipher.aux)
+(./tex/palindrome.aux) (./tex/sieve.aux) (./tex/chart.aux) (./tex/knight.aux)
+(./tex/determinant.aux)) ) 
 Here is how much of TeX's memory you used:
- 29999 strings out of 493005
- 594616 string characters out of 6134596
- 959827 words of memory out of 5000000
- 33496 multiletter control sequences out of 15000+600000
+ 30122 strings out of 493005
+ 596419 string characters out of 6134596
+ 963740 words of memory out of 5000000
+ 33577 multiletter control sequences out of 15000+600000
  10944 words of font info for 65 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  62i,14n,87p,10368b,1484s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on project.pdf (23 pages).
+Output written on project.pdf (28 pages).

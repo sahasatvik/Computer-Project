@@ -1,12 +1,16 @@
 
 \chapquote{``In programming the hard part isn't solving problems, but deciding what problems to solve."}{Paul Graham}
 
-\problem The {\em Sieve of Eratosthenes} is a simple, ancient algorithm for finding all prime numbers up to any given limit.
+\problem A {\em prime number} (or a {\em prime}) is a natural number greater than $1$ that has no positive divisors other than $1$ and itself.
+
+Display all primes upto a given limit, along with their number.
+
+\solution This problem could be tackled in a number of ways. We could define a function for checking the primality of a given number, then iterate through all numbers in the required range. A common way of checking for primality is {\em trial division}. It consists of testing whether the number $n$ is a multiple of any integer between $2$ and $\sqrt{n}$. Although this works well enough for small numbers, repeating this consecutively for very large inputs is tedious and inefficient. Since the problem consists of identifying primes in a {\em range}, and not individually, we can make use of more efficient methods.
+
+The {\em Sieve of Eratosthenes} is a simple, ancient algorithm for finding all prime numbers up to any given limit.
 It does so by iteratively marking as composite the multiples of each prime, starting with the first prime number, $2$.
-
-Implement the {\em Sieve of Eratosthenes} to display primes upto a given limit, as well as the number of primes calculated.
-
-\solution
+As a result, when a prime $p$ is found, none of its multiples will be tested further for primality --- they are eliminated early on.
+In comparison, {\em trial division} has worse theoretical complexity than that of the {\em Sieve of Eratosthenes} in generating ranges of primes. When testing each prime, the optimal trial division algorithm uses all prime numbers not exceeding its square root, whereas the Sieve of Eratosthenes produces each composite from its prime factors only. 
 
 \sourcecode
 \lstinputlisting{src/SieveOfEratosthenes.java}

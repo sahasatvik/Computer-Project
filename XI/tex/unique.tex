@@ -1,12 +1,13 @@
 
-\chapquote{``When in doubt, use brute force."}{Ken Thompson}
+\chapquote{``I am rarely happier than when spending an entire day programming my computer to perform automatically a task that would otherwise take me a good ten seconds to do by hand."}{Douglas Adams}
 
 \problem An $n$ digit integer $(a_1a_2\dots a_n)$, where each digit $a_i \in \{0, 1, \dots, 9\}$,
 is said to have {\em unique digits} if no digits are repeated, i.e., there is no $i, j$ such that $a_i = a_j$ ($i \neq j$).
 
 Verify whether an inputted number has {\em unique digits}.
 
-\solution
+\solution The problem involves simply counting the number of occurences of each digit in the given number and checking whether any of them exceed $1$.
+
 
 \sourcecode
 \lstinputlisting{src/Unique.java}

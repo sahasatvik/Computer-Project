@@ -7,10 +7,8 @@ public class Unique {
 			} else {
 				System.out.println("Not a Unique Number!");
 			}
-		} catch (NumberFormatException e) {
-			System.out.println("Enter an integer as the first argument!");
-		} catch (IndexOutOfBoundsException e) {
-			System.out.println("Enter 1 argument (integer)!");
+		} catch (NumberFormatException | IndexOutOfBoundsException e) {
+			System.out.println("Enter 1 argument (number[integer])!");
 		}
 	}
 

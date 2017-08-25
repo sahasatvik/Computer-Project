@@ -14,7 +14,7 @@ public class Palindrome {
 	}
 
 	public static boolean checkWords (String sentence) {
-		boolean foundPalindrome = true;
+		boolean foundPalindrome = false;
 		int start = -1;
 		int end = 0;
 		while (end < sentence.length()) {
@@ -33,7 +33,7 @@ public class Palindrome {
 
 	public static boolean checkSentence (String sentence) {
 		if (isPalindrome(sentence)) {
-			System.out.println(sentence);
+			System.out.println("The sentence '" + sentence + "' is a palindrome.");
 			return true;
 		}
 		return false;

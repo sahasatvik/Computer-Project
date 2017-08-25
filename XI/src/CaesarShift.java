@@ -15,10 +15,8 @@ public class CaesarShift {
 				ciphertext += crypt;
 			}
 			System.out.println(ciphertext);
-		} catch (NumberFormatException e) {
-			System.out.println("Enter an integer as the first argument!");
-		} catch (IndexOutOfBoundsException e) {
-			System.out.println("Enter 2 arguments (shift, plaintext)!");
+		} catch (NumberFormatException | IndexOutOfBoundsException e) {
+			System.out.println("Enter 2 arguments (shift[integer], plaintext[text])!");
 		}
 	}
 

@@ -7,10 +7,8 @@ public class Partition {
 				throw new NumberFormatException();
 			}
 			partition(target);
-		} catch (NumberFormatException e) {
-			System.out.println("Enter a natural number as the first argument!");
-		} catch (IndexOutOfBoundsException e) {
-			System.out.println("Enter 1 argument (natural number)!");
+		} catch (NumberFormatException | IndexOutOfBoundsException e) {
+			System.out.println("Enter 1 argument (number[natural number])!");
 		}
 	}
 	public static void partition (int target) {

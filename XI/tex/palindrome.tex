@@ -9,7 +9,9 @@ Analyze a sentence of input and display all {\em words} which are palindromes. I
 {\em (A word is an unbroken sequence of characters, separated from other words by whitespace. Ignore single letter words such as {\em I} and {\em a}.
 Ignore punctuation, numeric digits, whitespace and case while analyzing the entire sentence.)}
 
-\solution
+\solution The main challenge here is intelligently dividing a {\em sentence} into its component {\em words}. Verifying whether a sequence of characters is a palindrome is fairly simple --- extracting those characters from a string of alphabets, numbers, punctuation and whitespace is not.
+
+The main idea behind isolating words from sentences is to define two {\em markers} --- a {\tt start} to keep track of the boudary between whitespace and letters, and an {\tt end} to mark the boundary between letters and whitespace. In this way, the markers can inch their way along the sentence, isolating words in the process. Managing the order of condition checking and incrementing of counters does require some careful maneuvering in order to avoid any {\em off-by-1 errors\footnote{An off-by-one error often occurs in computer programming when an iterative loop iterates one time too many or too few.}}.
 
 \sourcecode
 \lstinputlisting{src/Palindrome.java}

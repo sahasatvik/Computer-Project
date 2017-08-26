@@ -25,7 +25,7 @@ The corresponding decryption function $D_n$ is simply
 Implement a simple version of a {\em Caesar cipher}, encrypting capitalized plaintext by shifting it by a given value.
 Interpret positive shifts as rightwards, negative as leftwards.
 
-\solution
+\solution This problem can be solved simply by exploiting the fact that Unicode characters are already arranged in order, with successive alphabets encoded by consecutive numbers. In addition, the encryption function can be defined exactly as given in the question --- characters can be converted to their corresponding codes, manipulated by addition of the {\tt shift}, and converted back into alphabetic form.
 
 \sourcecode
 \lstinputlisting{src/CaesarShift.java}

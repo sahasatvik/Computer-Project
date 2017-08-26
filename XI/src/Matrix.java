@@ -28,5 +28,4 @@ public class Matrix {
 			return Integer.MIN_VALUE;
 		return elements[row-1][column-1];
 	}
-	
 } 

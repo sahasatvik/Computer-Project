@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  30 AUG 2017 14:00
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  30 AUG 2017 14:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1273,11 +1273,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--20
 (./tex/sieve.aux) (./tex/chart.aux) (./tex/determinant.aux) (./tex/knight.aux)
 (./tex/last.aux)) ) 
 Here is how much of TeX's memory you used:
- 30459 strings out of 493005
- 601901 string characters out of 6134596
+ 30461 strings out of 493005
+ 601934 string characters out of 6134596
  976624 words of memory out of 5000000
- 33899 multiletter control sequences out of 15000+600000
- 10944 words of font info for 65 fonts, out of 8000000 for 9000
+ 33900 multiletter control sequences out of 15000+600000
+ 10952 words of font info for 66 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  62i,14n,87p,10368b,1555s stack positions out of 5000i,500n,10000p,200000b,80000s
 

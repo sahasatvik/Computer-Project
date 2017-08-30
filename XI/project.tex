@@ -9,6 +9,8 @@
 \usepackage{chessboard}
 \usepackage{fontspec}
 \usepackage{etoolbox}
+\usepackage{enumitem}
+\usepackage{metalogo}
 \geometry{
 	left=30mm,
 	right=30mm
@@ -18,6 +20,7 @@
 
 \def\problem{\stepcounter{prob}\paragraph{Problem \arabic{prob}}}
 \def\solution{\paragraph{Solution}}
+\def\algorithm{\mbox{}\\}
 \def\sourcecode{\paragraph{Source Code}\leavevmode}
 \def\citeneeded{\textsuperscript{\tiny[citation needed]}}
 
@@ -60,6 +63,12 @@
 	extendedchars=true,
 	tabsize=8
 }
+\setlist[enumerate]{
+	topsep=0mm,
+	itemsep=-0.5mm,
+	partopsep=0mm,
+	parsep=0mm
+}
 
 \title{Computer Project}
 \author{Satvik Saha}
@@ -76,6 +85,8 @@
 \include{tex/chart}
 \include{tex/determinant}
 \include{tex/knight}
+
+\include{tex/last}
 
 \end{document}
 \end

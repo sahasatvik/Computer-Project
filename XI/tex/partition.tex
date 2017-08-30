@@ -9,9 +9,27 @@ their sum is equal to $n$. Thus, if $(a_1, a_2, \dots, a_k)$ is a partition of $
 
 Display every {\em unique partition} of an inputted number.
 
-\solution This problem can be solved elegantly using {\em recursion\footnote{Recursion occurs when a thing is defined in terms of itself or of its type.}}. Note that when partitioning a number $n$, we can calculate the partitions of $(n - 1)$ and append $1$ to each solution. Similarly, we can append $2$ to partitions of $(n - 2)$, $3$ to partitions of $(n - 3)$, and so on. By continuing in this fashion, all cases will be reduced to the single {\em base case} of finding the partitions of $1$, which trivially consist of only $1$ itself.
+\solution This problem can be solved elegantly using {\em recursion\footnote{Recursion occurs when a thing is defined in terms of itself or of its type.}}. Note that when partitioning a number $n$, we can calculate the partitions of $(n - 1)$ and append $1$ to each solution. Similarly, we can append $2$ to partitions of $(n - 2)$, $3$ to partitions of $(n - 3)$, and so on. By continuing in this fashion, all cases will be reduced to the single {\em base case} of finding the partitions of $0$, of which there are trivially none.
 
 There is a slight flaw in this algorithm --- partitions are often repeated. This can be overcome by imposing the restriction that each new term has to be of a lesser magnitude than the previous. In this way, repeated partitions will be automatically discarded.
+
+\algorithm
+{\tt main (target:Integer)}
+\begin{enumerate}
+	\item	Call {\tt partition(target, target, "")}.
+	\item	{\bf Exit}
+\end{enumerate}
+{\tt partition (target:Integer, previousTerm:Integer, suffix:String)}
+\begin{enumerate}
+	\item	If {\tt target} is $0$, display {\tt suffix} and {\bf return}.
+	\item	Initialize a counter {\tt i} to $1$.
+	\item	If {\tt digits[d]} exceeds $1$, the number does not have {\em unique digits}. Display a suitable
+			message, and {\bf exit}.
+	\item	Discard the last digit of {\tt number} by performing an integer division by $10$ and storing
+			the result back in {\tt number}.
+	\item	The number has {\em unique digits}. Display a suitable message.
+	\item	{\bf Exit}
+\end{enumerate}
 
 \sourcecode
 \lstinputlisting{src/Partition.java}

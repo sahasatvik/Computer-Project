@@ -27,5 +27,31 @@ Interpret positive shifts as rightwards, negative as leftwards.
 
 \solution This problem can be solved simply by exploiting the fact that Unicode characters are already arranged in order, with successive alphabets encoded by consecutive numbers. In addition, the encryption function can be defined exactly as given in the question --- characters can be converted to their corresponding codes, manipulated by addition of the {\tt shift}, and converted back into alphabetic form.
 
+\algorithm
+{\tt main (shift:Integer, plainText:String)}
+\begin{enumerate}
+	\item	Normalize {\tt plainText} to uppercase.
+	\item	Normalize {\tt shift} by replacing it with {\tt shift} $\bmod$ $26$.
+	\item	Initialize an empty String {\tt cipherText}.
+	\item	Initialize a counter {\tt i} to {\tt 0}.
+	\item	If {\tt i} is less than the length of {\tt plainText}, proceed.
+			Otherwise, jump to (\ref{cipher:loopEnd}). \label{cipher:loopStart}
+	\begin{enumerate}
+		\item	Store the character in {\tt plainText} at position {\tt i} in a variable {\tt plain}.
+		\item	Initialize an empty character {\tt crypt}.
+		\item	If {\tt plain} is not an alphabet, assign {\tt plain} to {\tt crypt} and jump to (\ref{cipher:append}).
+		\item	Convert {\tt plain} into a number, such that {\tt A} is mapped to {\tt 0}, {\tt B} to {\tt 1} and so on.
+				Store this in a temporary variable {\tt n}.
+		\item	Add {\tt shift} to {\tt n}, calculate its least residue modulo $26$\footnote{The set of integers 
+				$K = \{0, 1, 2, \dots , n-1\}$ is called the least residue system modulo $n$. The number $k$ such that 
+				$k \in K$ and $a \equiv k \pmod{n}$ is called the least residue of $a$ modulo $n$.}, and store the result in {\tt n}.
+		\item	Convert {\tt n} back into a character and store the result in {\tt crypt}.
+		\item	Append {\tt crypt} to {\tt cipherText}.  \label{cipher:append}
+		\item	Increment {\tt i} by {\tt 1} and jump to (\ref{cipher:loopStart}).
+	\end{enumerate}
+	\item	Display {\tt cipherText}.  \label{cipher:loopEnd}
+	\item	{\bf Exit}
+\end{enumerate}
+
 \sourcecode
 \lstinputlisting{src/CaesarShift.java}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  30 AUG 2017 14:17
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  31 AUG 2017 10:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1195,24 +1195,30 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 4.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-(./src/Unique.java [1
+) [1
 
 
-])) [2]
+]
+(./src/Unique.java)) [2
+
+]
 \openout2 = `tex/partition.aux'.
 
- (./tex/partition.tex (./src/Partition.java
-[3
+ (./tex/partition.tex [3
 
 
-])) [4]
+] (./src/Partition.java))
+[4
+
+]
 \openout2 = `tex/cipher.aux'.
 
- (./tex/cipher.tex (./src/CaesarShift.java [5
+ (./tex/cipher.tex [5
 
 
-])) [6]
+] [6] (./src/CaesarShift.java)) [7
+
+]
 \openout2 = `tex/palindrome.aux'.
 
 
@@ -1221,50 +1227,60 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
 
-(./src/Palindrome.java [7
+[8
 
 
-] [8])) [9]
+] [9] (./src/Palindrome.java [10
+
+])) [11]
 \openout2 = `tex/sieve.aux'.
 
- (./tex/sieve.tex
-(./src/SieveOfEratosthenes.java [10
+ (./tex/sieve.tex [12
 
 
-]) (./src/Primes.java [11])) [12]
+]
+(./src/SieveOfEratosthenes.java) (./src/Primes.java [13
+
+])) [14]
 \openout2 = `tex/chart.aux'.
 
 
-(./tex/chart.tex (./src/Marksheet.java [13
+(./tex/chart.tex [15
 
 
-] [14]) (./src/ScoreRecorder.java
-[15])) [16]
+] (./src/Marksheet.java [16
+
+] [17])
+(./src/ScoreRecorder.java [18])) [19]
 \openout2 = `tex/determinant.aux'.
 
- (./tex/determinant.tex (./src/Matrix.java [17
+ (./tex/determinant.tex [20
 
 
-])
-(./src/SquareMatrix.java [18]) (./src/Determinant.java [19])) [20]
+]
+(./src/Matrix.java) (./src/SquareMatrix.java [21
+
+]) (./src/Determinant.java
+[22])) [23]
 \openout2 = `tex/knight.aux'.
 
-
-(./tex/knight.tex (./tex/ktourData.tex)
+ (./tex/knight.tex (./tex/ktourData.tex)
 Underfull \hbox (badness 10000) in paragraph at lines 18--20
 
  []
 
-[21
+[24
 
 
-] [22
+] [25
 
-] (./src/TourSolver.java [23] [24] [25]) (./src/Position.java [26])
-(./src/KnightTour.java [27] [28] [29])) [30]
+] [26] (./src/TourSolver.java [27
+
+] [28] [29]) (./src/Position.java
+[30]) (./src/KnightTour.java [31] [32])) [33]
 \openout2 = `tex/last.aux'.
 
- (./tex/last.tex) [30
+ (./tex/last.tex) [33
 
 
 ]
@@ -1273,12 +1289,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--20
 (./tex/sieve.aux) (./tex/chart.aux) (./tex/determinant.aux) (./tex/knight.aux)
 (./tex/last.aux)) ) 
 Here is how much of TeX's memory you used:
- 30461 strings out of 493005
- 601934 string characters out of 6134596
- 976624 words of memory out of 5000000
- 33900 multiletter control sequences out of 15000+600000
+ 30475 strings out of 493005
+ 602198 string characters out of 6134596
+ 964701 words of memory out of 5000000
+ 33914 multiletter control sequences out of 15000+600000
  10952 words of font info for 66 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 62i,14n,87p,10368b,1555s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,14n,87p,10368b,1484s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on project.pdf (33 pages).
+Output written on project.pdf (36 pages).

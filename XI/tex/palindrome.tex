@@ -13,5 +13,73 @@ Ignore punctuation, numeric digits, whitespace and case while analyzing the enti
 
 The main idea behind isolating words from sentences is to define two {\em markers} --- a {\tt start} to keep track of the boudary between whitespace and letters, and an {\tt end} to mark the boundary between letters and whitespace. In this way, the markers can inch their way along the sentence, isolating words in the process. Managing the order of condition checking and incrementing of counters does require some careful maneuvering in order to avoid any {\em off-by-1 errors\footnote{An off-by-one error often occurs in computer programming when an iterative loop iterates one time too many or too few.}}.
 
+\algorithm
+{\tt main ()}
+\begin{enumerate}
+	\item	Accept a string as input, store it in a variable {\tt sentence}.
+	\item	Call {\tt checkWords(sentence)} and {\tt checkSentence(sentence)}. Store the
+			returned values in booleans.
+	\begin{enumerate}
+		\item	If either of them is {\tt true}, set a boolean {\tt foundPalindrome}
+			to {\tt true}, otherwise set it to {\tt false}.
+	\end{enumerate}
+	\item	Display a suitable message if {\tt foundPalindrome} is {\tt false}.
+	\item	{\bf Exit}
+\end{enumerate}
+\vspace{5mm}
+{\tt checkWords (sentence:String)}
+\begin{enumerate}
+	\item	Initialize a boolean {\tt foundPalindrome} to false.
+	\item	Initialize two integer counters: {\tt start} to {\tt -1}, {\tt end} to {\tt 0}.
+	\item	If {\tt end} is less than the length of {\tt sentence}, proceed.
+			Otherwise, jump to (\ref{palindrome:sentenceLoopEnd}). \label{palindrome:sentenceLoopStart}
+	\begin{enumerate}
+		\item	Increment {\tt start} as long as the character at the {\tt [start + 1]} position in
+				{\tt sentence} is whitespace.
+		\item	Assign {\tt end} to {\tt start}.
+		\item	Increment {\tt end} as long as it does not exceed the length of {\tt sentence} and
+				the character at the {\tt [end]} position in {\tt sentence} is not whitespace.
+		\item	Assign the string of characters between {\tt start} and {\tt end} from {\tt sentence}
+				(inclusive, exclusive) to a variable {\tt word}.
+		\item	Call {\tt isPalindrome(word)}. If {\tt word} is a palindrome:
+		\begin{enumerate}
+			\item	Set {\tt foundPalindrome} to {\tt true}.
+			\item	Display {\tt word}.
+		\end{enumerate}
+		\item	Assign {\tt end - 1} to {\tt start}.
+		\item	Jump to (\ref{palindrome:sentenceLoopStart})
+	\end{enumerate}
+	\item	{\bf Return} {\tt foundPalindrome}\label{palindrome:sentenceLoopEnd}
+\end{enumerate}
+\vspace{5mm}
+{\tt checkSentence (sentence:String)}
+\begin{enumerate}
+	\item	Call {\tt isPalindrome(sentence)}. If {\tt sentence} is a palindrome:
+	\begin{enumerate}
+		\item	Display {\tt word}.
+		\item	{\bf Return} {\tt true}.
+	\end{enumerate}
+\item	{\bf Return} {\tt false}.
+\end{enumerate}
+\vspace{5mm}
+{\tt isPalindrome (text:String)}
+\begin{enumerate}
+	\item	Normalize {\tt text} by converting it into uppercase and removing all non-alphabetic characters.
+	\item	Let the length of {\tt text} be labeled temporarily as {\tt t}.
+	\item	Initialize two integer counters: {\tt i} to {\tt 0}, {\tt j} to {\tt l - 1}.
+	\item	If {\tt i} is less than {\tt j}, proceed.
+			Otherwise, jump to (\ref{palindrome:palLoopEnd}). \label{palindrome:palLoopStart}
+	\begin{enumerate}
+		\item	If the characters at positions {\tt i} and {\tt j} in {\tt text} are not equal,
+				{\bf return} {\tt false}.
+		\item	Increment {\tt i} by {\tt 1}.
+		\item	Decrement {\tt j} by {\tt 1}
+		\item	Jump to (\ref{palindrome:palLoopStart})
+	\end{enumerate}
+	\item	{\bf Return} {\tt true} only if {\tt text} is longer than
+			one character. Otherwise, {\bf return} {\tt false}. \label{palindrome:palLoopEnd}
+\end{enumerate}
+
+
 \sourcecode
 \lstinputlisting{src/Palindrome.java}

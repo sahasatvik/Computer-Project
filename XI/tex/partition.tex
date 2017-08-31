@@ -19,16 +19,19 @@ There is a slight flaw in this algorithm --- partitions are often repeated. This
 	\item	Call {\tt partition(target, target, "")}.
 	\item	{\bf Exit}
 \end{enumerate}
+\vspace{5mm}
 {\tt partition (target:Integer, previousTerm:Integer, suffix:String)}
 \begin{enumerate}
-	\item	If {\tt target} is $0$, display {\tt suffix} and {\bf return}.
-	\item	Initialize a counter {\tt i} to $1$.
-	\item	If {\tt digits[d]} exceeds $1$, the number does not have {\em unique digits}. Display a suitable
-			message, and {\bf exit}.
-	\item	Discard the last digit of {\tt number} by performing an integer division by $10$ and storing
-			the result back in {\tt number}.
-	\item	The number has {\em unique digits}. Display a suitable message.
-	\item	{\bf Exit}
+	\item	If {\tt target} is {\tt 0}, display {\tt suffix} and {\bf return}.
+	\item	Initialize a counter {\tt i} to {\tt 1}.
+	\item	If {\tt i} is less than or equal to both the {\tt target} and {\tt previousTerm}, proceed.
+			Otherwise, jump to (\ref{partition:loopEnd}). \label{partition:loopStart}
+	\begin{enumerate}
+		\item	Call {\tt partition(target - i, i, suffix + " " + i)}.
+		\item	Increment {\tt i} by {\tt 1}.
+		\item	Jump to (\ref{partition:loopStart}).
+	\end{enumerate}
+	\item	{\bf Return} \label{partition:loopEnd}
 \end{enumerate}
 
 \sourcecode

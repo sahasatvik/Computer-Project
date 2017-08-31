@@ -11,18 +11,21 @@ Verify whether an inputted number has {\em unique digits}.
 \algorithm
 {\tt main (number:Integer)}
 \begin{enumerate}
-	\item	Initialize an integer array {\tt digits} of length {\tt 10}, indexed with the numbers $0$ to $9$ with all
-			elements set to $0$.
-	\item	If {\tt number} exceeds $0$, proceed into the next step.\label{unique:number}
-	\item	Store the last digit of {\tt number} in a temporary variable {\tt d}.\\
-			{\em (The last digit of an integer $n$ is simply $n \bmod 10$)}
-	\item	Increment the integer at the {\tt d} index of {\tt digits}.
-	\item	If {\tt digits[d]} exceeds $1$, the number does not have {\em unique digits}. Display a suitable
-			message, and {\bf exit}.
-	\item	Discard the last digit of {\tt number} by performing an integer division by $10$ and storing
-			the result back in {\tt number}.
-	\item	Jump to step (\ref{unique:number}).
-	\item	The number has {\em unique digits}. Display a suitable message.
+	\item	Initialize an integer array {\tt digits} of length {\tt 10}, indexed with the numbers {\tt 0} to {\tt 9} with all
+			elements set to {\tt 0}.
+	\item	If {\tt number} exceeds {\tt 0}, proceed.
+			Otherwise, jump to (\ref{unique:loopEnd}). \label{unique:loopStart}
+	\begin{enumerate}
+		\item	Store the last digit\footnote{The last digit of an integer $n$ is simply $n \bmod 10$}
+				of {\tt number} in a temporary variable {\tt d}.
+		\item	Increment the integer at the {\tt d} index of {\tt digits}.
+		\item	If {\tt digits[d]} exceeds {\tt 1}, the number does not have {\em unique digits}. Display a suitable
+				message, and {\bf exit}.
+		\item	Discard the last digit of {\tt number} by performing an integer division by {\tt 10} and storing
+				the result back in {\tt number}.
+		\item	Jump to (\ref{unique:loopStart}).
+	\end{enumerate}
+	\item	The number has {\em unique digits}. Display a suitable message. \label{unique:loopEnd}
 	\item	{\bf Exit}
 \end{enumerate}
 

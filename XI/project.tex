@@ -21,7 +21,7 @@
 \def\problem{\stepcounter{prob}\paragraph{Problem \arabic{prob}}}
 \def\solution{\paragraph{Solution}}
 \def\algorithm{\mbox{}\\}
-\def\sourcecode{\paragraph{Source Code}\leavevmode}
+\def\sourcecode{\clearpage\paragraph{Source Code}\leavevmode}
 \def\citeneeded{\textsuperscript{\tiny[citation needed]}}
 
 \newcommand{\chapquote}[2]{\begin{quotation}\begin{center} \textit{#1} \end{center}\end{quotation} \begin{flushright} --- \textbf{#2}\end{flushright}}
@@ -65,7 +65,7 @@
 }
 \setlist[enumerate]{
 	topsep=0mm,
-	itemsep=-0.5mm,
+	itemsep=0mm,
 	partopsep=0mm,
 	parsep=0mm
 }

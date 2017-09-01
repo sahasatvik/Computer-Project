@@ -5,8 +5,145 @@
 of students in a particular examination. Calculate the percentage scored by each candidate and display the
 list of students and percentages in an ASCII bar chart, arranged alphabetically.
 
-\solution 
+\solution This problem calls for a fairly straightforward flow of logic. The main goal is to present the user with a simple way of providing input, along with nicely formatted output.
+
+\algorithm
+{\tt main (upperLimit:Integer)}
+\begin{enumerate}
+	\item	Input the maximum marks allotted for the examination as a floating point.
+			Store it as {\tt maxMarks}.
+	\item	Input the total number of students whose marks are to be recorded as an integer.
+			Store it as {\tt numberOfStudents}.
+	\item	Create a new {\tt Marksheet}, pass it {\tt maxMarks}, {\tt numberOfStudents} and assign
+			it to {\tt sheet}.
+	\item	Initialize an integer counter {\tt i} to {\tt 0};
+	\item	If {\tt i} is less than {\tt numberOfStudents}, proceed.
+			Otherwise, jump to (\ref{chart:inputLoopEnd}). \label{chart:inputLoopStart}
+		\begin{enumerate}
+			\item	Input a student's name as a string. Store it as {\tt name}.
+			\item	Input the student's marks as a floating point. Store it as {\tt marks}.
+			\item	Call {\tt sheet->addMarks(name, marks)}.
+			\item	Jump to (\ref{chart:inputLoopStart}).
+		\end{enumerate}
+	\item	Call {\tt sheet->sortByName()}. \label{chart:inputLoopEnd}
+	\item	Call {\tt sheet->displayChart()}.
+	\item	Call {\tt sheet->sortMaxScorers()}.
+	\item	{\bf Exit}
+\end{enumerate}
+\vspace{8mm}
+{\tt Marksheet (maxMarks:FloatingPoint, numberOfStudents:Integer)}
+\begin{enumerate}
+	\item	Initialize a string array {\tt names}, indexed with integers from {\tt [0]} to {\tt [numberOfStudents - 1]}.
+	\item	Initialize a floating point array {\tt marks}, indexed with integers from {\tt [0]} to 
+			{\tt [numberOfStudents - 1]}.
+	\item	Initialize an integer counter {\tt lastStudent} to {\tt -1}.
+	\item	{\bf Define} the functions: 
+	\begin{enumerate}
+		\item	{\tt Marksheet::addMarks(name, score)}
+		\item	{\tt Marksheet::sortByName()}
+		\item	{\tt Marksheet::displayChart()}
+		\item	{\tt Marksheet::displayMaxScorers()}
+	\end{enumerate}
+	\item	{\bf Return} the resultant object.
+\end{enumerate}
+\vspace{5mm}
+{\tt Marksheet::addMarks (name:String, score:FloatingPoint)}
+\begin{enumerate}
+	\item	Increment {\tt lastStudent} by {\tt 1}.
+	\item	Set the {\tt names[lastStudent]} to {\tt name}.
+	\item	Set the {\tt marks[lastStudent]} to {\tt score}.
+	\item	{\bf Return}
+\end{enumerate}
+\vspace{5mm}
+{\tt Marksheet::sortByName ()}
+\begin{enumerate}
+	\item	Assign {\tt lastStudent} to {\tt right}.
+	\item	If {\tt right} exceeds {\tt 0}, proceed.
+			Otherwise, {\bf return}. \label{chart:sortOutLoopStart}
+		\begin{enumerate}
+			\item	Initialize an integer counter {\tt i} to {\tt 1}.
+			\item	If {\tt i} is less than or equal to {\tt right}, proceed.
+					Otherwise, jump to (\ref{chart:sortInLoopEnd}). \label{chart:sortInLoopStart}
+			\begin{enumerate}
+				\item	If {\tt names[i-1]} comes lexographically after {\tt names[i]}:
+				\begin{enumerate}
+					\item	Swap the elements at {\tt names[i-1]} and {\tt names[i]}.
+					\item	Swap the elements at {\tt marks[i-1]} and {\tt msrks[i]}.
+				\end{enumerate}
+				\item	Jump to (\ref{chart:sortInLoopStart}).
+			\end{enumerate}
+			\item	Jump to (\ref{chart:sortOutLoopStart}). \label{chart:sortInLoopEnd}
+		\end{enumerate}
+\end{enumerate}
+\vspace{5mm}
+{\tt Marksheet::displayChart ()}
+\begin{enumerate}
+	\item	For every string {\tt name} in {\tt names}:
+	\begin{enumerate}
+		\item	Calculate the length of the bar in the chart as a fraction of the screen width.
+				Store the calculated number of characters to display as {\tt points}.
+		\item	Display {\tt name}, a string of suitable characters for the bar of length {\tt points},
+				along with the percentage scored.
+	\end{enumerate}
+	\item	{\bf Return}
+\end{enumerate}
+\vspace{5mm}
+{\tt Marksheet::displayMaxScorers ()}
+\begin{enumerate}
+	\item	Calculate the maximum floating point in {\tt marks} and store it as {\tt maxScore}.
+	\item	For every integer {\tt i} between {\tt 0} and {\tt numberOfStudents} (inclusive, exclusive)
+			such that {\tt marks[i]} is equal to the {\tt maxScore}, display {\tt names[i]}.
+	\item	{\bf Return}
+\end{enumerate}
 
 \sourcecode
 \lstinputlisting{src/Marksheet.java}
 \lstinputlisting{src/ScoreRecorder.java}
+
+\varDescription
+\begin{longtable} {| >{\ttfamily}p{0.16\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
+\hline\multicolumn{3}{|c|}{\tt Marksheet} 													\\ \hline
+int		&	SCREEN\_WIDTH	 &	Number of chracters to use in the display width					\\ \hline
+double	& 	maxMarks	&	The maximum marks allotted for the examination					\\ \hline
+int		&	numberOf
+	\newline Students	&	The number of students whose marks are to be recorded			\\ \hline
+int		&	lastStudent	&	The index number of the last student added to the marksheet		\\ \hline
+String[]	& names		&	The names of the students										\\ \hline
+double[]	& marks		&	The marks of the students										\\ \hline
+\hline\multicolumn{3}{|c|}{\tt Marksheet::addMarks(String, double)} 							\\ \hline
+String	&	name		&	The name of the student to be added								\\ \hline
+double	&	score		&	The marks of the student to be added								\\ \hline
+\hline\multicolumn{3}{|c|}{\tt Marksheet::displayChart()} 									\\ \hline
+int		&	i			&	Counter variable													\\ \hline
+double	&	fraction	&	The fraction on marks scored over the maximum marks				\\ \hline
+String	&	name		&	Temporarily stores a formatted version of a student's name		\\ \hline
+int		&	points		&	The number of characters to display in the bar chart				\\ \hline
+String	&	bar			&	The bar in the chart, along with whitespace padding				\\ \hline
+\hline\multicolumn{3}{|c|}{\tt Marksheet::displayMaxScorers()} 								\\ \hline
+String	&	maxScorers	&	The list of highest scoring students								\\ \hline
+double	&	maxScore	&	The highest score												\\ \hline
+int		&	i			&	Counter variable													\\ \hline
+\hline\multicolumn{3}{|c|}{\tt Marksheet::sortByName()} 										\\ \hline
+int		&	right		&	Counter variable													\\ \hline
+int		&	i			&	Counter variable													\\ \hline
+\hline\multicolumn{3}{|c|}{\tt Marksheet::getMaxScore()} 									\\ \hline
+double	&	max			&	The maximum score in {\tt marks}									\\ \hline
+int		&	i			&	Counter variable													\\ \hline
+\hline\multicolumn{3}{|c|}{\tt Marksheet::swapRecords(int, int)} 							\\ \hline
+int		&	x, y		&	The indices of the records to swap								\\ \hline
+String	&	tempName	&	Temporary storage of a name										\\ \hline
+double	&	tempMark	&	Temporary storage of a mark										\\ \hline
+\hline\multicolumn{3}{|c|}{\tt Marksheet::multiplyString(String, int)} 						\\ \hline
+String	&	s			&	The string to multiply											\\ \hline
+int		&	n			&	The number of times to multiply {\tt s}							\\ \hline
+String	&	out			&	The string containing {\tt n} copies of {\tt s}					\\ \hline
+\hline\multicolumn{3}{|c|}{\tt ScoreRecorder::main(String[])} 								\\ \hline
+Scanner	&	inp			&	The input managing object										\\ \hline
+double	& 	maxMarks	&	The maximum marks allotted for the examination					\\ \hline
+int		&	numberOf
+	\newline Students	&	The number of students whose marks are to be recorded			\\ \hline
+Marksheet &	sheet		&	An object capable of managing student records					\\ \hline
+int		&	i			&	Counter variable													\\ \hline
+String	&	name		&	The name of the student to be added								\\ \hline
+double	&	marks		&	The marks of the student to be added								\\ \hline
+\end{longtable}

@@ -5,13 +5,72 @@
 
 Display all primes upto a given limit, along with their number.
 
-\solution This problem could be tackled in a number of ways. We could define a function for checking the primality of a given number, then iterate through all numbers in the required range. A common way of checking for primality is {\em trial division}. It consists of testing whether the number $n$ is a multiple of any integer between $2$ and $\sqrt{n}$. Although this works well enough for small numbers, repeating this consecutively for very large inputs is tedious and inefficient. Since the problem consists of identifying primes in a {\em range}, and not individually, we can make use of more efficient methods.
+\solution This problem can be tackled in a multitude of ways.\citeneeded We could define a function for checking the primality of a given number, then iterate through all numbers in the required range. A common way of checking for primality is {\em trial division}. It consists of testing whether the number $n$ is a multiple of any integer between $2$ and $\sqrt{n}$. Although this works well enough for small numbers, repeating this consecutively for very large inputs is tedious and inefficient. Since the problem consists of identifying primes in a {\em range}, and not individually, we can make use of more efficient methods.
 
 The {\em Sieve of Eratosthenes} is a simple, ancient algorithm for finding all prime numbers up to any given limit.
 It does so by iteratively marking as composite the multiples of each prime, starting with the first prime number, $2$.
 As a result, when a prime $p$ is found, none of its multiples will be tested further for primality --- they are eliminated early on.
-In comparison, {\em trial division} has worse theoretical complexity than that of the {\em Sieve of Eratosthenes} in generating ranges of primes. When testing each prime, the optimal trial division algorithm uses all prime numbers not exceeding its square root, whereas the Sieve of Eratosthenes produces each composite from its prime factors only. 
+In comparison, {\em trial division} has worse theoretical complexity than that of the {\em Sieve of Eratosthenes} in generating ranges of primes. When testing each prime, the optimal trial division algorithm uses all prime numbers not exceeding its square root, whereas the Sieve of Eratosthenes produces each composite only from its prime factors.
+
+\algorithm
+{\tt main (upperLimit:Integer)}
+\begin{enumerate}
+	\item	Create a new {\tt SieveOfEratosthenes}, pass it {\tt upperLimit} and assign it to {\tt sieve}.
+	\item	Call {\tt sieve->sievePrimes()}.
+	\item	Display the indices which correspond to {\tt true} in the boolean array {\tt sieve->primes}.
+	\item	{\bf Exit}
+\end{enumerate}
+\vspace{8mm}
+{\tt SieveOfEratosthenes (upperLimit:Integer)}
+\begin{enumerate}
+	\item	Initialize a boolean array {\tt primes}, indexed with integers from {\tt [0]} to {\tt [upperLimit - 1]},
+			with all elements set to {\tt true}.
+	\item	Set {\tt primes[0]} and {\tt primes[1]}
+			to {\tt true}.
+	\item	{\bf Define} the function {\tt SieveOfEratosthenes::sievePrimes()} and {\bf return} the resultant object.
+\end{enumerate}
+\vspace{5mm}
+{\tt SieveOfEratosthenes::sievePrimes ()}
+\begin{enumerate}
+	\item	Initialize an integer variable {\tt prime} to {\tt 2}.
+	\item	If {\tt prime} is less than the square root of {\tt upperLimit}, proceed.
+			Otherwise, {\bf return}. \label{sieve:loopStart}
+	\begin{enumerate}
+		\item	Initialize an integer variable {\tt multiple} to the square of {\tt prime}.
+		\item	If {\tt multiple} is less than {\tt upperLimit}, proceed.
+				Otherwise, jump to (\ref{sieve:multipleLoopEnd}). \label{sieve:multipleLoopStart}
+		\begin{enumerate}
+			\item	Set {\tt primes[multiple]} to {\tt false}.
+			\item	Increment {\tt multiple} by {\tt prime}.
+			\item	Jump to (\ref{sieve:multipleLoopStart})
+		\end{enumerate}
+		\item	Increment {\tt prime} until {\tt primes[prime]} is {\tt true}. \label{sieve:multipleLoopEnd}
+		\item	Jump to (\ref{sieve:loopStart}).
+	\end{enumerate}
+	\item	{\bf Return}
+\end{enumerate}
 
 \sourcecode
 \lstinputlisting{src/SieveOfEratosthenes.java}
 \lstinputlisting{src/Primes.java}
+
+\varDescription
+\begin{longtable} {| >{\ttfamily}p{0.16\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
+\hline\multicolumn{3}{|c|}{\tt SieveOfEratosthenes} 											\\ \hline
+int		&	upperLimit	&	The number of integers to sieve									\\ \hline
+boolean[]	&	primes	&	Primes, with contents indicating the primality of the index		\\ \hline
+\hline\multicolumn{3}{|c|}{\tt SieveOfEratosthenes::initPrimes()} 							\\ \hline
+int		&	i			&	Counter variable													\\ \hline
+\hline\multicolumn{3}{|c|}{\tt SieveOfEratosthenes::sievePrimes()} 							\\ \hline
+int		&	prime		&	Counter variable, stores current primes found					\\ \hline
+int		&	multiple	&	Counter variable, stores the multiples of {\tt prime}			\\ \hline
+\hline\multicolumn{3}{|c|}{\tt Primes::main(String[])} 										\\ \hline
+int		&	upperLimit	&	The highest integer to check for primality (exclusive)			\\ \hline
+SieveOf\newline Eratosthenes
+		&	sieve		&	An object capable of sieving primes								\\ \hline
+\hline\multicolumn{3}{|c|}{\tt Primes::showPrimes(boolean[])} 								\\ \hline
+boolean[]	&	primes	&	Primes, with contents indicating the primality of the index		\\ \hline
+int		&	primeCount	&	The number of primes found										\\ \hline
+int		&	maxLength	&	The length of the longest number to display						\\ \hline
+int		&	i			&	Counter variable, stores the current integer to check for primality	\\ \hline
+\end{longtable}

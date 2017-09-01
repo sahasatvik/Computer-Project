@@ -50,9 +50,101 @@ For example, the determinant of a $(3 \times 3)$ matrix is given by the followin
 
 Calculate the {\em determinant} of an inputted $(n \times n)$ square matrix.
 
-\solution
+\solution This problem offers the opportunity to showcase the power of recursive functions. Here, the complex
+task of calculating the determinant of a large matrix can be subdivided into multiple smaller tasks. In fact,
+each of these tasks is precisely the same as the larger one --- the only difference is the size of the matrices.
+Eventually, the problem reduces to finding the determinants of multiple $(2 \times 2)$ matrices. The values thus
+obtained can be pieced together to form the final answer.
+
+\algorithm
+{\tt main ()}
+\begin{enumerate}
+	\item	Input the size (number of rows/columns) of the square matrix.
+			Store it as {\tt size}.
+	\item	Create a new {\tt SquareMatrix}, pass it {\tt size}, and assign
+			it to {\tt matrix}.
+	\item	For each {\tt i} $\in \{1, 2, \dots, \text{\tt size}\}$:
+	\begin{enumerate}
+		\item	For each {\tt j} $\in \{1, 2, \dots, \text{\tt size}\}$:
+		\begin{enumerate}
+			\item	Input an integer as {\tt n}.
+			\item	Set the element at {\tt [i, j]} of {\tt matrix} to {\tt n}.
+		\end{enumerate}
+	\end{enumerate}
+	\item	Call {\tt matrix->getDeterminant()} and display the returned value.
+	\item	{\bf Exit}
+\end{enumerate}
+\vspace{8mm}
+{\tt Matrix (rows:Integer, columns:Integer)}
+\begin{enumerate}
+	\item	Initialize an integer array of integer arrays {\tt elements}, indexed with integers from {\tt [1]} to 
+			{\tt [rows]}, with each contained integer array indexed with integers from {\tt [1]} to
+			{\tt [columns]} .
+	\item	{\bf Return} the resultant object.
+\end{enumerate}
+\vspace{5mm}
+{\tt SquareMatrix (size:Integer)}
+\begin{enumerate}
+	\item	{\bf Define} the functions: 
+	\begin{enumerate}
+		\item	{\tt SquareMatrix::getDeterminant()}
+		\item	{\tt SquareMatrix::getMinorMatrix(row, column)}
+	\end{enumerate}
+	\item	{\bf Return} a {\tt Matrix}, with both {\tt rows} and {\tt columns} set to {\tt size}.
+\end{enumerate}
+\vspace{5mm}
+{\tt SquareMatrix::getDeterminant ()}
+\begin{enumerate}
+	\item	If the {\tt size} is {\tt 1}, {\bf return} the only element ({\tt elements[1, 1]}).
+	\item	If the {\tt size} is {\tt 2}, {\bf return}
+			$(${\tt elements[1, 1]}$\times${\tt elements[2, 2]}$) - (${\tt elements[1, 2]}$\times${\tt elements[2, 1]}$)$.
+	\item	Initialize an integer variable {\tt determinant} to {\tt 0}.
+	\item	For each {\tt i} $\in \{1, 2, \dots, \text{\tt size}\}$:
+		\begin{enumerate}
+			\item	Call {\tt this->getMinorMatrix(i, i)->getDeterminant()}. Store the result in {\tt d}.
+			\item	Add $({(-1)}^{\text{\tt i} + 1} \times \text{\tt matrix[1, i]} \times \text{\tt d})$ to
+					{\tt determinant}.
+		\end{enumerate}
+	\item	{\bf Return} {\tt determinant}.
+\end{enumerate}
+\vspace{5mm}
+{\tt SquareMatrix::getMinorMatrix (row:Integer, column:Integer)}
+\begin{enumerate}
+	\item	Create a new {\tt SquareMatrix}, pass it {\tt (size - 1)}, and assign it to {\tt minor}.
+	\item	Copy all elements from {\tt this} to {\tt minor}, except for those at position {\tt[row, *]}
+			or {\tt [*, column]}.
+	\item	{\bf Return} {\tt minor}.
+\end{enumerate}
 
 \sourcecode
 \lstinputlisting{src/Matrix.java}
 \lstinputlisting{src/SquareMatrix.java}
 \lstinputlisting{src/Determinant.java}
+
+\varDescription
+\begin{longtable} {| >{\ttfamily}p{0.16\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
+\hline\multicolumn{3}{|c|}{\tt Matrix} 														\\ \hline
+int		&	rows		&	Number of rows in the matrix										\\ \hline
+int		&	columns		&	Number of columns in the matrix									\\ \hline
+int[][]	&	elements	&	The array of integer arrays, storing the elements of the matrix	\\ \hline
+\hline\multicolumn{3}{|c|}{\tt SquareMatrix} 												\\ \hline
+int		&	size		&	Number of both rows and columns in the matrix					\\ \hline
+\hline\multicolumn{3}{|c|}{\tt SquareMatrix::getDeterminant()} 								\\ \hline
+int		&	determinant	&	The determinant of the {\tt SquareMatrix}						\\ \hline
+int		&	i			&	Counter variable													\\ \hline
+\hline\multicolumn{3}{|c|}{\tt SquareMatrix::getMinorMatrix(int, int)} 						\\ \hline
+int		&	row			&	The row to remove from the matrix								\\ \hline
+int		&	column		&	The column to remove from the matrix								\\ \hline
+SquareMatrix
+		&	minor		&	The matrix obtained by removing {\tt row} and {\tt column}		\\ \hline
+int		&	i, j		&	Counter variables												\\ \hline
+\hline\multicolumn{3}{|c|}{\tt Determinant::main(String[])} 									\\ \hline
+Scanner	&	inp			&	The input managing object										\\ \hline
+int		&	size		&	Number of both rows and columns in the matrix					\\ \hline
+SquareMatrix
+		&	matrix		&	The matrix whose determinant is to be calculated					\\ \hline
+int		&	i, j		&	Counter variables												\\ \hline
+\hline\multicolumn{3}{|c|}{\tt Determinant::showMatrix(Matrix)} 								\\ \hline
+Matrix	&	m			&	The matrix to display											\\ \hline
+int		&	i, j		&	Counter variables												\\ \hline
+\end{longtable}

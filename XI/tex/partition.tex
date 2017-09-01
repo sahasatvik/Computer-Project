@@ -9,7 +9,7 @@ their sum is equal to $n$. Thus, if $(a_1, a_2, \dots, a_k)$ is a partition of $
 
 Display every {\em unique partition} of an inputted number.
 
-\solution This problem can be solved elegantly using {\em recursion\footnote{Recursion occurs when a thing is defined in terms of itself or of its type.}}. Note that when partitioning a number $n$, we can calculate the partitions of $(n - 1)$ and append $1$ to each solution. Similarly, we can append $2$ to partitions of $(n - 2)$, $3$ to partitions of $(n - 3)$, and so on. By continuing in this fashion, all cases will be reduced to the single {\em base case} of finding the partitions of $0$, of which there are trivially none.
+\solution This problem can be solved elegantly using {\em recursion\footnote{Recursion occurs when a thing is defined in terms of itself or of its type.}}. Note that when partitioning a number $n$, we can calculate the partitions of $(n - 1)$ and append $1$ to each solution. Similarly, we can append $2$ to partitions of $(n - 2)$, $3$ to partitions of $(n - 3)$, and so on. By continuing in this fashion, all cases will be reduced to the single {\em base case\footnote{A base case is a case for which the answer is known and can be expressed without recursion.}} of finding the partitions of $0$, of which there are trivially none.\citeneeded
 
 There is a slight flaw in this algorithm --- partitions are often repeated. This can be overcome by imposing the restriction that each new term has to be of a lesser magnitude than the previous. In this way, repeated partitions will be automatically discarded.
 
@@ -36,3 +36,16 @@ There is a slight flaw in this algorithm --- partitions are often repeated. This
 
 \sourcecode
 \lstinputlisting{src/Partition.java}
+
+\varDescription
+\begin{longtable} {| >{\ttfamily}p{0.15\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
+\hline\multicolumn{3}{|c|}{\tt Partition::main(String[])} 									\\ \hline
+int		&	target 	&	The inputted number 													\\ \hline
+\hline\multicolumn{3}{|c|}{\tt Partition::partition(int)} 									\\ \hline
+int		&	target 	&	The number to be partitioned 										\\ \hline
+\hline\multicolumn{3}{|c|}{\tt Partition::partition(int, int, String)} 						\\ \hline
+int		&	target 			&	The number to be partitioned 								\\ \hline
+int		&	previousTerm		&	The previous term in the partition sequence					\\ \hline
+String	&	suffix			&	Terms in the sequence calculated so far						\\ \hline
+int		&	i				&	Counter variable, stores the next term in the sequence		\\ \hline
+\end{longtable}

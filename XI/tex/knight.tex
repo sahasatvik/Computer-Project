@@ -85,10 +85,160 @@ A high randomness can be useful for searching specifically for {\em closed tours
 \]
 \vspace{-8mm}
 
-The tendency of the path to remain close to the edges of the board is clearly evident.
+The tendency of the path to remain close to the edges of the board, where the mobility of the knight is restricted, is clearly evident.
+
+\algorithm
+{\tt main (boardSize:Integer, initSquare:Position, randomness:FloatingPoint)}
+\begin{enumerate}
+	\item	Create a new {\tt TourSolver}, pass it {\tt boardSize}, {\tt initSquare}, {\tt randomness},
+			and assign it to {\tt t}.
+	\item	Call {\tt t->getSolution()}. Store the returned move stack as {\tt solution}.
+	\item	Display the board obtained by calling {\tt t->getBoard()} along with the moves in {\tt solution}.
+	\item	{\bf Exit}
+\end{enumerate}
+\vspace{8mm}
+{\tt TourSolver (size:Integer, initSquare:Position, randomness:FloatingPoint)}
+\begin{enumerate}
+	\item	Initialize an integer arrays of integer arrays indexed with integers from {\tt [1]} to 
+			{\tt [size]}, simulating a chessboard. Store it as {\tt board}, which records the 
+			move numbers on which the knight lands on it.
+	\item	Initialize a {\tt Position} stack {\tt path}, along with methods to add ad remove {\tt Position}'s from it.
+	\item	Set an integer counter {\tt numberOfMoves} to {\tt 0}, as part of the {\tt path} stack.
+	\item	{\bf Define} the functions: 
+	\begin{enumerate}
+		\item	{\tt TourSolver::solve(p)}
+		\item	{\tt TourSolver::getPossibleMoves(p)}
+	\end{enumerate}
+	\item	{\bf Return} the resultant object.
+\end{enumerate}
+\vspace{5mm}
+{\tt TourSolver::solve (p:Position)}
+\begin{enumerate}
+	\item	If the {\tt path} stack is full, {\bf return} {\tt true}, indicating that the tour has been solved.
+	\item	Call {\tt this->getPossibleMoves(p)}. Store the returned list of possible legal moves as {\tt moves}.
+	\item	Sort {\tt moves}, ranking each possible poition according to {\em Warnsdorf's Rule}.
+	\item	For every {\tt move} in the list {\tt moves}:
+	\begin{enumerate}
+		\item	Push {\tt move} onto the {\tt path} stack and {\tt board}.
+		\item	If the call {\tt this->solve(move)} returns {\tt true}, {\bf return} {\tt true}.
+				Otherwise, pop {\tt move} from the {\tt path} stack and {\tt board} ({\em backtrack}).
+	\end{enumerate}
+	\item	If the list {\tt moves} has been exhausted, {\bf return} {\tt false}, indicating that
+			there are no solutions from the position {\tt p} for that particular move stack.
+\end{enumerate}
+\vspace{5mm}
+{\tt TourSolver::getPossibleMoves (p:Position)}
+\begin{enumerate}
+	\item	Initialize a list of moves {\tt possibleMoves}.
+	\item	For every possible square {\tt move} a knight can jump to from {\tt p} (on an empty board):
+	\begin{enumerate}
+		\item	If {\tt move} is currently a legal move, without falling outside the board or on a previously
+				traversed square, add it to {\tt possibleMoves}.
+	\end{enumerate}
+	\item	{\bf Return} {\tt possibleMoves}
+\end{enumerate}
 
 \sourcecode
 \lstinputlisting{src/TourSolver.java}
 \lstinputlisting{src/Position.java}
 \lstinputlisting{src/KnightTour.java}
 
+\varDescription
+\begin{longtable} {| >{\ttfamily}p{0.16\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
+\hline\multicolumn{3}{|c|}{\tt TourSolver} 													\\ \hline
+int		&	size		&	Number of files/ranks in the chessboard							\\ \hline
+Position[]
+		&	path		&	Stack of moves which are part of th solved tour					\\ \hline
+int		&	numberOfMoves &	Counter variable, number of moves made in the solved tour		\\ \hline
+int[][]	&	board		&	An integer array of integer arrays, representing a chessboard,
+							with each square marked with the move number at which the knight
+							lands on it														\\ \hline
+int[][]	&	degreesOf
+	\newline Freedom	&	An integer array of integer arrays, representing a chessboard,
+							with each square marked with the number of possible knight moves
+							from it (on an empty board)										\\ \hline
+Position &	initPosition &	The position on the board the knight starts from					\\ \hline
+double	&	tieBreak
+	\newline Randomness	&	The degree to which a move in the path is randomly decided		\\ \hline
+int[][]	&	KNIGHT\_MOVES
+						&	List of legal changes in the $x$ and $y$ positions of a knight	\\ \hline
+\hline\multicolumn{3}{|c|}{\tt TourSolver::initBoard()} 										\\ \hline
+int		&	i, j		&	Counter variables												\\ \hline
+\hline\multicolumn{3}{|c|}{\tt TourSolver::initDegreesOfFreedom()} 							\\ \hline
+int		&	i, j		&	Counter variables												\\ \hline
+\hline\multicolumn{3}{|c|}{\tt TourSolver::addMove(Position)}	 							\\ \hline
+Position &	p			&	The new position to add to the path stack						\\ \hline
+\hline\multicolumn{3}{|c|}{\tt TourSolver::removeMove()}	 									\\ \hline
+Position &	p			&	The position popped from the path stack							\\ \hline
+\hline\multicolumn{3}{|c|}{\tt TourSolver::solve()} 											\\ \hline
+Position[]
+		&	possible
+	\newline Moves		&	List of possible moves that can be added to the path	 stack		\\ \hline
+Position &	move		&	Current move to evaluate in the path								\\ \hline
+\hline\multicolumn{3}{|c|}{\tt TourSolver::sortMoves(Position[])} 							\\ \hline
+Position[]
+		&	moves		&	List of moves to rank using Warnsdorf's heuristic				\\ \hline
+int		&	count		&	Total nuber of moves in {\tt moves}								\\ \hline
+int		&	right		&	Counter variable													\\ \hline
+int		&	i			&	Counter variable													\\ \hline
+\hline\multicolumn{3}{|c|}{\tt TourSolver::compareMoves(Position, Position)}					\\ \hline
+Position
+		&	a, b		&	Positions/moves to compare using Warnsdorf's heuristic			\\ \hline
+int		&	aCount,
+	\newline bCount		&	Respective number of possible legal moves for {\tt a} and {\tt b}\\ \hline
+int		&	aFree,
+	\newline bFree		&	Respective number of possible legal moves on an empty board
+							for {\tt a} and {\tt b}											\\ \hline
+\hline\multicolumn{3}{|c|}{\tt TourSolver::swapMoves(int, int, Position[])}					\\ \hline
+int		&	x, y		&	The indices of the moves to swap									\\ \hline
+Position[]
+		&	moves		&	Array of moves containing the moves to be swapped				\\ \hline
+\hline\multicolumn{3}{|c|}{\tt TourSolver::getPossibleMoves(Position)}						\\ \hline
+Position &	start		&	Position from where possible moves are to be generated			\\ \hline
+int		&	i			&	Counter variable													\\ \hline
+int[]	&	move		&	Pair of legal changes in the $x$ and $y$ positions of a knight	\\ \hline
+int		&	x, y		&	New $x$ and $y$ positions of the knight							\\ \hline
+\hline\multicolumn{3}{|c|}{\tt TourSolver::getPossibleMovesCount(Position)}					\\ \hline
+Position &	start		&	Position from where possible moves are to be generated			\\ \hline
+Position &	p			&	Possible position												\\ \hline
+\hline\multicolumn{3}{|c|}{\tt TourSolver::isWithinBoard(int, int)}							\\ \hline
+int		&	x, y		&	The $x$ and $y$ positions on the board to verify					\\ \hline
+\hline\multicolumn{3}{|c|}{\tt Position} 													\\ \hline
+int		&	x, y		&	The $x$ and $y$ coordinates on the board encoded by the {\tt Position}\\ \hline
+\hline\multicolumn{3}{|c|}{\tt Position::this(String)} 										\\ \hline
+String	&	s			&	Chess position written in algebraic notation						\\ \hline
+int		&	x, y		&	The $x$ and $y$ coordinates on the board							\\ \hline
+int		&	i			&	Counter variable													\\ \hline
+\hline\multicolumn{3}{|c|}{\tt Position::xToString(int)} 									\\ \hline
+int		&	n			&	Rank ($x$ position) to convert to algebraic notation				\\ \hline
+String	&	letters		&	{\tt n} expressed as a base $26$ number, digits starting from ({\tt a}) \\ \hline
+int		&	x			&	Counter variable, temporarily stores the rank to convert			\\ \hline
+\hline\multicolumn{3}{|c|}{\tt KnightTour::main(String[])} 									\\ \hline
+int		&	boardSize	&	Number of files/ranks in the chessboard							\\ \hline
+String	&	initSquare	&	The position on the board the knight starts from	 (algebraic notation) \\ \hline
+double	&	randomness	&	The degree to which a move in the path is randomly decided		\\ \hline
+TourSolver &	t		&	An object capable of generating {\em knight's tours}				\\ \hline
+Position[]
+		&	solution	&	The solved sequence of moves in the {\em knight's tour}			\\ \hline
+\hline\multicolumn{3}{|c|}{\tt KnightTour::showBoard(int[][])} 								\\ \hline
+int[][]	&	board		&	An integer array of integer arrays, representing a chessboard,
+							with each square marked with the move number at which the knight
+							lands on it														\\ \hline
+String	&	hline		&	Horizontal line drawn to represent board squares					\\ \hline
+int		&	row, column,
+	\newline	i		&	Counter variables												\\ \hline
+\hline\multicolumn{3}{|c|}{\tt KnightTour::showMoves(Position[])} 							\\ \hline
+Position[]
+		&	moves		&	The sequence of moves to display 								\\ \hline
+int		&	i			&	Counter variable													\\ \hline
+\hline\multicolumn{3}{|c|}{\tt KnightTour::multiplyString(String, int)} 						\\ \hline
+String	&	s			&	The string to multiply											\\ \hline
+int		&	n			&	The number of times to multiply {\tt s}							\\ \hline
+String	&	out			&	The string containing {\tt n} copies of {\tt s}					\\ \hline
+\hline\multicolumn{3}{|c|}{\tt KnightTour::isClosed(Position[])} 							\\ \hline
+Position[]
+		&	path		&	The solved sequence of moves in the {\em knight's tour}			\\ \hline
+int		&	l			&	Index of last move in {\tt path}									\\ \hline
+int		&	dX, dY		&	Differences in $x$ and $y$ coordinates of the knight between
+							the first and last moves											\\ \hline
+\end{longtable}

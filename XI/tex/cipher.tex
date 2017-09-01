@@ -55,3 +55,18 @@ Interpret positive shifts as rightwards, negative as leftwards.
 
 \sourcecode
 \lstinputlisting{src/CaesarShift.java}
+
+\varDescription
+\begin{longtable} {| >{\ttfamily}p{0.15\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
+\hline\multicolumn{3}{|c|}{\tt CaesarShift::main(String[])} 									\\ \hline
+int		&	shift 		&	The inputted 'shift' 											\\ \hline
+String	&	plainText	&	The text to encrypt												\\ \hline
+String	&	cipherText	&	The encrypted text												\\ \hline
+int		&	i			&	Counter variable, stores the position in {\tt plainText}			\\ \hline
+char	&	plain		&	The character to encrypt											\\ \hline
+char	&	crypt		&	The encrypted form of {\tt plain}								\\ \hline
+\hline\multicolumn{3}{|c|}{\tt CaesarShift::charToNum(char)} 								\\ \hline
+char	&	letter	 	&	The character to convert to an integer 							\\ \hline
+\hline\multicolumn{3}{|c|}{\tt CaesarShift::numToChar(int)} 									\\ \hline
+int		&	number	 	&	The number to convert to a character	 							\\ \hline
+\end{longtable}

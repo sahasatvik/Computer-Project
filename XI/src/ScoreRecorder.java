@@ -7,7 +7,7 @@ public class ScoreRecorder {
 		double maxMarks = 0.0;
 		int numberOfStudents = 0;
 		try {
-			System.out.print("Enter the maximum marks alotted for each student : ");
+			System.out.print("Enter the maximum marks allotted for each student : ");
 			maxMarks = inp.nextDouble();
 			System.out.print("Enter the total number of students : ");
 			numberOfStudents = inp.nextInt();

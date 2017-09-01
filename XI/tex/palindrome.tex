@@ -11,7 +11,7 @@ Ignore punctuation, numeric digits, whitespace and case while analyzing the enti
 
 \solution The main challenge here is intelligently dividing a {\em sentence} into its component {\em words}. Verifying whether a sequence of characters is a palindrome is fairly simple --- extracting those characters from a string of alphabets, numbers, punctuation and whitespace is not.
 
-The main idea behind isolating words from sentences is to define two {\em markers} --- a {\tt start} to keep track of the boudary between whitespace and letters, and an {\tt end} to mark the boundary between letters and whitespace. In this way, the markers can inch their way along the sentence, isolating words in the process. Managing the order of condition checking and incrementing of counters does require some careful maneuvering in order to avoid any {\em off-by-1 errors\footnote{An off-by-one error often occurs in computer programming when an iterative loop iterates one time too many or too few.}}.
+The main idea behind isolating words from sentences is to define two {\em markers} --- a {\tt start} to keep track of the boudary between whitespace and letters, and an {\tt end} to mark the boundary between letters and whitespace. In this way, the markers can inch their way along the sentence, isolating words in the process. Managing the order of condition checking and incrementing of counters does require some careful maneuvering in order to avoid any {\em off-by-1 errors\footnote{An off-by-one error often occurs in computer programming when an iterative loop iterates one time too many or too few.}} ---  any of which would inevitably result in incorrect, hence undesirable output.\citeneeded
 
 \algorithm
 {\tt main ()}
@@ -73,13 +73,36 @@ The main idea behind isolating words from sentences is to define two {\em marker
 		\item	If the characters at positions {\tt i} and {\tt j} in {\tt text} are not equal,
 				{\bf return} {\tt false}.
 		\item	Increment {\tt i} by {\tt 1}.
-		\item	Decrement {\tt j} by {\tt 1}
+		\item	Decrement {\tt j} by {\tt 1}.
 		\item	Jump to (\ref{palindrome:palLoopStart})
 	\end{enumerate}
 	\item	{\bf Return} {\tt true} only if {\tt text} is longer than
 			one character. Otherwise, {\bf return} {\tt false}. \label{palindrome:palLoopEnd}
 \end{enumerate}
 
-
 \sourcecode
 \lstinputlisting{src/Palindrome.java}
+
+\varDescription
+\begin{longtable} {| >{\ttfamily}p{0.15\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
+\hline\multicolumn{3}{|c|}{\tt Palindrome::main(String[])} 									\\ \hline
+String	&	sentence	&	Stores the text to check for palindromes							\\ \hline
+boolean	& foundPalindrome	&	Stores whether plaindromes have been found					\\ \hline
+\hline\multicolumn{3}{|c|}{\tt Palindrome::checkWords(String)} 								\\ \hline
+String	&	sentence	&	Stores the sentence to divide into words							\\ \hline
+boolean	& foundPalindrome	&	Stores whether plaindromes have been found					\\ \hline
+int		&	start		&	Counter variable, stores the index of the start of a word		\\ \hline
+int		&	end			&	Counter variable, stores the index of the end of a word			\\ \hline
+String	&	word		&	Stores words in {\tt sentence}, extracted between {\tt start} and {\tt end}
+																							\\ \hline
+\hline\multicolumn{3}{|c|}{\tt Palindrome::checkSentence(String)} 							\\ \hline
+String	&	sentence	&	Stores the sentence to divide into words							\\ \hline
+\hline\multicolumn{3}{|c|}{\tt Palindrome::isPalindrome(String)} 							\\ \hline
+String	&	text		&	Stores the text to check											\\ \hline
+String	&	rawText		&	Stores only alphabets from {\tt text}							\\ \hline
+int		&	i			&	Counter variable, stores the current index in {\tt text}			\\ \hline
+\hline\multicolumn{3}{|c|}{\tt Palindrome::getAlphabets(String)} 							\\ \hline
+String	&	text		&	Stores the text to extract alphabets from						\\ \hline
+String	&	rawText		&	Stores only alphabets from {\tt text}							\\ \hline
+int		&	i			&	Counter variable, stores the current index in {\tt text}			\\ \hline
+\end{longtable}

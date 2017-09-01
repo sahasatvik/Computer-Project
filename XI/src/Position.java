@@ -39,7 +39,7 @@ public class Position {
 		return xToString(this.x) + (this.y + 1);
 	}
 	
-	/* Convert a rank number to its algebraic notation form */
+	/* Convert a file number to its algebraic notation form */
 	public static String xToString (int n) {
 		int x = n + 1;
 		String letters = "";

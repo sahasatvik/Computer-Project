@@ -2,11 +2,13 @@ public class Position {
 	private final int x;
 	private final int y;
 
+	/* Initialize using the coordinates on the board */
 	public Position (int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
 
+	/* Initialize using the position in algebraic notation */
 	public Position (String s) {
 		int x = 0;
 		int i = 0;
@@ -31,12 +33,13 @@ public class Position {
 		return (p != null) 
 			&& (this.getX() == p.getX()) && (this.getY() == p.getY());
 	}
-
+	
 	@Override
 	public String toString () {
 		return xToString(this.x) + (this.y + 1);
 	}
-
+	
+	/* Convert a rank number to its algebraic notation form */
 	public static String xToString (int n) {
 		int x = n + 1;
 		String letters = "";

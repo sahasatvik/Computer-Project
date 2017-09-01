@@ -1,12 +1,18 @@
 public class KnightTour {
 	public static void main (String[] args) {
 		try {
+			/* Parse the first command line argument as the size of the board */
 			int boardSize = Integer.parseInt(args[0]);
 			if (boardSize <= 0)
 				throw new NumberFormatException();
+			/* Parse the second command line argument as the starting square
+			   of the knight, written in algebraic notation	*/
 			String initSquare = (args.length > 1)? args[1] : "a1";
+			/* Parse the third command line argument as the degree of
+			   randomness to be used while resolving ties */
 			double randomness = (args.length > 2)? Double.parseDouble(args[2])
 							     : Math.pow(0.8, boardSize) * 2;
+			/* Create an object capable of solving knight's tours */
 			TourSolver t = new TourSolver(boardSize, new Position(initSquare), randomness);
 			Position[] solution = t.getSolution();
 			if (solution != null) {
@@ -18,6 +24,7 @@ public class KnightTour {
 				System.out.println("No Knight's Tours found!");
 			}
 		} catch (Exception e) {
+			/* Handle missing or incorrectly formatted arguments */
 			System.out.print("Enter an integer (> 1) as the first argument, ");
 			System.out.println("and a well formed chessboard coordinate as the second!");
 			System.out.println("                                 (size, startSquare * , randomness * )");
@@ -39,6 +46,8 @@ public class KnightTour {
 		}
 	}
 
+	/* Display the board, which each square marked with the move number on which
+	   the knight landed on it */
 	public static void showBoard (int[][] board) {
 		String hLine = "    " + multiplyString("+-----", board.length) + "+";
 		System.out.println(hLine);
@@ -56,6 +65,7 @@ public class KnightTour {
 		System.out.println();
 	}
 
+	/* Display the list of moves in the tour in algebraic notation */
 	public static void showMoves (Position[] moves) {
 		System.out.print("\nMoves : ");
 		String movesOut = "";
@@ -64,14 +74,16 @@ public class KnightTour {
 		}
 		System.out.println(movesOut.substring(0, movesOut.length() - 2));
 	}
-
+	
+	/* Utility function for repeating strings */
 	public static String multiplyString (String s, int n) {
 		String result = "";
 		while (n --> 0)
 			result += s;
 		return result;
 	}
-
+	
+	/* Check whether a tour is closed or not */
 	public static boolean isClosed (Position[] path) {
 		int l = path.length - 1;
 		int dX = Math.abs(path[0].getX() - path[l].getX());

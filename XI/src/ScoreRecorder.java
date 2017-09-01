@@ -3,6 +3,7 @@ import java.util.InputMismatchException;
 
 public class ScoreRecorder {
 	public static void main (String[] args) {
+		/* Create an object capable of maning input */
 		Scanner inp = new Scanner(System.in);
 		double maxMarks = 0.0;
 		int numberOfStudents = 0;
@@ -11,6 +12,7 @@ public class ScoreRecorder {
 			maxMarks = inp.nextDouble();
 			System.out.print("Enter the total number of students : ");
 			numberOfStudents = inp.nextInt();
+			/* Check for any erraneous data */
 			if (maxMarks <= 0) {
 				System.out.println("Maximum marks must be positive!");
 				System.exit(0);
@@ -19,8 +21,10 @@ public class ScoreRecorder {
 				System.out.println("Number of students must be positive!");
 				System.exit(0);
 			}
+			/* Create an object capable of recording scoresheets */
 			Marksheet sheet = new Marksheet(maxMarks, numberOfStudents);
 			System.out.println("Enter " + numberOfStudents + " students' names and marks : ");
+			/* Accept student data */
 			for (int i = 0; i < numberOfStudents; i++) {
 				String name = "";
 				while (!inp.hasNextDouble()) {
@@ -33,10 +37,12 @@ public class ScoreRecorder {
 				}
 				sheet.addMarks(name.trim(), marks);
 			}
+			/* Sort and display */
 			sheet.sortByName();
 			sheet.displayChart();
 			sheet.displayMaxScorers();
 		} catch (InputMismatchException e) {
+			/* Handle missing or incorrectly formatted arguments */
 			System.out.println("Invalid Input!");
 			System.exit(0);
 		}

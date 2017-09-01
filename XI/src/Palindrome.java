@@ -4,6 +4,7 @@ public class Palindrome {
 	public static void main (String[] args) {
 		System.out.print("Enter your sentence : ");
 		String sentence = (new Scanner(System.in)).nextLine().trim();
+		/* Keep track of whether palindromes have been found */
 		boolean foundPalindrome = false;
 		System.out.println("Palindromes : ");
 		foundPalindrome |= checkWords(sentence);
@@ -13,6 +14,7 @@ public class Palindrome {
 		}
 	}
 
+	/* Slice a sentence into words and check each individually */
 	public static boolean checkWords (String sentence) {
 		boolean foundPalindrome = false;
 		int start = -1;
@@ -31,6 +33,7 @@ public class Palindrome {
 		return foundPalindrome;
 	}
 
+	/* Check the sentence as a whole */
 	public static boolean checkSentence (String sentence) {
 		if (isPalindrome(sentence)) {
 			System.out.println("The sentence '" + sentence + "' is a palindrome.");
@@ -38,7 +41,8 @@ public class Palindrome {
 		}
 		return false;
 	}
-
+	
+	/* Check whether a piece of text is identical forward as well as backwards */
 	public static boolean isPalindrome (String text) {
 		String rawText = getAlphabets(text).toUpperCase();
 		for (int i = 0, j = rawText.length() - 1; i < j; i++, j--) {
@@ -46,9 +50,11 @@ public class Palindrome {
 				return false;
 			}
 		}
+		/* Make sure that the text is not just one letter */
 		return (rawText.length() > 1);
 	}
 
+	/* Strip a piece of text of all characters except alphabetic ones */
 	public static String getAlphabets (String text) {
 		String rawText = "";
 		for (int i = 0; i < text.length(); i++) {

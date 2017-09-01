@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  1 SEP 2017 21:07
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  1 SEP 2017 23:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1226,12 +1226,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 (./src/Unique.java)
-Overfull \hbox (15.41968pt too wide) in alignment at lines 36--44
+Overfull \hbox (15.41968pt too wide) in alignment at lines 37--45
  [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 44
+Underfull \vbox (badness 10000) detected at line 45
  []
 
 ) [2
@@ -1242,24 +1242,26 @@ Underfull \vbox (badness 10000) detected at line 44
  (./tex/partition.tex [3
 
 
-] (./src/Partition.java)
-Overfull \hbox (15.41968pt too wide) in alignment at lines 41--51
+] (./src/Partition.java) [4
+
+]
+Overfull \hbox (15.41968pt too wide) in alignment at lines 43--53
  [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 51
+Underfull \vbox (badness 10000) detected at line 53
  []
 
-) [4
+) [5
 
 ]
 \openout2 = `tex/cipher.aux'.
 
- (./tex/cipher.tex [5
+ (./tex/cipher.tex [6
 
 
-] [6] (./src/CaesarShift.java)
+] (./src/CaesarShift.java [7])
 Overfull \hbox (15.41968pt too wide) in alignment at lines 60--72
  [] [] [] 
  []
@@ -1268,9 +1270,7 @@ Overfull \hbox (15.41968pt too wide) in alignment at lines 60--72
 Underfull \vbox (badness 10000) detected at line 72
  []
 
-[7
-
-]) [8]
+) [8]
 \openout2 = `tex/palindrome.aux'.
 
  (./tex/palindrome.tex
@@ -1284,22 +1284,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
 ] [10] (./src/Palindrome.java [11
 
 ])
-Overfull \hbox (3.98566pt too wide) in paragraph at lines 90--90
+Overfull \hbox (3.98566pt too wide) in paragraph at lines 91--91
 []|\TU/lmtt/m/n/12 foundPalindrome| 
  []
 
 
-Overfull \hbox (3.98566pt too wide) in paragraph at lines 93--93
+Overfull \hbox (3.98566pt too wide) in paragraph at lines 94--94
 []|\TU/lmtt/m/n/12 foundPalindrome| 
  []
 
 
-Overfull \hbox (15.41968pt too wide) in alignment at lines 87--108
+Overfull \hbox (15.41968pt too wide) in alignment at lines 88--109
  [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 108
+Underfull \vbox (badness 10000) detected at line 109
  []
 
 [12]) [13]
@@ -1315,9 +1315,7 @@ TU/lmr/m/n/12 in the boolean array \TU/lmtt/m/n/12 sieve->primes\TU/lmr/m/n/12
 [14
 
 
-] [15] (./src/SieveOfEratosthenes.java) (./src/Primes.java [16
-
-])
+] (./src/SieveOfEratosthenes.java [15]) (./src/Primes.java [16])
 Overfull \hbox (3.18584pt too wide) in paragraph at lines 69--70
 \TU/lmtt/m/n/12 Eratosthenes| 
  []
@@ -1331,7 +1329,7 @@ Overfull \hbox (19.85979pt too wide) in alignment at lines 58--76
 Underfull \vbox (badness 10000) detected at line 76
  []
 
-[17]) [18]
+) [17]
 \openout2 = `tex/chart.aux'.
 
  (./tex/chart.tex
@@ -1348,64 +1346,66 @@ Overfull \hbox (54.61037pt too wide) in paragraph at lines 37--39
 lmtt/m/n/12 [numberOfStudents
  []
 
-[19
+[18
 
 
-] [20] (./src/Marksheet.java [21
+] [19] (./src/Marksheet.java [20
 
-] [22]) (./src/ScoreRecorder.java [23])
-Overfull \hbox (19.85979pt too wide) in alignment at lines 104--125
+] [21]) (./src/ScoreRecorder.java [22])
+Overfull \hbox (19.85979pt too wide) in alignment at lines 105--126
  [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 125
+Underfull \vbox (badness 10000) detected at line 126
  []
 
 
-Overfull \hbox (19.85979pt too wide) in alignment at lines 125--146
+Overfull \hbox (19.85979pt too wide) in alignment at lines 126--147
  [] [] [] 
  []
 
-
-Overfull \hbox (19.85979pt too wide) in alignment at lines 146--149
- [] [] [] 
- []
-
-[24]) [25]
-\openout2 = `tex/determinant.aux'.
-
- (./tex/determinant.tex [26
-
-
-] [27] (./src/Matrix.java)
-(./src/SquareMatrix.java [28
-
-]) (./src/Determinant.java [29])
-Overfull \hbox (3.18584pt too wide) in paragraph at lines 138--139
-[]|\TU/lmtt/m/n/12 SquareMatrix| 
- []
-
-
-Overfull \hbox (3.18584pt too wide) in paragraph at lines 144--145
-[]|\TU/lmtt/m/n/12 SquareMatrix| 
- []
-
-
-Overfull \hbox (19.85979pt too wide) in alignment at lines 125--147
- [] [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 147
- []
-
-
+[23]
 Overfull \hbox (19.85979pt too wide) in alignment at lines 147--150
  [] [] [] 
  []
 
-[30]) [31]
+) [24]
+\openout2 = `tex/determinant.aux'.
+
+ (./tex/determinant.tex [25
+
+
+] [26] (./src/Matrix.java)
+(./src/SquareMatrix.java [27
+
+]) (./src/Determinant.java [28]) [29]
+Overfull \hbox (3.18584pt too wide) in paragraph at lines 140--141
+[]|\TU/lmtt/m/n/12 SquareMatrix| 
+ []
+
+
+Overfull \hbox (3.18584pt too wide) in paragraph at lines 146--147
+[]|\TU/lmtt/m/n/12 SquareMatrix| 
+ []
+
+
+Overfull \hbox (19.85979pt too wide) in alignment at lines 127--149
+ [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 149
+ []
+
+
+Overfull \hbox (19.85979pt too wide) in alignment at lines 149--152
+ [] [] [] 
+ []
+
+) [30
+
+]
 \openout2 = `tex/knight.aux'.
 
  (./tex/knight.tex (./tex/ktourData.tex)
@@ -1413,10 +1413,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--20
 
  []
 
-[32
+[31
 
 
-] [33
+] [32
 
 ]
 Overfull \hbox (1.38152pt too wide) in paragraph at lines 100--102
@@ -1431,35 +1431,37 @@ Overfull \hbox (1.3064pt too wide) in paragraph at lines 105--106
 m/n/12 Position\TU/lmr/m/n/12 ’s
  []
 
-[34] [35] (./src/TourSolver.java [36
+[33] [34] (./src/TourSolver.java [35
 
-] [37] [38]) (./src/Position.java [39])
-(./src/KnightTour.java [40] [41])
-Overfull \hbox (19.85979pt too wide) in alignment at lines 147--177
+] [36] [37]) (./src/Position.java [38]
+[39]) (./src/KnightTour.java [40] [41]) [42]
+Overfull \hbox (19.85979pt too wide) in alignment at lines 149--179
  [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 177
+Underfull \vbox (badness 10000) detected at line 179
  []
 
 
-Underfull \hbox (badness 3396) in paragraph at lines 186--186
+Underfull \hbox (badness 3396) in paragraph at lines 188--188
 []|\TU/lmr/m/n/12 Positions/moves to compare using Warnsdorf’s
  []
 
 
-Overfull \hbox (19.85979pt too wide) in alignment at lines 177--203
+Overfull \hbox (19.85979pt too wide) in alignment at lines 179--205
  [] [] [] 
  []
 
-[42]
-Overfull \hbox (19.85979pt too wide) in alignment at lines 203--226
+
+Overfull \hbox (19.85979pt too wide) in alignment at lines 205--228
  [] [] [] 
  []
 
-[43]
-Overfull \hbox (19.85979pt too wide) in alignment at lines 226--244
+[43
+
+]
+Overfull \hbox (19.85979pt too wide) in alignment at lines 228--246
  [] [] [] 
  []
 
@@ -1476,7 +1478,7 @@ Overfull \hbox (19.85979pt too wide) in alignment at lines 226--244
 Here is how much of TeX's memory you used:
  30628 strings out of 493005
  604040 string characters out of 6134596
- 968118 words of memory out of 5000000
+ 971117 words of memory out of 5000000
  34059 multiletter control sequences out of 15000+600000
  10968 words of font info for 68 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

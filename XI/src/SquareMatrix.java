@@ -22,8 +22,9 @@ public class SquareMatrix extends Matrix {
 		int determinant = 0;
 		/* Accumulate the determinants of minors with alternating signs */
 		for (int i = 1; i <= size; i++)
-			determinant += ((int) Math.pow(-1, 1+i)) * getElementAt(1, i) 
-								 * getMinorMatrix(1, i).getDeterminant();
+			determinant += ((int) Math.pow(-1, 1+i)) 
+					* getElementAt(1, i)
+					* getMinorMatrix(1, i).getDeterminant();
 		return determinant;
 	}
 

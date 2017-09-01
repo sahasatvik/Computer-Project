@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  1 SEP 2017 23:11
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  1 SEP 2017 23:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1283,26 +1283,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
 ] [10] (./src/Palindrome.java [11
 
-])
-Overfull \hbox (3.98566pt too wide) in paragraph at lines 91--91
+]) [12]
+Overfull \hbox (3.98566pt too wide) in paragraph at lines 92--92
 []|\TU/lmtt/m/n/12 foundPalindrome| 
  []
 
 
-Overfull \hbox (3.98566pt too wide) in paragraph at lines 94--94
+Overfull \hbox (3.98566pt too wide) in paragraph at lines 95--95
 []|\TU/lmtt/m/n/12 foundPalindrome| 
  []
 
 
-Overfull \hbox (15.41968pt too wide) in alignment at lines 88--109
+Overfull \hbox (15.41968pt too wide) in alignment at lines 89--110
  [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 109
+Underfull \vbox (badness 10000) detected at line 110
  []
 
-[12]) [13]
+) [13
+
+]
 \openout2 = `tex/sieve.aux'.
 
  (./tex/sieve.tex
@@ -1433,35 +1435,37 @@ m/n/12 Position\TU/lmr/m/n/12 ’s
 
 [33] [34] (./src/TourSolver.java [35
 
-] [36] [37]) (./src/Position.java [38]
-[39]) (./src/KnightTour.java [40] [41]) [42]
-Overfull \hbox (19.85979pt too wide) in alignment at lines 149--179
+] [36] [37]) [38] (./src/Position.java
+[39
+
+]) (./src/KnightTour.java [40] [41]) [42]
+Overfull \hbox (19.85979pt too wide) in alignment at lines 150--180
  [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 179
+Underfull \vbox (badness 10000) detected at line 180
  []
 
 
-Underfull \hbox (badness 3396) in paragraph at lines 188--188
+Underfull \hbox (badness 3396) in paragraph at lines 189--189
 []|\TU/lmr/m/n/12 Positions/moves to compare using Warnsdorf’s
  []
 
 
-Overfull \hbox (19.85979pt too wide) in alignment at lines 179--205
+Overfull \hbox (19.85979pt too wide) in alignment at lines 180--206
  [] [] [] 
  []
 
 
-Overfull \hbox (19.85979pt too wide) in alignment at lines 205--228
+Overfull \hbox (19.85979pt too wide) in alignment at lines 206--229
  [] [] [] 
  []
 
 [43
 
 ]
-Overfull \hbox (19.85979pt too wide) in alignment at lines 228--246
+Overfull \hbox (19.85979pt too wide) in alignment at lines 229--247
  [] [] [] 
  []
 
@@ -1478,7 +1482,7 @@ Overfull \hbox (19.85979pt too wide) in alignment at lines 228--246
 Here is how much of TeX's memory you used:
  30628 strings out of 493005
  604040 string characters out of 6134596
- 971117 words of memory out of 5000000
+ 970117 words of memory out of 5000000
  34059 multiletter control sequences out of 15000+600000
  10968 words of font info for 68 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

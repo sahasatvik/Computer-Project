@@ -1,0 +1,95 @@
+\documentclass[12pt, reqno, a4paper]{article}
+\usepackage{geometry}        
+\geometry{letterpaper} 
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{chessboard}
+\usepackage{fontspec}
+\usepackage{etoolbox}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{metalogo}
+\geometry{
+	left=40mm,
+	right=20mm
+}
+
+\newcounter{prob}
+
+\def\problem{\stepcounter{prob}\paragraph{Problem \arabic{prob}}}
+\def\solution{\paragraph{Solution}}
+\def\algorithm{\mbox{}\\}
+\def\sourcecode{\paragraph{Source Code}\leavevmode}
+\def\varDescription{\paragraph{Variable Description}\mbox{}}
+\def\citeneeded{\textsuperscript{\tiny[citation needed]}}
+
+\newcommand{\chapquote}[2]{\begin{quotation}\begin{center} \textit{#1} \end{center}\end{quotation} \begin{flushright} --- \textbf{#2}\end{flushright}}
+
+\definecolor{codecomment}{rgb}{0.4,0.4,0.4}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codestring}{rgb}{0.066,0.5,0.066}
+\definecolor{codeblue}{rgb}{0,0.4,0.795}
+\definecolor{codelightblue}{rgb}{0.4,0.3,0.8}
+\definecolor{codegreen}{rgb}{0,0.4,0.1}
+\definecolor{codepink}{rgb}{0.8,0.4,0.3}
+\definecolor{codenull}{rgb}{0.6,0.3,0.3}
+\definecolor{codepurple}{rgb}{0.6,0.2,0.5}
+\definecolor{codeannotation}{rgb}{0.75,0.25,0}
+
+\lstset{
+	language=Java,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	numbers=left,
+	morecomment=[l][\color{codeannotation}]{@},
+	emph=[1]{return},
+    emphstyle=[1]{\color{codegreen}},
+    emph=[2]{true, false, null},
+    emphstyle=[2]{\color{codepink}},
+    emph=[3]{new},
+    emphstyle=[3]{\color{codepurple}},
+    emph=[4]{for, while, if, else, try, catch, finally},
+    emphstyle=[4]{\color{codelightblue}},
+    basicstyle={\small\ttfamily\footnotesize},
+	numberstyle=\tiny\color{codegray},
+	keywordstyle=\color{codeblue},
+	commentstyle=\color{codecomment},
+	stringstyle=\color{codestring},
+	breaklines=true,
+	breakatwhitespace=true,
+	extendedchars=true,
+	tabsize=8
+}
+\setlist[enumerate]{
+	topsep=0mm,
+	itemsep=0mm,
+	partopsep=0mm,
+	parsep=0mm
+}
+
+\title{Computer Project}
+\author{Satvik Saha}
+\begin{document}
+
+\include{tex/cover}
+\include{tex/quote}
+
+\include{tex/unique}
+\include{tex/partition}
+\include{tex/cipher}
+\include{tex/palindrome}
+\include{tex/sieve}
+\include{tex/chart}
+\include{tex/determinant}
+\include{tex/knight}
+
+\include{tex/last}
+
+\end{document}
+\end

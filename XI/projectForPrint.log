@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  1 SEP 2017 23:28
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  1 SEP 2017 23:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**project.tex
-(./project.tex
+**projectForPrint.tex
+(./projectForPrint.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
@@ -995,11 +995,11 @@ LaTeX Info: Redefining \LaTeXe on input line 219.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-(./project.aux (./tex/cover.aux) (./tex/quote.aux) (./tex/unique.aux)
+(./projectForPrint.aux (./tex/cover.aux) (./tex/quote.aux) (./tex/unique.aux)
 (./tex/partition.aux) (./tex/cipher.aux) (./tex/palindrome.aux)
 (./tex/sieve.aux) (./tex/chart.aux) (./tex/determinant.aux) (./tex/knight.aux)
 (./tex/last.aux))
-\openout1 = `project.aux'.
+\openout1 = `projectForPrint.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
 LaTeX Font Info:    ... okay on input line 78.
@@ -1048,14 +1048,14 @@ LaTeX Font Info:    ... okay on input line 78.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(85.35826pt, 443.57848pt, 85.35826pt)
+* h-part:(L,W,R)=(113.81102pt, 443.57848pt, 56.9055pt)
 * v-part:(T,H,B)=(95.39737pt, 556.47656pt, 143.09605pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
 * \textwidth=443.57848pt
 * \textheight=556.47656pt
-* \oddsidemargin=13.08827pt
-* \evensidemargin=13.08827pt
+* \oddsidemargin=41.54103pt
+* \evensidemargin=41.54103pt
 * \topmargin=-13.87262pt
 * \headheight=12.0pt
 * \headsep=25.0pt
@@ -1475,17 +1475,17 @@ Overfull \hbox (19.85979pt too wide) in alignment at lines 229--247
  (./tex/last.tex) [45
 
 
-] (./project.aux (./tex/cover.aux)
+] (./projectForPrint.aux (./tex/cover.aux)
 (./tex/quote.aux) (./tex/unique.aux) (./tex/partition.aux) (./tex/cipher.aux)
 (./tex/palindrome.aux) (./tex/sieve.aux) (./tex/chart.aux)
 (./tex/determinant.aux) (./tex/knight.aux) (./tex/last.aux)) ) 
 Here is how much of TeX's memory you used:
  30628 strings out of 493005
- 604040 string characters out of 6134596
- 970117 words of memory out of 5000000
+ 604112 string characters out of 6134596
+ 970125 words of memory out of 5000000
  34059 multiletter control sequences out of 15000+600000
  10968 words of font info for 68 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 62i,13n,87p,10368b,1484s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,13n,87p,10376b,1484s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on project.pdf (48 pages).
+Output written on projectForPrint.pdf (48 pages).

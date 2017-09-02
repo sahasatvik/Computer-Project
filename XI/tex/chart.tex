@@ -65,10 +65,10 @@ list of students and percentages in an ASCII bar chart, arranged alphabetically.
 			\item	If {\tt i} is less than or equal to {\tt right}, proceed.
 					Otherwise, jump to (\ref{chart:sortInLoopEnd}). \label{chart:sortInLoopStart}
 			\begin{enumerate}
-				\item	If {\tt names[i-1]} comes lexographically after {\tt names[i]}:
+				\item	If {\tt names[i-1]} comes lexicographically after {\tt names[i]}:
 				\begin{enumerate}
 					\item	Swap the elements at {\tt names[i-1]} and {\tt names[i]}.
-					\item	Swap the elements at {\tt marks[i-1]} and {\tt msrks[i]}.
+					\item	Swap the elements at {\tt marks[i-1]} and {\tt marks[i]}.
 				\end{enumerate}
 				\item	Jump to (\ref{chart:sortInLoopStart}).
 			\end{enumerate}
@@ -104,7 +104,7 @@ list of students and percentages in an ASCII bar chart, arranged alphabetically.
 \varDescription
 \begin{longtable} {| >{\ttfamily}p{0.16\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
 \hline\multicolumn{3}{|c|}{\tt Marksheet} 													\\ \hline
-int		&	SCREEN\_WIDTH	 &	Number of chracters to use in the display width					\\ \hline
+int		&	SCREEN\_WIDTH	 &	Number of characters to use in the display width				\\ \hline
 double	& 	maxMarks	&	The maximum marks allotted for the examination					\\ \hline
 int		&	numberOf
 	\newline Students	&	The number of students whose marks are to be recorded			\\ \hline

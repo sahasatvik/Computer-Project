@@ -168,7 +168,7 @@ public class TourSolver {
 		return i;
 	}
 	
-	/* Check whether a position lied within the board */
+	/* Check whether a position lies within the board */
 	public boolean isWithinBoard (int x, int y) {
 		return (x >= 0 && x < size && y >= 0 && y < size);
 	}

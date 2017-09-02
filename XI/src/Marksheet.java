@@ -62,7 +62,7 @@ public class Marksheet {
 					+ maxMarks +  ")");
 	}
 
-	/* Sort the names and associated marks lexographically */
+	/* Sort the names and associated marks lexicographically */
 	public void sortByName () {
 		for (int right = lastStudent; right > 0; right--)
 			for (int i = 1; i <= right; i++)

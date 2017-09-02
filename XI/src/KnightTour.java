@@ -46,7 +46,7 @@ public class KnightTour {
 		}
 	}
 
-	/* Display the board, which each square marked with the move number on which
+	/* Display the board, with each square marked with the move number on which
 	   the knight landed on it */
 	public static void showBoard (int[][] board) {
 		String hLine = "    " + multiplyString("+-----", board.length) + "+";

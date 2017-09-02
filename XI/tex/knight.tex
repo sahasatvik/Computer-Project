@@ -56,10 +56,10 @@ one of {\em trillions} of solutions, there are approximately $4 \times 10^{51}$ 
 board. For even larger boards, iterating through every possible path is clearly impractical.\citeneeded
 
 This problem calls for implementing a {\em backtracking\footnote{Backtracking is a general algorithm for finding some or all solutions to some computational problems that incrementally builds candidates to the solutions, and abandons each partial candidate (``backtracks") as soon as it determines that the candidate cannot possibly be completed to a valid solution.} algorithm}, coupled with some {\em heuristic\footnote{A heuristic technique is any approach to problem solving that employs a practical method not guaranteed to be optimal or perfect, but sufficient for the immediate goals. Where finding an optimal solution is impossible or impractical, heuristic methods can be used to speed up the process of finding a satisfactory solution.}} to speed up the search. One such heuristic is {\em Warnsdorf's Rule}.
-\begin{quote}
+\begin{quote}position
 The knight is moved so that it always proceeds to the square from which the knight will have the {\em fewest} onward moves.
 \end{quote}
-This allows us to define a ranking alorithm for each possible path --- the positions which result in the smallest number of further moves, or is furthest away from the board's centre will be investigated first. In case of a tie, we can either proceed without making
+This allows us to define a ranking algorithm for each possible path --- the positions which result in the smallest number of further moves, or is furthest away from the board's centre will be investigated first. In case of a tie, we can either proceed without making
 any changes to the already existing positions, or introduce a random element. This has the effect of producing different results
 on successive executions, giving a variety of solutions.
 
@@ -102,7 +102,7 @@ The tendency of the path to remain close to the edges of the board, where the mo
 	\item	Initialize an integer arrays of integer arrays indexed with integers from {\tt [1]} to 
 			{\tt [size]}, simulating a chessboard. Store it as {\tt board}, which records the 
 			move numbers on which the knight lands on it.
-	\item	Initialize a {\tt Position} stack {\tt path}, along with methods to add ad remove {\tt Position}'s from it.
+	\item	Initialize a {\tt Position} stack {\tt path}, along with methods to add and remove {\tt Position}'s from it.
 	\item	Set an integer counter {\tt numberOfMoves} to {\tt 0}, as part of the {\tt path} stack.
 	\item	{\bf Define} the functions: 
 	\begin{enumerate}
@@ -116,7 +116,7 @@ The tendency of the path to remain close to the edges of the board, where the mo
 \begin{enumerate}
 	\item	If the {\tt path} stack is full, {\bf return} {\tt true}, indicating that the tour has been solved.
 	\item	Call {\tt this->getPossibleMoves(p)}. Store the returned list of possible legal moves as {\tt moves}.
-	\item	Sort {\tt moves}, ranking each possible poition according to {\em Warnsdorf's Rule}.
+	\item	Sort {\tt moves}, ranking each possible position according to {\em Warnsdorf's Rule}.
 	\item	For every {\tt move} in the list {\tt moves}:
 	\begin{enumerate}
 		\item	Push {\tt move} onto the {\tt path} stack and {\tt board}.
@@ -151,7 +151,7 @@ The tendency of the path to remain close to the edges of the board, where the mo
 \hline\multicolumn{3}{|c|}{\tt TourSolver} 													\\ \hline
 int		&	size		&	Number of files/ranks in the chessboard							\\ \hline
 Position[]
-		&	path		&	Stack of moves which are part of th solved tour					\\ \hline
+		&	path		&	Stack of moves which are part of the solved tour					\\ \hline
 int		&	numberOfMoves &	Counter variable, number of moves made in the solved tour		\\ \hline
 int[][]	&	board		&	An integer array of integer arrays, representing a chessboard,
 							with each square marked with the move number at which the knight
@@ -181,7 +181,7 @@ Position &	move		&	Current move to evaluate in the path								\\ \hline
 \hline\multicolumn{3}{|c|}{\tt TourSolver::sortMoves(Position[])} 							\\ \hline
 Position[]
 		&	moves		&	List of moves to rank using Warnsdorf's heuristic				\\ \hline
-int		&	count		&	Total nuber of moves in {\tt moves}								\\ \hline
+int		&	count		&	Total number of moves in {\tt moves}								\\ \hline
 int		&	right		&	Counter variable													\\ \hline
 int		&	i			&	Counter variable													\\ \hline
 \hline\multicolumn{3}{|c|}{\tt TourSolver::compareMoves(Position, Position)}					\\ \hline

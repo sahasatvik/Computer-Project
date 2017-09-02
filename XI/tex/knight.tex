@@ -56,7 +56,7 @@ one of {\em trillions} of solutions, there are approximately $4 \times 10^{51}$ 
 board. For even larger boards, iterating through every possible path is clearly impractical.\citeneeded
 
 This problem calls for implementing a {\em backtracking\footnote{Backtracking is a general algorithm for finding some or all solutions to some computational problems that incrementally builds candidates to the solutions, and abandons each partial candidate (``backtracks") as soon as it determines that the candidate cannot possibly be completed to a valid solution.} algorithm}, coupled with some {\em heuristic\footnote{A heuristic technique is any approach to problem solving that employs a practical method not guaranteed to be optimal or perfect, but sufficient for the immediate goals. Where finding an optimal solution is impossible or impractical, heuristic methods can be used to speed up the process of finding a satisfactory solution.}} to speed up the search. One such heuristic is {\em Warnsdorf's Rule}.
-\begin{quote}position
+\begin{quote}
 The knight is moved so that it always proceeds to the square from which the knight will have the {\em fewest} onward moves.
 \end{quote}
 This allows us to define a ranking algorithm for each possible path --- the positions which result in the smallest number of further moves, or is furthest away from the board's centre will be investigated first. In case of a tie, we can either proceed without making

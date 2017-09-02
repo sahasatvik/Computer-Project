@@ -7,7 +7,7 @@ public class Determinant {
 		try {
 			System.out.print("Enter the size of the (size X size) square matrix : ");
 			int size = inp.nextInt();
-			/* Create a sqare matrix which has suitable methods for calculation */
+			/* Create a square matrix which has suitable methods for calculation */
 			SquareMatrix matrix = new SquareMatrix(size);
 			System.out.println("Enter " + (size * size) + " integers : ");
 			for (int i = 1; i <= size; i++)

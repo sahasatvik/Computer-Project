@@ -90,7 +90,7 @@ public class Marksheet {
 		marks[y] = tempMark;
 	}
 
-	/* Utility funtion for repeating strings */	
+	/* Utility function for repeating strings */	
 	public static String multiplyString (String s, int n) {
 		String out = "";
 		while (n --> 0)

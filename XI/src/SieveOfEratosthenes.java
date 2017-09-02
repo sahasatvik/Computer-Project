@@ -2,7 +2,7 @@ public class SieveOfEratosthenes {
 	private final int upperLimit;
 	private boolean[] primes;
 	
-	/* Initialize the list of numbers using an uper limit */
+	/* Initialize the list of numbers using an upper limit */
 	public SieveOfEratosthenes (int upperLimit) {
 		this.upperLimit = upperLimit;
 		this.initPrimes();

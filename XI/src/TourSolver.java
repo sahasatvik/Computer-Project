@@ -131,7 +131,7 @@ public class TourSolver {
 		int bFree = degreesOfFreedom[b.getX()][b.getY()];
 		if (aFree != bFree)
 			return aFree - bFree;
-		/* Resolve ties using a predecided element of randomness */
+		/* Resolve ties using a pre-decided element of randomness */
 		return (Math.random() < tieBreakRandomness)? 1 : -1;
 	}
 
@@ -143,7 +143,7 @@ public class TourSolver {
 	}
 	
 	/* Get the list of all possible, legal moves not touching a previously
-	   travelled square from a given position */
+	   traveled square from a given position */
 	public Position[] getPossibleMoves (Position start) {
 		Position[] possibleMoves = new Position[KNIGHT_MOVES.length];
 		int i = 0;

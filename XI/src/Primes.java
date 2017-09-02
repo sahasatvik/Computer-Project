@@ -13,7 +13,7 @@ public class Primes {
 		} catch (NumberFormatException | IndexOutOfBoundsException e) {
 			/* Handle missing or incorrectly formatted arguments */
 			System.out.println("Enter 1 argument (limit[integer, >1])!");
-			System.out.println("(Primes will be dislayed up to, not including 'limit')");
+			System.out.println("(Primes will be displayed up to, not including 'limit')");
 		}	
 	}
 

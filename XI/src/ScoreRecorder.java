@@ -3,7 +3,7 @@ import java.util.InputMismatchException;
 
 public class ScoreRecorder {
 	public static void main (String[] args) {
-		/* Create an object capable of maning input */
+		/* Create an object capable of managing input */
 		Scanner inp = new Scanner(System.in);
 		double maxMarks = 0.0;
 		int numberOfStudents = 0;
@@ -12,7 +12,7 @@ public class ScoreRecorder {
 			maxMarks = inp.nextDouble();
 			System.out.print("Enter the total number of students : ");
 			numberOfStudents = inp.nextInt();
-			/* Check for any erraneous data */
+			/* Check for any erroneous data */
 			if (maxMarks <= 0) {
 				System.out.println("Maximum marks must be positive!");
 				System.exit(0);

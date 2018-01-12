@@ -1,0 +1,21 @@
+
+\problem A rational number $q$ can be broken down into a \textit{simple continued fraction} in the form given below.
+\begin{align*}
+	a_0 + \dfrac{1}{a_1 + \dfrac{1}{a_2 + \dfrac{1}{\ddots + \dfrac{1}{a_n}}}}
+\end{align*}
+This may be represented by the abbreviated notation $[a_0; a_1, a_2, \dots, a_n]$. For example, $[0; 1, 1, 2, 1, 4, 2]$ is shorthand for the following.
+\begin{align*}
+	\frac{42}{73} \;=\; 0 + \dfrac{1}{1 + \dfrac{1}{1 + \dfrac{1}{2 + \dfrac{1}{1 + \dfrac{1}{4 + \dfrac{1}{2}}}}}}
+\end{align*}
+Calculate the \textit{simple continued fraction} expression for a given, positive fraction.
+
+\solution
+We can thus solve this problem recursively by noting that the following holds.
+\begin{align*}
+	\frac{p}{q} \;=\;\!\!\! \underbrace{\left\lfloor \frac{p}{q} \right\rfloor}_{\text{Integer part}} 
+			\!\!\!	+ \underbrace{\frac{p \bmod q}{q}}_{\text{Fractional part}}
+\end{align*}
+Thus, by defining $f(\frac{p}{q})$ as the continued fraction representation of the fraction $\frac{p}{q}$, we can write
+\begin{align*}
+	f \left( \frac{p}{q} \right) \;=\; \left\lfloor \frac{p}{q} \right\rfloor + \frac{1}{f \left( \frac{q}{p \bmod q} \right)}
+\end{align*}

@@ -13,6 +13,7 @@
 \usepackage{array}
 \usepackage{longtable}
 \usepackage{metalogo}
+
 \geometry{
 	left=30mm,
 	right=30mm
@@ -49,14 +50,14 @@
 	numbers=left,
 	morecomment=[l][\color{codeannotation}]{@},
 	emph=[1]{return},
-    emphstyle=[1]{\color{codegreen}},
-    emph=[2]{true, false, null},
-    emphstyle=[2]{\color{codepink}},
-    emph=[3]{new},
-    emphstyle=[3]{\color{codepurple}},
-    emph=[4]{for, while, if, else, try, catch, finally},
-    emphstyle=[4]{\color{codelightblue}},
-    basicstyle={\small\ttfamily\footnotesize},
+	emphstyle=[1]{\color{codegreen}},
+	emph=[2]{true, false, null},
+	emphstyle=[2]{\color{codepink}},
+	emph=[3]{new},
+	emphstyle=[3]{\color{codepurple}},
+	emph=[4]{for, while, if, else, try, catch, finally},
+	emphstyle=[4]{\color{codelightblue}},
+	basicstyle={\small\ttfamily\footnotesize},
 	numberstyle=\tiny\color{codegray},
 	keywordstyle=\color{codeblue},
 	commentstyle=\color{codecomment},
@@ -73,23 +74,30 @@
 	parsep=0mm
 }
 
+\includeonly{tex/cover, tex/quote, tex/binomial, tex/palindrome_gen, tex/continued_frac, tex/sum_fractions, tex/last}
+
 \title{Computer Project}
 \author{Satvik Saha}
 \begin{document}
 
-\include{tex/cover}
-\include{tex/quote}
+	\include{tex/cover}
+	\include{tex/quote}
 
-\include{tex/unique}
-\include{tex/partition}
-\include{tex/cipher}
-\include{tex/palindrome}
-\include{tex/sieve}
-\include{tex/chart}
-\include{tex/determinant}
-\include{tex/knight}
+	\include{tex/unique}
+	\include{tex/partition}
+	\include{tex/cipher}
+	\include{tex/palindrome}
+	\include{tex/sieve}
+	\include{tex/chart}
+	\include{tex/determinant}
+	\include{tex/knight}
 
-\include{tex/last}
+	\include{tex/binomial}
+	\include{tex/palindrome_gen}
+	\include{tex/continued_frac}
+	\include{tex/sum_fractions}
+
+	\include{tex/last}
 
 \end{document}
 \end

@@ -1,0 +1,23 @@
+
+\chapquote{``If people do not believe that mathematics is simple, it is only because they do not realize how complicated life is."}{John von Neumann}
+
+\problem Palindromes can be generated in many ways. One of them involves picking a number, reversing
+the order of its digits and adding the result to the original. For example, we have
+\begin{align*}
+	135 + 531 \; &= \; 666
+\end{align*}
+Not all numbers will yield a palindrome after one step. Instead, we can repeat the above process, using the sum obtained as
+as the new number to reverse.
+\begin{align*}
+	963 + 369   \; &= \; 1332 \\
+	1332 + 2331 \; &= \; 3663
+\end{align*}
+This process is often called the \textit{196-algorithm}. 
+Some numbers seem never to yield a palindrome even after millions of iterations. These are called \textit{Lychrel numbers}.
+The smallest of these in base $10$ is conjectured to be the number $196$, although none have been mathematically proven to exist.
+
+Generate the steps and final palindrome of the \textit{196-algorithm}, given a natural number as a \textit{seed \footnotemark}.
+
+\footnotetext {
+	A \textit{seed} is an initial number, from which subsequent numbers are generated.
+}

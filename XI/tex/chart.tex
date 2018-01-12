@@ -103,48 +103,48 @@ list of students and percentages in an ASCII bar chart, arranged alphabetically.
 
 \varDescription
 \begin{longtable} {| >{\ttfamily}p{0.16\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
-\hline\multicolumn{3}{|c|}{\tt Marksheet} 													\\ \hline
-int		&	SCREEN\_WIDTH	 &	Number of characters to use in the display width				\\ \hline
-double	& 	maxMarks	&	The maximum marks allotted for the examination					\\ \hline
-int		&	numberOf
-	\newline Students	&	The number of students whose marks are to be recorded			\\ \hline
-int		&	lastStudent	&	The index number of the last student added to the marksheet		\\ \hline
-String[]	& names		&	The names of the students										\\ \hline
-double[]	& marks		&	The marks of the students										\\ \hline
-\hline\multicolumn{3}{|c|}{\tt Marksheet::addMarks(String, double)} 							\\ \hline
-String	&	name		&	The name of the student to be added								\\ \hline
-double	&	score		&	The marks of the student to be added								\\ \hline
-\hline\multicolumn{3}{|c|}{\tt Marksheet::displayChart()} 									\\ \hline
-int		&	i			&	Counter variable													\\ \hline
-double	&	fraction	&	The fraction on marks scored over the maximum marks				\\ \hline
-String	&	name		&	Temporarily stores a formatted version of a student's name		\\ \hline
-int		&	points		&	The number of characters to display in the bar chart				\\ \hline
-String	&	bar			&	The bar in the chart, along with whitespace padding				\\ \hline
-\hline\multicolumn{3}{|c|}{\tt Marksheet::displayMaxScorers()} 								\\ \hline
-String	&	maxScorers	&	The list of highest scoring students								\\ \hline
-double	&	maxScore	&	The highest score												\\ \hline
-int		&	i			&	Counter variable													\\ \hline
-\hline\multicolumn{3}{|c|}{\tt Marksheet::sortByName()} 										\\ \hline
-int		&	right		&	Counter variable													\\ \hline
-int		&	i			&	Counter variable													\\ \hline
-\hline\multicolumn{3}{|c|}{\tt Marksheet::getMaxScore()} 									\\ \hline
-double	&	max			&	The maximum score in {\tt marks}									\\ \hline
-int		&	i			&	Counter variable													\\ \hline
-\hline\multicolumn{3}{|c|}{\tt Marksheet::swapRecords(int, int)} 							\\ \hline
-int		&	x, y		&	The indices of the records to swap								\\ \hline
-String	&	tempName	&	Temporary storage of a name										\\ \hline
-double	&	tempMark	&	Temporary storage of a mark										\\ \hline
-\hline\multicolumn{3}{|c|}{\tt Marksheet::multiplyString(String, int)} 						\\ \hline
-String	&	s			&	The string to multiply											\\ \hline
-int		&	n			&	The number of times to multiply {\tt s}							\\ \hline
-String	&	out			&	The string containing {\tt n} copies of {\tt s}					\\ \hline
-\hline\multicolumn{3}{|c|}{\tt ScoreRecorder::main(String[])} 								\\ \hline
-Scanner	&	inp			&	The input managing object										\\ \hline
-double	& 	maxMarks	&	The maximum marks allotted for the examination					\\ \hline
-int		&	numberOf
-	\newline Students	&	The number of students whose marks are to be recorded			\\ \hline
-Marksheet &	sheet		&	An object capable of managing student records					\\ \hline
-int		&	i			&	Counter variable													\\ \hline
-String	&	name		&	The name of the student to be added								\\ \hline
-double	&	marks		&	The marks of the student to be added								\\ \hline
+	\hline\multicolumn{3}{|c|}{\tt Marksheet} 										\\ \hline
+	int	&	SCREEN\_WIDTH	&	Number of characters to use in the display width				\\ \hline
+	double	& 	maxMarks	&	The maximum marks allotted for the examination					\\ \hline
+	int	&	numberOf
+		\newline Students	&	The number of students whose marks are to be recorded				\\ \hline
+	int	&	lastStudent	&	The index number of the last student added to the marksheet			\\ \hline
+	String[]& names			&	The names of the students							\\ \hline
+	double[]& marks			&	The marks of the students							\\ \hline
+	\hline\multicolumn{3}{|c|}{\tt Marksheet::addMarks(String, double)} 							\\ \hline
+	String	&	name		&	The name of the student to be added						\\ \hline
+	double	&	score		&	The marks of the student to be added						\\ \hline
+	\hline\multicolumn{3}{|c|}{\tt Marksheet::displayChart()} 								\\ \hline
+	int	&	i		&	Counter variable								\\ \hline
+	double	&	fraction	&	The fraction on marks scored over the maximum marks				\\ \hline
+	String	&	name		&	Temporarily stores a formatted version of a student's name			\\ \hline
+	int	&	points		&	The number of characters to display in the bar chart				\\ \hline
+	String	&	bar		&	The bar in the chart, along with whitespace padding				\\ \hline
+	\hline\multicolumn{3}{|c|}{\tt Marksheet::displayMaxScorers()} 								\\ \hline
+	String	&	maxScorers	&	The list of highest scoring students						\\ \hline
+	double	&	maxScore	&	The highest score								\\ \hline
+	int	&	i		&	Counter variable								\\ \hline
+	\hline\multicolumn{3}{|c|}{\tt Marksheet::sortByName()} 								\\ \hline
+	int	&	right		&	Counter variable								\\ \hline
+	int	&	i		&	Counter variable								\\ \hline
+	\hline\multicolumn{3}{|c|}{\tt Marksheet::getMaxScore()} 								\\ \hline
+	double	&	max		&	The maximum score in {\tt marks}						\\ \hline
+	int	&	i		&	Counter variable								\\ \hline
+	\hline\multicolumn{3}{|c|}{\tt Marksheet::swapRecords(int, int)} 							\\ \hline
+	int	&	x, y		&	The indices of the records to swap						\\ \hline
+	String	&	tempName	&	Temporary storage of a name							\\ \hline
+	double	&	tempMark	&	Temporary storage of a mark							\\ \hline
+	\hline\multicolumn{3}{|c|}{\tt Marksheet::multiplyString(String, int)} 							\\ \hline
+	String	&	s		&	The string to multiply								\\ \hline
+	int	&	n		&	The number of times to multiply {\tt s}						\\ \hline
+	String	&	out		&	The string containing {\tt n} copies of {\tt s}					\\ \hline
+	\hline\multicolumn{3}{|c|}{\tt ScoreRecorder::main(String[])} 								\\ \hline
+	Scanner	&	inp		&	The input managing object							\\ \hline
+	double	& 	maxMarks	&	The maximum marks allotted for the examination					\\ \hline
+	int	&	numberOf
+		\newline Students	&	The number of students whose marks are to be recorded				\\ \hline
+	Marksheet &	sheet		&	An object capable of managing student records					\\ \hline
+	int	&	i		&	Counter variable								\\ \hline
+	String	&	name		&	The name of the student to be added						\\ \hline
+	double	&	marks		&	The marks of the student to be added						\\ \hline
 \end{longtable}

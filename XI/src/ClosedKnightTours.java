@@ -1,21 +1,26 @@
 public class ClosedKnightTours {
 	public static void main (String[] args) {
-		final int boardSize = Integer.parseInt(args[0]);
-		if (boardSize <= 0)
-			throw new NumberFormatException();
-		final String initSquare = (args.length > 1)? args[1] : "a1";
-		final double randomness = (args.length > 2)? Double.parseDouble(args[2])
-						     : Math.pow(0.8, boardSize) * 2;
-		for (int i = 0; i < Integer.parseInt(args[3]); i++) {
-			new Thread (
-				new Runnable() {
-					public void run () {
-						Position[] solution = new TourSolver(boardSize, new Position(initSquare), randomness).getSolution();
-						if (ClosedKnightTours.isClosed(solution))
-							ClosedKnightTours.showMoves(solution);
+		try {
+			final int boardSize = Integer.parseInt(args[0]);
+			if (boardSize <= 0)
+				throw new NumberFormatException();
+			final String initSquare = (args.length > 1)? args[1] : "a1";
+			final double randomness = (args.length > 2)? Double.parseDouble(args[2])
+				: Math.pow(0.8, boardSize) * 2;
+			for (int i = 0; i < Integer.parseInt(args[3]); i++) {
+				new Thread (
+					new Runnable() {
+						public void run () {
+							Position[] solution = new TourSolver(boardSize, new Position(initSquare), randomness).getSolution();
+							if (ClosedKnightTours.isClosed(solution)) {
+								ClosedKnightTours.showMoves(solution);
+							}
+						}
 					}
-				}
-			).start();
+				).start();
+			}
+		} catch (Exception e) {
+			System.out.println("Syntax : java ClosedKnightTours [boardSize] [initSquare] [randomness] [numberOfThreads]");
 		}
 	}
 

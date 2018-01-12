@@ -1,0 +1,19 @@
+
+\problem Let a \textit{fraction} here be restricted to the ratio of two integers, $m$ and $n$, where $n \neq 0$. Thus, a fraction $\frac{m}{n}$ is
+said to be reduced its \textit{lowest terms} when $m$ and $n$ are relatively prime.
+
+Implement this model of \textit{fractions}, such that they are \textit{immutable} and reduced to their \textit{lowest terms} by default. Also
+implement a simple method for adding two \textit{fractions}.
+
+\solution
+The problem of reducing a fraction $\frac{m}{n}$ to its lowest terms can be solved simply by dividing the numerator and the denominator by their
+\textit{greatest common divisor}, i.e., $\mathrm{gcd}(m, n)$. This works as $\mathrm{gcd}(p, q) = 1$ if and only if $p$ and $q$ are relatively prime.
+\\
+Fraction addition can also be implemented using the following formula.
+\begin{align*}
+	\frac{a}{b} \,+\, \frac{c}{d} \;=\; \frac{ad + bc}{bd}
+\end{align*}
+The $\mathrm{gcd}$ of two integers can be calculated recursively using \textit{Euclid's algorithm}.
+\begin{align*}
+	\mathrm{gcd}(a, b) \;=\; \mathrm{gcd}(b, a \bmod b)
+\end{align*}

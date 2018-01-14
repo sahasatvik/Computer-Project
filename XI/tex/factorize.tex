@@ -1,0 +1,20 @@
+
+\chapquote{``Over thinking leads to problems that doesn't even exist in the first place."}{Jayson Engay}
+
+\problem Compute the \textit{prime factorization} of a given natural number.
+
+\solution
+This solution is meant to showcase the drawbacks of using \textit{recursion} in some problems.
+\par
+Let $f(n)$ denote the expansion of the \textit{prime factorization} of the natural number $n$. We \textit{could} observe
+that if we can find naturals $p$ and $q$ such that $n = pq$, we can write
+\begin{align*}
+	f(pq) \;=\; f(p) + f(q)
+\end{align*}
+Using this, we can wrap up the iteration over the naturals into a recursive function.
+\par
+The problem with this approach is that for moderately large numbers, the number of nested calls grows rapidly.
+For large enough numbers, the default memory allocated for the \textit{call stack} by the \textit{Java Virtual Machine} falls woefully short.
+As a result, it becomes necessary to manually set the size of the \textit{thread stack size} by passing the \texttt{-Xss<size>} option
+to the \textit{JVM} during program execution. 
+

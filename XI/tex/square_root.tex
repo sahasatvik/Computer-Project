@@ -1,0 +1,35 @@
+
+\chapquote{``Curiosity begins as an act of tearing to pieces, or analysis."}{Samuel Alexander}
+
+\problem Calculate the \textit{square root} of a given positive number, using only \textit{addition}, \textit{subtraction}, \textit{multiplication}
+and \textit{division}.
+
+\solution
+The problem of finding the \textit{square root} of a positive real number $k$ is equivalent to finding a positive root of the function 
+$f : \mathbb{R}_{\ge 0} \to \mathbb{R}_{\ge 0} $
+\begin{align*}
+	f(x) \;=\; x^2 - k
+\end{align*}
+This problem can be solved using \textit{Newton's method}. \textit{Newton's method} is an iterative process for finding a root of a general function
+$f : \mathbb{R} \to \mathbb{R}$ by creating an initial guess, then improving upon it. 
+\par
+Let $f'$ denote the derivative of the function $f$. Thus, the equation of the tangent to the curve $f(x)$, drawn through the
+point $(x_n, f(x_n))$ is given by the following equation.
+\begin{align*}
+	y \;=\; f'(x_n)(x - x_n) + f(x_n)
+\end{align*}
+The idea here is that the $x$-\textit{intercept} of this tangent will be a better approximation to the root of the function $f$. Setting
+$y = 0$, solving for $x$ and renaming it to $x_{n+1}$ yields the following expression.
+\begin{align*}
+	x_{n+1} \;=\; x_n \,-\, \frac{f(x_n)}{f'(x_n)}
+\end{align*}
+Plugging in the required function for this problem, we have
+\begin{align*}
+	x_{n+1} \;=\; x_n \,-\, \frac{x_n^2 - k}{2x_n}
+\end{align*}
+Simplifying, we arrive at our expression for the term $x_{n+1}$ in our iterative process.
+\begin{align*}
+	x_{n+1} \;=\; \frac{1}{2} \left( x_n \,+\, \frac{k}{x_n} \right)
+\end{align*}
+This is the sort of simple expression we have been looking for, involving only one addition and two multiplications per iteration.
+As $n$ becomes very large, the term $x_n$ approaches the \textit{square root} of $k$.

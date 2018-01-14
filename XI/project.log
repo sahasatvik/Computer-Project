@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  12 JAN 2018 21:12
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  13 JAN 2018 20:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -824,7 +824,7 @@ LaTeX Info: Redefining \LaTeXe on input line 219.
 \c@prob=\count285
 (/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
-) (./project.aux (./tex/cover.aux) (./tex/quote.aux) (./tex/unique.aux) (./tex/partition.aux) (./tex/cipher.aux) (./tex/palindrome.aux) (./tex/sieve.aux) (./tex/chart.aux) (./tex/determinant.aux) (./tex/knight.aux) (./tex/binomial.aux) (./tex/palindrome_gen.aux) (./tex/continued_frac.aux) (./tex/sum_fractions.aux) (./tex/last.aux))
+) (./project.aux (./tex/cover.aux) (./tex/quote.aux) (./tex/unique.aux) (./tex/partition.aux) (./tex/cipher.aux) (./tex/palindrome.aux) (./tex/sieve.aux) (./tex/chart.aux) (./tex/determinant.aux) (./tex/knight.aux) (./tex/square_root.aux) (./tex/sum_fractions.aux) (./tex/continued_frac.aux) (./tex/binomial.aux) (./tex/palindrome_gen.aux) (./tex/factorize.aux) (./tex/last.aux))
 \openout1 = `project.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
@@ -1027,14 +1027,14 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 
 
 ]
-\openout2 = `tex/binomial.aux'.
+\openout2 = `tex/square_root.aux'.
 
-(./tex/binomial.tex
-LaTeX Font Info:    Try loading font information for U+msa on input line 4.
+(./tex/square_root.tex
+LaTeX Font Info:    Try loading font information for U+msa on input line 8.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 4.
+LaTeX Font Info:    Try loading font information for U+msb on input line 8.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )) [46
@@ -1049,9 +1049,9 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 ]
-\openout2 = `tex/palindrome_gen.aux'.
+\openout2 = `tex/sum_fractions.aux'.
 
-(./tex/palindrome_gen.tex) [47
+(./tex/sum_fractions.tex) [47
 
 
 ]
@@ -1061,25 +1061,37 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 ]
-\openout2 = `tex/sum_fractions.aux'.
+\openout2 = `tex/binomial.aux'.
 
-(./tex/sum_fractions.tex) [49
+(./tex/binomial.tex) [49
+
+
+]
+\openout2 = `tex/palindrome_gen.aux'.
+
+(./tex/palindrome_gen.tex) [50
+
+
+]
+\openout2 = `tex/factorize.aux'.
+
+(./tex/factorize.tex) [51
 
 
 ]
 \openout2 = `tex/last.aux'.
 
-(./tex/last.tex) [49
+(./tex/last.tex) [51
 
 
-] (./project.aux (./tex/cover.aux) (./tex/quote.aux) (./tex/unique.aux) (./tex/partition.aux) (./tex/cipher.aux) (./tex/palindrome.aux) (./tex/sieve.aux) (./tex/chart.aux) (./tex/determinant.aux) (./tex/knight.aux) (./tex/binomial.aux) (./tex/palindrome_gen.aux) (./tex/continued_frac.aux) (./tex/sum_fractions.aux) (./tex/last.aux)) ) 
+] (./project.aux (./tex/cover.aux) (./tex/quote.aux) (./tex/unique.aux) (./tex/partition.aux) (./tex/cipher.aux) (./tex/palindrome.aux) (./tex/sieve.aux) (./tex/chart.aux) (./tex/determinant.aux) (./tex/knight.aux) (./tex/square_root.aux) (./tex/sum_fractions.aux) (./tex/continued_frac.aux) (./tex/binomial.aux) (./tex/palindrome_gen.aux) (./tex/factorize.aux) (./tex/last.aux)) ) 
 Here is how much of TeX's memory you used:
- 27691 strings out of 493005
- 560780 string characters out of 6134596
- 671975 words of memory out of 5000000
- 31164 multiletter control sequences out of 15000+600000
+ 27707 strings out of 493005
+ 561062 string characters out of 6134596
+ 672975 words of memory out of 5000000
+ 31166 multiletter control sequences out of 15000+600000
  10136 words of font info for 59 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  62i,19n,73p,10368b,233s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on project.pdf (7 pages).
+Output written on project.pdf (9 pages).

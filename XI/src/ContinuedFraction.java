@@ -6,6 +6,8 @@ public class ContinuedFraction {
 			int numerator = Integer.parseInt(args[0]);
 			int denominator = Integer.parseInt(args[1]);
 			System.out.println(getContinuedFraction(new Fraction(numerator, denominator)));
+		} catch (ArithmeticException e) {
+			System.out.println("Invalid fraction - division by zero!");
 		} catch (Exception e) {
 			System.out.println("Enter 2 arguments! ([numerator] [denominator])");
 		}

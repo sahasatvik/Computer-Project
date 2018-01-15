@@ -33,3 +33,37 @@ Simplifying, we arrive at our expression for the term $x_{n+1}$ in our iterative
 \end{align*}
 This is the sort of simple expression we have been looking for, involving only one addition and two multiplications per iteration.
 As $n$ becomes very large, the term $x_n$ approaches the \textit{square root} of $k$.
+
+\clearpage
+\algorithm
+\texttt{main (number:FloatingPoint, maxIterations:Integer)} 
+\begin{enumerate}
+	\item Call \texttt{squareRoot(number, maxIterations)}. Store the result in \texttt{root}.
+	\item Display \texttt{root}, along with the error from the value calculated by the library function \texttt{Math->sqrt(number)}.
+	\item \textbf{Exit} 
+\end{enumerate}
+\vspace{5mm}
+\texttt{squareRoot (n:FloatingPoint, maxIterations:Integer)} 
+\begin{enumerate}
+	\item Store the initial guess \texttt{n / 2} in the variable \texttt{x}.
+	\item For \texttt{maxIterations} times:
+	\begin{enumerate}
+		\item Calculate \texttt{0.5 * (x + (n / x))}. Store the result back in \texttt{x}. 
+	\end{enumerate}
+	\item \textbf{Return} \texttt{x} 
+\end{enumerate}
+
+\sourcecode
+\lstinputlisting{src/SquareRoot.java}
+
+\varDescription
+\begin{longtable} {| >{\ttfamily}p{0.15\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
+\hline\multicolumn{3}{|c|}{\tt SquareRoot::main(String[])}	\\ \hline
+double	&	number	&	Stores the number whose square root is to be extracted \\ \hline
+int 	& maxIterations &	Stores the number of iterations for which Newton's method is to be applied \\ \hline
+double	&	root	&	Stores the calculated square root of \texttt{number} \\ \hline
+double	&library\_root	&	Stores the square root of \texttt{number} given by the Java library \\ \hline
+\hline\multicolumn{3}{|c|}{\tt SquareRoot::squareRoot(double, int)}	\\ \hline
+double	&	x	&	Stores the results of successive iterations of Newton's method \\ \hline
+int 	&	i	&	Counter variable \\ \hline
+\end{longtable}

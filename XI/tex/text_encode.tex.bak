@@ -39,7 +39,7 @@ the supplied input.
 	\item Open the file pointed to by \texttt{codebook}. Start from the beginning in read mode.
 	\item On the first pass through \texttt{codebook}, count the number of lines and store the result in \texttt{numberOfLines}.
 	\item Close, and reopen \texttt{codebook}. Start at the beginning.
-	\item Initialize a \texttt{2} column \texttt{String} array, with \texttt{numberOfLines} as the number of rows. Assign it
+	\item Initialze a \texttt{2} column \texttt{String} array, with \texttt{numberOfLines} as the number of rows. Assign it
 		to \texttt{wordMap}. 
 	\item Start reading \texttt{codebook} again. For each line, stored in \texttt{line} and each row in \texttt{wordMap} :
 	\begin{enumerate}

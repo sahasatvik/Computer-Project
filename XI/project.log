@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  15 JAN 2018 16:53
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  15 JAN 2018 22:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1037,7 +1037,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Try loading font information for U+msb on input line 8.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)) [47
+) [47
 
 
 
@@ -1048,62 +1048,174 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 
-]
+] (./src/SquareRoot.java [48
+
+])
+Overfull \hbox (15.41968pt too wide) in alignment at lines 60--69
+ [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 69
+ []
+
+) [49]
 \openout2 = `tex/sum_fractions.aux'.
 
-(./tex/sum_fractions.tex) [48
+(./tex/sum_fractions.tex [50
 
 
-]
+] (./src/Fraction.java [51
+
+]) (./src/FractionAdder.java [52])
+Overfull \hbox (15.41968pt too wide) in alignment at lines 56--70
+ [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 70
+ []
+
+) [53]
 \openout2 = `tex/continued_frac.aux'.
 
-(./tex/continued_frac.tex) [49
+(./tex/continued_frac.tex [54
 
 
 ]
+Overfull \hbox (3.17885pt too wide) in paragraph at lines 48--49
+[]\TU/lmr/m/n/12 Call \TU/lmtt/m/n/12 getContinuedFraction(denominator, numerator % denominator)\TU/lmr/m/n/12 . Store
+ []
+
+(./src/ContinuedFraction.java [55])
+Overfull \hbox (15.41968pt too wide) in alignment at lines 56--63
+ [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 63
+ []
+
+) [56]
 \openout2 = `tex/binomial.aux'.
 
-(./tex/binomial.tex) [50
+(./tex/binomial.tex [57
 
+
+] (./src/Binomial.java) [58
 
 ]
+Overfull \hbox (15.41968pt too wide) in alignment at lines 53--58
+ [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 58
+ []
+
+) [59]
 \openout2 = `tex/palindrome_gen.aux'.
 
-(./tex/palindrome_gen.tex) [51
+(./tex/palindrome_gen.tex [60
 
 
-]
+] (./src/PalindromeGenerator.java [61
+
+])
+Overfull \hbox (15.41968pt too wide) in alignment at lines 60--70
+ [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 70
+ []
+
+) [62]
 \openout2 = `tex/factorize.aux'.
 
-(./tex/factorize.tex) [52
+(./tex/factorize.tex (./src/Factorize.java [63
 
 
-]
+])
+Overfull \hbox (15.41968pt too wide) in alignment at lines 44--50
+ [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 50
+ []
+
+) [64]
 \openout2 = `tex/text_encode.aux'.
 
-(./tex/text_encode.tex) [53
+(./tex/text_encode.tex [65
 
 
-]
+] (./src/CodeSubstituter.java [66]) [67] (./src/TextEncoder.java
+Overfull \hbox (45.92055pt too wide) in paragraph at lines 19--20
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+)
+Overfull \hbox (1.44595pt too wide) in paragraph at lines 82--82
+\TU/lmtt/m/n/12 Substituter| 
+ []
+
+
+Overfull \hbox (15.41968pt too wide) in alignment at lines 69--85
+ [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 85
+ []
+
+[68
+
+]) [69]
 \openout2 = `tex/char_freq.aux'.
 
-(./tex/char_freq.tex) [54
+(./tex/char_freq.tex [70
 
 
-]
+] (./src/CharacterCounter.java [71] [72]) (./src/AnalyseCharacterFrequency.java [73])
+Underfull \hbox (badness 1024) in paragraph at lines 58--58
+[]|\TU/lmr/m/n/12 The frequencies of each corresponding letter in
+ []
+
+
+Overfull \hbox (15.41968pt too wide) in alignment at lines 53--73
+ [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 73
+ []
+
+
+Overfull \hbox (1.44595pt too wide) in paragraph at lines 77--77
+[]|\TU/lmtt/m/n/12 PrintWriter| 
+ []
+
+
+Overfull \hbox (15.41968pt too wide) in alignment at lines 73--87
+ [] [] [] 
+ []
+
+[74]) [75]
 \openout2 = `tex/last.aux'.
 
-(./tex/last.tex) [54
+(./tex/last.tex) [75
 
 
 ] (./project.aux (./tex/cover.aux) (./tex/quote.aux) (./tex/unique.aux) (./tex/partition.aux) (./tex/cipher.aux) (./tex/palindrome.aux) (./tex/sieve.aux) (./tex/chart.aux) (./tex/determinant.aux) (./tex/knight.aux) (./tex/square_root.aux) (./tex/sum_fractions.aux) (./tex/continued_frac.aux) (./tex/binomial.aux) (./tex/palindrome_gen.aux) (./tex/factorize.aux) (./tex/text_encode.aux) (./tex/char_freq.aux) (./tex/last.aux)) ) 
 Here is how much of TeX's memory you used:
- 27723 strings out of 493005
- 561344 string characters out of 6134596
- 672975 words of memory out of 5000000
- 31168 multiletter control sequences out of 15000+600000
- 10136 words of font info for 59 fonts, out of 8000000 for 9000
+ 28150 strings out of 493005
+ 567027 string characters out of 6134596
+ 718975 words of memory out of 5000000
+ 31558 multiletter control sequences out of 15000+600000
+ 10152 words of font info for 61 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 62i,19n,73p,10368b,233s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,19n,73p,10368b,1555s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on project.pdf (11 pages).
+Output written on project.pdf (32 pages).

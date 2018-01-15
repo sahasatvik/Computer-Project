@@ -64,7 +64,7 @@ long	&	n	&	Stores the \textit{seed} for the palindrome generation \\ \hline
 long	&	n	&	Stores the current number to generate a palindrome from \\ \hline
 long	&	r	&	Stores the reverse of \texttt{n} \\ \hline 
 int 	&	step	&	Stores the step of the generation currently executing \\ \hline
-long	&	sum 	&	Stores the sum of \texttt{n} and \texttt{r} \\ \hline
+long	&	sum 	&	Stors the sum of \texttt{n} and \texttt{r} \\ \hline
 \hline\multicolumn{3}{|c|}{\tt PalindromeGenerator::reverse(long)}	\\ \hline
 long	&	r	&	Stores the reverse of \texttt{n} 	\\ \hline 
 \end{longtable}

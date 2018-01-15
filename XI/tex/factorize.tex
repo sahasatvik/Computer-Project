@@ -18,3 +18,33 @@ For large enough numbers, the default memory allocated for the \textit{call stac
 As a result, it becomes necessary to manually set the size of the \textit{thread stack size} by passing the \texttt{-Xss<size>} option
 to the \textit{JVM} during program execution. 
 
+\algorithm
+\texttt{main (number:Integer)}
+\begin{enumerate}
+	\item Call and display \texttt{factorize(number, 2)}.
+	\item \textbf{Exit} 
+\end{enumerate}
+\vspace{5mm}
+\texttt{factorize (n:Integer, next:Integer)}
+\begin{enumerate}
+	\item \textbf{If} \texttt{n} is one, \textbf{return} an empty \texttt{String}.
+	\item \textbf{If} \texttt{next} exceeds, or is equal to, \texttt{n}, \textbf{return} \texttt{next}.
+	\item \textbf{If} \texttt{next} divides \texttt{n}:
+	\begin{enumerate}
+		\item Append \texttt{next} to the \texttt{String} returned by the call \texttt{factorize(n / next, next)}.
+		\item \textbf{Return}  the above value.
+	\end{enumerate}
+	\item \textbf{Return} \texttt{factorize(n, next + 1)} 
+\end{enumerate}
+
+\sourcecode
+\lstinputlisting{src/Factorize.java}
+
+\varDescription
+\begin{longtable} {| >{\ttfamily}p{0.15\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
+\hline\multicolumn{3}{|c|}{\tt Factorize::main(String[])}	\\ \hline
+int 	&	number		&	Stores the number to be factorized \\ \hline
+\hline\multicolumn{3}{|c|}{\tt Factorize::main(String[])}	\\ \hline
+int 	&	n		&	Stores the current number to be factorized \\ \hline
+int 	&	next		&	Stores the next number to check for divisibility \\ \hline
+\end{longtable}

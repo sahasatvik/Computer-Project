@@ -22,14 +22,14 @@ Note that we can rewrite the definition of the binomial by cancelling out common
 \begin{align*}
 	\binom{n}{k} \;=\; \frac{n(n-1)(n-2)\cdots(n-(k-1))}{k(k-1)(k-2)\cdots 1}
 \end{align*}
-Now that we have this definition, it is easy to see that we can separate the term $\frac{n}{k}$ and leave behind a smaller binomial coefficient.
+Now that we have this definition, it is easy to see that we can separate the term $\frac{n}{k}$ and leave behind a smaller binomal coefficient.
 Thus, we arrive at the recursive formula
 \begin{align*}
 	\binom{n}{k} \;=\; \frac{n}{k} \cdot \binom{n-1}{k-1}
 \end{align*}
 Coupled with the observation that $\binom{n}{0} = 1$, we can solve this problem recursively.
 \par
-We can introduce a small optimisation by observing that $\binom{n}{k} = \binom{n}{n-k}$. Thus, for $k > \frac{n}{2}$, we can replace
+We can intrduce a small optimisation by observing that $\binom{n}{k} = \binom{n}{n-k}$. Thus, for $k > \frac{n}{2}$, we can replace
 $k$ with $n-k$ to reduce the number of recursive calls.
 
 \clearpage

@@ -56,7 +56,7 @@ The \textit{greatest common divisor} of two integers can be calculated recursive
 \begin{longtable} {| >{\ttfamily}p{0.15\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
 \hline\multicolumn{3}{|c|}{\tt Fraction}	\\ \hline
 int 	&	numerator	&	Stores the numerator of the fraction \\ \hline
-int 	& 	denominator	&	Stores the denominator of the fraction \\ \hline
+int 	& 	denominator	&	Stores the denominatpr of the fraction \\ \hline
 \hline\multicolumn{3}{|c|}{\tt Fraction(int, int)}	\\ \hline
 int 	&	g		&	Stores the greatest common divisor of \texttt{numerator} and \texttt{denominator} \\ \hline
 \hline\multicolumn{3}{|c|}{\tt Fraction::addFractions(Fraction, Fraction)}	\\ \hline

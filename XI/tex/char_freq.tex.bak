@@ -1,11 +1,11 @@
 
 \chapquote{``Hofstadter's Law: It always takes longer than you expect, even when you take into account Hofstadter's Law."}{Douglas Hofstadter}
 
-\problem Analyse the frequency of each letter in the English alphabet appearing in a given file. Store the results
+\problem Analyse the frequency of each letter in the english alphabet appearing in a given file. Store the results
 in a different file.
 
 \solution
-All that has to be done here is reading the contents of a file, counting the occurrences of each character, then tabulating
+All that has to be done here is reading the contents of a file, counting the occurences of each character, then tabulating
 the results before writing them to another file. Here, the characters have also been sorted based on their frequencies.
 
 \algorithm
@@ -24,7 +24,7 @@ the results before writing them to another file. Here, the characters have also 
 	\item For each letter \texttt{c} $\in \{a, b, \dots, z\}$:
 	\begin{enumerate}
 		\item Store \texttt{c} in an empty row in \texttt{letters}. 
-		\item Count the number of occurrences of \texttt{c} in \texttt{fileData}. Store the result in the corresponding
+		\item Count the number of occurences of \texttt{c} in \texttt{fileData}. Store the result in the corresponding
 			row in \texttt{letterCount}.
 		\item Move to a new row in \texttt{letters} and  \texttt{letterCount}.
 	\end{enumerate}
@@ -76,7 +76,7 @@ FileWriter	&	fileWriter	&	An object for writing character based files \\ \hline
 Buffered\newline Writer	&	bufferedWriter	&	An object for buffering character streams being written to a file \\ \hline
 PrintWriter	&	printWriter	&	An object for writing data to an output stream \\ \hline
 int 	&	l		&	Stores the number of digits in \texttt{totalLetters} \\ \hline
-String	&	unusedLetters	&	Stores the list of letters not present in \texttt{fileData} \\ \hline
+String	&	unusedLetetrs	&	Stores the list of letters not present in \texttt{fileData} \\ \hline
 char	&	c		&	Stores the current character being written \\ \hline
 int 	&	count		&	Stores the frequency of \texttt{c} \\ \hline
 double	&	percent		&	Stores the percentage of \texttt{count} out of \texttt{totalLetters} \\ \hline

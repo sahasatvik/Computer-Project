@@ -5,13 +5,16 @@ import java.io.FileNotFoundException;
 public class TextEncoder {
 	public static void main (String[] args) throws Exception {
 		try {
+			/* Parse the first command line argument as the path to the codebook */
 			CodeSubstituter cs = new CodeSubstituter(args[0]);
 			
+			/* Get a sentence to encode, and extract the individual words */
 			System.out.print("Enter a sentence to encode : ");
 			String sentence = (new Scanner(System.in)).nextLine();
 			String[] words = sentence.split("\\s+");
 			
 			System.out.print("Encoded sentence           : ");
+			/* Iterate through each word, replacing it with the codeword in the codebook */
 			for (int i = 0; i < words.length; i++) {
 				String encodedText = cs.getEncodedText(words[i].toLowerCase().replaceAll("[^a-z]", ""));
 				System.out.print(encodedText + " ");

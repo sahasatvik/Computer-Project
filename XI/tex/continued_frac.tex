@@ -21,3 +21,43 @@ Thus, by defining $f(\frac{p}{q})$ as the continued fraction representation of t
 \begin{align*}
 	f \left( \frac{p}{q} \right) \;=\; \left\lfloor \frac{p}{q} \right\rfloor + \frac{1}{f \left( \frac{q}{p \bmod q} \right)}
 \end{align*}
+Here, we are going to use the \texttt{Fraction} class defined in the solution to \textbf{Problem 10}, in order to take advantage of the
+reduced form and sign checks it carries out.
+
+\algorithm
+\texttt{main (numerator:Integer, denominator:Integer)}
+\begin{enumerate}
+	\item Pack \texttt{numerator} and \texttt{denominator} into a \texttt{Fraction} object. Store it as \texttt{f}. 
+	\item Call \texttt{getContinuedFraction(f)}. Display the returned \texttt{String}.
+	\item \textbf{Exit} 
+\end{enumerate}
+\vspace{5mm}
+\texttt{getContinuedFraction (Fraction f)}
+\begin{enumerate}
+	\item Unpack \texttt{numerator} and \texttt{denominator} from \texttt{f}.
+	\item Call \texttt{getContinuedFraction(numerator, denominator)}. Store the returned \texttt{String} in the variable
+		\texttt{expansion}.
+	\item Replace the first comma (\texttt{,}) in \texttt{expansion} with a semicolon (\texttt{;}).
+	\item \textbf{Return} \texttt{expansion}
+\end{enumerate}
+\vspace{5mm}
+\texttt{getContinuedFraction (numerator:Integer, denominator:Integer)}
+\begin{enumerate}
+	\item \textbf{If} \texttt{denominator} is \texttt{1}, \textbf{return} \texttt{numerator}.
+	\item Calculate the integer part of \texttt{numerator / denominator}. Store it in \texttt{x}.
+	\item Call \texttt{getContinuedFraction(denominator, numerator \% denominator)}. Store the result in \texttt{y}.
+	\item \textbf{Return} \texttt{x + y}
+\end{enumerate}
+
+\sourcecode
+\lstinputlisting{src/ContinuedFraction.java}
+
+\varDescription
+\begin{longtable} {| >{\ttfamily}p{0.15\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
+\hline\multicolumn{3}{|c|}{\tt ContinuedFraction::main(String[])}	\\ \hline
+int 	&	numerator	&	Stores the numerator of the fraction to evaluate \\ \hline
+int 	&	denominator	&	Stores the denominator of the fraction to evaluate \\ \hline
+\hline\multicolumn{3}{|c|}{\tt ContinuedFraction::getContinuedFraction(Fraction)}	\\ \hline
+Fraction	&	f	&	Stores the fraction to evaluate \\ \hline
+String 	&	expansion	&	Stores the continued fraction representation of \texttt{f} \\ \hline
+\end{longtable}

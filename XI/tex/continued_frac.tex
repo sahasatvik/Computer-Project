@@ -19,11 +19,12 @@ We can thus solve this problem recursively by noting that the following holds.
 \end{align*}
 Thus, by defining $f(\frac{p}{q})$ as the continued fraction representation of the fraction $\frac{p}{q}$, we can write
 \begin{align*}
-	f \left( \frac{p}{q} \right) \;=\; \left\lfloor \frac{p}{q} \right\rfloor + \frac{1}{f \left( \frac{q}{p \bmod q} \right)}
+	f \left( \frac{p}{q} \right) \;=\; \left\lfloor \frac{p}{q} \right\rfloor + f \left( \frac{q}{p \bmod q} \right)
 \end{align*}
 Here, we are going to use the \texttt{Fraction} class defined in the solution to \textbf{Problem 10}, in order to take advantage of the
 reduced form and sign checks it carries out.
 
+\clearpage
 \algorithm
 \texttt{main (numerator:Integer, denominator:Integer)}
 \begin{enumerate}

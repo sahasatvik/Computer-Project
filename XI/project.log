@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  15 JAN 2018 23:50
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  16 JAN 2018 00:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1319,17 +1319,19 @@ Overfull \vbox (1.49593pt too high) has occurred while \output is active []
 
 
 ]
-Overfull \hbox (3.17885pt too wide) in paragraph at lines 48--49
+Overfull \hbox (3.17885pt too wide) in paragraph at lines 49--50
 []\TU/lmr/m/n/12 Call \TU/lmtt/m/n/12 getContinuedFraction(denominator, numerator % denominator)\TU/lmr/m/n/12 . Store
  []
 
-(./src/ContinuedFraction.java [54])
-Overfull \hbox (15.41968pt too wide) in alignment at lines 56--63
+(./src/ContinuedFraction.java [54
+
+])
+Overfull \hbox (15.41968pt too wide) in alignment at lines 57--64
  [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 63
+Underfull \vbox (badness 10000) detected at line 64
  []
 
 ) [55]
@@ -1450,7 +1452,7 @@ Overfull \hbox (15.41968pt too wide) in alignment at lines 73--87
 Here is how much of TeX's memory you used:
  30921 strings out of 493005
  608848 string characters out of 6134596
- 973962 words of memory out of 5000000
+ 973960 words of memory out of 5000000
  34261 multiletter control sequences out of 15000+600000
  10976 words of font info for 69 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

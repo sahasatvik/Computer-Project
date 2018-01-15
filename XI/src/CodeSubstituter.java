@@ -22,8 +22,8 @@ public class CodeSubstituter {
 		while (bufferedReader.readLine() != null)
 			numberOfLines++;
 
-		fileReader.close();
 		bufferedReader.close();
+		fileReader.close();
 		
 		wordMap = new String[numberOfLines][2];
 	}
@@ -39,8 +39,8 @@ public class CodeSubstituter {
 			wordMap[i][1] = line.substring(line.indexOf(" ")).trim();
 		}
 
-		fileReader.close();
 		bufferedReader.close();
+		fileReader.close();
 	}
 
 	public String getEncodedText (String word) {

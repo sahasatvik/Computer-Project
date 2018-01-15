@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.io.IOException;
 import java.io.FileNotFoundException;
 
 public class TextEncoder {
@@ -15,9 +16,11 @@ public class TextEncoder {
 				String encodedText = cs.getEncodedText(words[i].toLowerCase().replaceAll("[^a-z]", ""));
 				System.out.print(encodedText + " ");
 			}	
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("Enter 1 argument ([codebook_filename])");
 		} catch (FileNotFoundException e) {
 			System.out.println("Codebook not found! Enter a valid filename.");
-		} catch (Exception e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}

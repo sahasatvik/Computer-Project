@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  15 JAN 2018 22:54
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.6.19)  15 JAN 2018 23:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1067,16 +1067,21 @@ Underfull \vbox (badness 10000) detected at line 69
 
 ] (./src/Fraction.java [51
 
-]) (./src/FractionAdder.java [52])
-Overfull \hbox (15.41968pt too wide) in alignment at lines 56--70
+]) [52] (./src/FractionAdder.java)
+Overfull \hbox (15.41968pt too wide) in alignment at lines 57--71
  [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 70
+Underfull \vbox (badness 10000) detected at line 71
  []
 
-) [53]
+
+Overfull \vbox (1.49593pt too high) has occurred while \output is active []
+
+[53
+
+])
 \openout2 = `tex/continued_frac.aux'.
 
 (./tex/continued_frac.tex [54
@@ -1212,7 +1217,7 @@ Overfull \hbox (15.41968pt too wide) in alignment at lines 73--87
 Here is how much of TeX's memory you used:
  28150 strings out of 493005
  567027 string characters out of 6134596
- 718975 words of memory out of 5000000
+ 717975 words of memory out of 5000000
  31558 multiletter control sequences out of 15000+600000
  10152 words of font info for 61 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

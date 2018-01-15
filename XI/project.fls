@@ -257,6 +257,10 @@ INPUT tex/palindrome_gen.aux
 INPUT tex/palindrome_gen.aux
 INPUT tex/factorize.aux
 INPUT tex/factorize.aux
+INPUT tex/text_encode.aux
+INPUT tex/text_encode.aux
+INPUT tex/char_freq.aux
+INPUT tex/char_freq.aux
 INPUT tex/last.aux
 INPUT tex/last.aux
 OUTPUT project.aux
@@ -321,6 +325,12 @@ INPUT tex/palindrome_gen.tex
 OUTPUT tex/factorize.aux
 INPUT tex/factorize.tex
 INPUT tex/factorize.tex
+OUTPUT tex/text_encode.aux
+INPUT tex/text_encode.tex
+INPUT tex/text_encode.tex
+OUTPUT tex/char_freq.aux
+INPUT tex/char_freq.tex
+INPUT tex/char_freq.tex
 OUTPUT tex/last.aux
 INPUT tex/last.tex
 INPUT tex/last.tex
@@ -357,5 +367,9 @@ INPUT tex/palindrome_gen.aux
 INPUT tex/palindrome_gen.aux
 INPUT tex/factorize.aux
 INPUT tex/factorize.aux
+INPUT tex/text_encode.aux
+INPUT tex/text_encode.aux
+INPUT tex/char_freq.aux
+INPUT tex/char_freq.aux
 INPUT tex/last.aux
 INPUT tex/last.aux

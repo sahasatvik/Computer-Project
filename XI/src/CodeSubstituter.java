@@ -35,8 +35,13 @@ public class CodeSubstituter {
 		String line;
 		for (int i = 0; i < numberOfLines; i++) {
 			line = bufferedReader.readLine();
-			wordMap[i][0] = line.substring(0, line.indexOf(" ")).trim();
-			wordMap[i][1] = line.substring(line.indexOf(" ")).trim();
+			String[] words = line.split("\\s+");
+			if (words.length >= 2) {
+				wordMap[i][0] = line.split("\\s+")[0];
+				wordMap[i][1] = line.split("\\s+")[1];
+			} else {
+				wordMap[i][0] = wordMap[i][1] = "";
+			}
 		}
 
 		bufferedReader.close();

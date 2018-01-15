@@ -15,7 +15,8 @@ public class TextEncoder {
 			for (int i = 0; i < words.length; i++) {
 				String encodedText = cs.getEncodedText(words[i].toLowerCase().replaceAll("[^a-z]", ""));
 				System.out.print(encodedText + " ");
-			}	
+			}
+			System.out.println();
 		} catch (ArrayIndexOutOfBoundsException e) {
 			System.out.println("Enter 1 argument ([codebook_filename])");
 		} catch (FileNotFoundException e) {

@@ -1,4 +1,4 @@
-class TowersOfHanoi {
+public class TowersOfHanoi {
 	public static void main (String[] args) {
 		int disks = Integer.parseInt(args[0]);
 		solveHanoi(disks, "A", "B", "C");

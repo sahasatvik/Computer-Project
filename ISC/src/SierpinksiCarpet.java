@@ -1,4 +1,4 @@
-public class SierpinksyCarpet {
+public class SierpinksiCarpet {
 	public static void main (String[] args) {
 		int level = Integer.parseInt(args[0]);
 

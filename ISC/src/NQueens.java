@@ -1,7 +1,6 @@
 public class NQueens {
 	private final int size;
 	public int[] board;
-	public int top;
 	public int numberOfSolutions;
 	public boolean countOnly;
 
@@ -14,26 +13,8 @@ public class NQueens {
 	public void initBoard () {
 		this.board = new int[size];
 		this.numberOfSolutions = 0;
-		this.top = -1;
 		for (int i = 0; i < size; i++)
 			board[i] = -1;
-	}
-
-	public boolean pushQueen (int column) {
-		if ((0 <= column) && (column < size) && (top < (size - 1))) {
-			board[++top] = column;
-			return true;
-		}
-		return false;
-	}
-
-	public int popQueen () {
-		if (top >= 0) {
-			int t = board[top];
-			board[top--] = -1;
-			return t;
-		}
-		return -1;
 	}
 
 	public boolean isThreatened (int row) {
@@ -47,23 +28,20 @@ public class NQueens {
 		return false;
 	}
 
-	public boolean solveNQueens (int row) {
+	public void solveNQueens (int row) {
 		if (row == size) {
 			numberOfSolutions++;
 			if (!countOnly) {
 				showBoard();
 				System.out.println();
 			}
-			return true;
+			return;
 		}
-		for (int i = 0; i < size; i++) {
-			pushQueen(i);
+		for (board[row] = 0; board[row] < size; board[row]++) {
 			if (!isThreatened(row)) {
 				solveNQueens(row + 1);
 			}
-			popQueen();
 		}
-		return false;
 	}
 
 	public void showBoard () {

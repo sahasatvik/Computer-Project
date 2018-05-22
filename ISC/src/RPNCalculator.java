@@ -8,7 +8,7 @@ public class RPNCalculator {
 		System.out.printf("Reverse Polish Expression    :    ");
 		String expression = (new Scanner(System.in)).nextLine();
 		double result = evaluateRPNExpression(expression);
-		System.out.printf("Evaluated Expression         :    %f %n", result);
+		System.out.printf("Evaluated Expression         :    %s %n", Double.toString(result));
 	}
 
 	public static double evaluateRPNExpression (String expression) {

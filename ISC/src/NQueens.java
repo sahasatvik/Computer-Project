@@ -1,23 +1,28 @@
 public class NQueens {
 	private final int size;
-	public int[] board;
-	public int numberOfSolutions;
-	public boolean countOnly;
+	private int[] board;
+	private int numberOfSolutions;
+	private final boolean drawSolutions;
 
-	public NQueens (int size, boolean countOnly) {
+	public NQueens (int size, boolean drawSolutions) {
 		this.size = size;
-		this.countOnly = countOnly;
+		this.drawSolutions = drawSolutions;
 		this.initBoard();
 	}
 
-	public void initBoard () {
+	public int countSolutions () {
+		solveNQueens(0);
+		return numberOfSolutions;
+	}
+
+	private void initBoard () {
 		this.board = new int[size];
 		this.numberOfSolutions = 0;
 		for (int i = 0; i < size; i++)
 			board[i] = -1;
 	}
 
-	public boolean isThreatened (int row) {
+	private boolean isThreatened (int row) {
 		for (int i = 0; i < row; i++) {
 			if ((board[row] == board[i]) 
 			    || ((board[row] - board[i]) == (row - i)) 
@@ -28,11 +33,11 @@ public class NQueens {
 		return false;
 	}
 
-	public void solveNQueens (int row) {
+	private void solveNQueens (int row) {
 		if (row == size) {
 			numberOfSolutions++;
-			if (!countOnly) {
-				showBoard();
+			if (drawSolutions) {
+				drawBoard();
 				System.out.println();
 			}
 			return;
@@ -44,7 +49,7 @@ public class NQueens {
 		}
 	}
 
-	public void showBoard () {
+	public void drawBoard () {
 		for (int i = 0; i < size; i++) {
 			for (int j = 0; j < size; j++) {
 				System.out.print(((board[i] == j)? "Q" : "-") + " ");
@@ -55,10 +60,9 @@ public class NQueens {
 
 	public static void main (String[] args) {
 		int size = Integer.parseInt(args[0]);
-		boolean countOnly = Boolean.parseBoolean(args[1]);
+		boolean drawSolutions = (args.length > 1)? Boolean.parseBoolean(args[1]) : false;
 
-		NQueens q = new NQueens(size, countOnly);
-		q.solveNQueens(0);
-		System.out.println(q.numberOfSolutions);
+		NQueens q = new NQueens(size, drawSolutions);
+		System.out.println(q.countSolutions());
 	}
 }

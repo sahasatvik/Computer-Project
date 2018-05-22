@@ -24,6 +24,10 @@ public class Vector {
 		return Math.sqrt(abs);
 	}
 
+	public Vector multiplyByScalar (double l) {
+		return Vector.multiplyByScalar(this, l);
+	}
+
 	public Vector add (Vector v) {
 		return Vector.add(this, v);
 	}
@@ -36,12 +40,25 @@ public class Vector {
 		return Vector.angleBetween(this, v);
 	}
 
+	public boolean equals (Vector v) {
+		return Vector.equals(this, v);
+	}
+
 	@Override
 	public String toString () {
 		String s = "(";
 		for (int i = 0; i < dimension; i++)
 			s += components[i] + ", ";
 		return s.replaceAll(", $", ")");
+	}
+
+	public static boolean equals (Vector a, Vector b) {
+		if (a.getDimension() != b.getDimension())
+			return false;
+		for (int i = 1; i <= a.getDimension(); i++)
+			if (a.getComponent(i) != b.getComponent(i))
+				return false;
+		return true;
 	}
 	
 	public static Vector multiplyByScalar (Vector v, double l) {

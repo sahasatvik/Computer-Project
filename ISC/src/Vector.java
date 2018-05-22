@@ -32,7 +32,7 @@ public class Vector {
 		return Vector.add(this, v);
 	}
 
-	public Vector dotProduct (Vector v) {
+	public double dotProduct (Vector v) {
 		return Vector.dotProduct(this, v);
 	}
 
@@ -66,7 +66,6 @@ public class Vector {
 		for (int i = 0; i < t.length; i++)
 			t[i] = v.getComponent(i+1) * l;
 		return new Vector(t);
-			
 	}
 
 	public static Vector add (Vector a, Vector b) {
@@ -83,21 +82,14 @@ public class Vector {
 		return v;
 	}
 
-	public static Vector dotProduct (Vector a, Vector b) {
-		double[] dotProduct = new double[a.getDimension()];
-		for (int i = 0; i < dotProduct.length; i++)
-			dotProduct[i] = a.getComponent(i+1) * b.getComponent(i+1);
-		return new Vector(dotProduct);
+	public static double dotProduct (Vector a, Vector b) {
+		double dotProduct = 0.0;
+		for (int i = 1; i <= a.getDimension(); i++)
+			dotProduct += a.getComponent(i) * b.getComponent(i);
+		return dotProduct;
 	}
 	
-	public static Vector dotProduct (Vector ... vectors) {
-		Vector v = vectors[0];
-		for (int i = 1; i < vectors.length; i++)
-			v = Vector.dotProduct(v, vectors[i]);
-		return v;
-	}
-
 	public static double angleBetween (Vector a, Vector b) {
-		return Math.acos(Vector.dotProduct(a, b).getAbsoluteValue() / (a.getAbsoluteValue() * b.getAbsoluteValue()));
+		return Math.acos(Vector.dotProduct(a, b) / (a.getAbsoluteValue() * b.getAbsoluteValue()));
 	}
 }

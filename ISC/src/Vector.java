@@ -1,6 +1,6 @@
 public class Vector {
-	private final int dimension;
-	private final double[] components;
+	protected final int dimension;
+	protected final double[] components;
 	
 	public Vector (double ... components) {
 		this.dimension = components.length;

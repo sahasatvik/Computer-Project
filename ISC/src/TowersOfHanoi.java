@@ -1,7 +1,13 @@
 public class TowersOfHanoi {
 	public static void main (String[] args) {
-		int disks = Integer.parseInt(args[0]);
-		solveHanoi(disks, "A", "B", "C");
+		try {
+			int disks = Integer.parseInt(args[0]);
+			if (disks < 1)
+				throw new NumberFormatException();
+			solveHanoi(disks, "A", "B", "C");
+		} catch (NumberFormatException | IndexOutOfBoundsException e) {
+			System.out.println("Enter 1 argument (number_of_disks[integer])!");
+		}
 	}
 
 	public static void solveHanoi (int disk, String source, String destination, String spare) {

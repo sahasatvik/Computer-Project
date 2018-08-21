@@ -1,12 +1,17 @@
 public class SierpinksiCarpet {
 	public static void main (String[] args) {
-		int level = Integer.parseInt(args[0]);
-
-		for (int i = 0; i < Math.pow(3, level); i++) {
-			for (int j = 0; j < Math.pow(3, level); j++) {
-				System.out.print(isInSierpinksyCarpet(i, j)? "██" : "  ");
+		try {
+			int level = Integer.parseInt(args[0]);
+			if (level < 0)
+				throw new NumberFormatException();
+			for (int i = 0; i < Math.pow(3, level); i++) {
+				for (int j = 0; j < Math.pow(3, level); j++) {
+					System.out.print(isInSierpinksyCarpet(i, j)? "██" : "  ");
+				}
+				System.out.println();
 			}
-			System.out.println();
+		} catch (NumberFormatException | IndexOutOfBoundsException e) {
+			System.out.println("Enter 1 argument (order_of_carpet[integer])!");
 		}
 	}
 

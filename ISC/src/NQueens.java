@@ -59,10 +59,17 @@ public class NQueens {
 	}
 
 	public static void main (String[] args) {
-		int size = Integer.parseInt(args[0]);
-		boolean drawSolutions = (args.length > 1)? Boolean.parseBoolean(args[1]) : false;
+		try {
+			int size = Integer.parseInt(args[0]);
+			boolean drawSolutions = (args.length > 1)? Boolean.parseBoolean(args[1]) : false;
+			if (size < 1)
+				throw new NumberFormatException();
 
-		NQueens q = new NQueens(size, drawSolutions);
-		System.out.println(q.countSolutions());
+			NQueens q = new NQueens(size, drawSolutions);
+			System.out.println(q.countSolutions());
+		} catch (NumberFormatException | IndexOutOfBoundsException e) {
+			System.out.println("Enter at least 1 argument (size_of_board[integer], <show_solutions>[true/false])!");
+			System.out.println("(show_solutions defaults to false)");
+		}
 	}
 }

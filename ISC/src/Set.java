@@ -115,10 +115,10 @@ public class Set implements Iterable<Integer> {
 	public String toString () {
 		if (getSize() == 0)
 			return "[]";
-		String s = "[";
+		String s = "";
 		for (Integer n : this)
-			s += n + ", ";
-		return s.replaceAll(", $", "\\]");
+			s += n + " ";
+		return "[" + String.join(", ", s.split("\\s+")) + "]";
 	}
 
 	@Override

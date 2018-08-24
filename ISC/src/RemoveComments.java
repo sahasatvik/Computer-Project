@@ -63,6 +63,7 @@ public class RemoveComments {
 					System.out.print(c);
 			}
 		}
+		s.close();
 		String notAComment = "// This is not a comment \n!";
 	}
 }

@@ -1,0 +1,61 @@
+
+\chapquote{``If Java had true garbage collection, most programs would delete themselves upon execution."}{Robert Sewell}
+
+\problem The classical {\em M\"obius function} $\mu(n)$ is an important function in number theory and combinatorics. For positive integers
+$n$, $\mu(n)$ is defined as the sum of the primitive n\textsuperscript{th} roots of unity. It attains the following values.
+\begin{center}
+\begin{tabular}{l}
+	$\mu(\:\!1\:\!) =  +1$ \\
+	$\mu(n) =  -1$ if $n$ is a square-free positive integer with an odd number of prime factors. \\
+	$\mu(n) = \;\;\:0$ if $n$ has a squared prime factor. \\
+	$\mu(n) =  +1$ if $n$ is a square-free positive integer with an even number of prime factors.
+\end{tabular}
+\end{center}
+
+Compute the $\mu(n)$ for positive integers $n$ within a specified range.
+
+\solution For any given $n \in \mathbb{N}$, all we have to do is search for factors by trial-division, and find their multiplicity.
+If this is greater than $1$, we can stop here since we have found squared prime factors. Otherwise, we can reduce the problem by
+dividing out these factors from $n$ and repeating. By trying factors in ascending order and then discarding them from $n$, we are
+guaranteed to hit only prime factors, and can thus skip primality checks.
+
+\algorithm
+\texttt{main (lo:Integer, hi:Integer)}
+\begin{enumerate}
+	\item Assert that the integers in the range \texttt{[lo, hi)} are all positive.
+	\item For each \texttt{i} $\in \{\texttt{lo}, \texttt{lo} + 1, \dots, \texttt{hi} - 1 \}$:
+	\begin{enumerate}
+		\item Call and display \texttt{mobius(i)}.
+	\end{enumerate}
+	\item \textbf{Exit} 
+\end{enumerate}
+\vspace{5mm}
+\texttt{mobius (n:Integer)} 
+\begin{enumerate}
+	\item If \texttt{n} is one, \textbf{return} \texttt{1}.
+	\item Initialize an integer variable \texttt{mob} to one.
+	\item For \texttt{i} $\in \{2, 3, \dots, n\}$:
+	\begin{enumerate}
+		\item Initialize an integer \texttt{multiplicity} to zero.
+		\item While \texttt{i} divides \texttt{n}, assign \texttt{n / i} to \texttt{n} and increment \texttt{multiplicity}.
+		\item If \texttt{multiplicity} is one, flip the sign of \texttt{mob}.
+		\item If \texttt{multiplicity} is greater than one, \textbf{return} \texttt{0}.
+	\end{enumerate}
+	\item \textbf{Return} \texttt{mob} 
+\end{enumerate}
+
+\sourcecode
+\lstinputlisting{src/Mobius.java}
+
+\varDescription
+\begin{longtable} {| >{\ttfamily}p{0.16\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
+\hline\multicolumn{3}{|c|}{\tt Mobius::main(String[])} 		\\\hline
+int 		&	lo	&	Lower bound of integers to evalute \\\hline
+int 		&	hi	&	Upper bound of integers to evalute \\\hline
+int 		&	i	&	Counter variable, stores the integer to be evaluated \\\hline
+\hline\multicolumn{3}{|c|}{\tt Mobius::mobius(int)} 		\\\hline
+int 		&	n	&	The number where the mobius function is to be evaluated \\\hline
+int 		&	mob	&	Sign of the value of the mobius function \\\hline
+int 		&	i	&	Counter variable, stores the current factor to be tested \\\hline
+int 		&	multiplicity&	The power of \texttt{i} in the factorisation of \texttt{n} \\\hline 
+\end{longtable}

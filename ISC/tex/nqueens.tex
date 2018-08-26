@@ -5,11 +5,95 @@ threaten each other, i.e.\ no two queens share the same rank, file or diagonal. 
 composer {\it Max Bezzel} in 1848. This puzzle has $92$ solutions, including reflections and rotations.
 Below is one of them.
 \[\chessboard[boardfontsize=25pt,
-			  setpieces={Qa5, Qb3, Qc1, Qd7, Qe2, Qf8, Qg6, Qh4},
-			  showmover=false,
-			  arrow=to, linewidth=0.7pt, shorten=-1pt,
-			  pgfstyle=straightmove]\]
+		  setpieces={Qa5, Qb3, Qc1, Qd7, Qe2, Qf8, Qg6, Qh4},
+		  showmover=false,
+		  arrow=to, linewidth=0.7pt, shorten=-1pt,
+		  pgfstyle=straightmove]\]
 
 The {\em n queens puzzle} is an extension of this puzzle, involving $n$ queens on an $n \times n$ chessboard.
 Count the total number of solutions for the {\em n queens puzzle}, including reflections and rotations.
 
+\solution This problem can be solved with \textit{recursion} and \textit{backtracking}. Starting from the topmost row of the chessboard,
+we can place a queen and for each available choice, place a queen on the next row, and so on, recursively shrinking the chessboard to
+solve. Invalid solutions can thus be discarded as they are formed without brute-forcing every possible permutation of queens on the board.
+
+Finally, by noting that exactly one queen must occupy each row, we can optimize the board by storing only the column numbers of queens
+on each row in an array, instead of simulating a full 2D board.
+
+\algorithm
+\texttt{main (size:Integer, drawSolutions:Boolean)}
+\begin{enumerate}
+	\item Create an \texttt{NQueens} object by passing it \texttt{size} and \texttt{drawSolutions}. Call it \texttt{q}.
+	\item Call \texttt{q->countSolutions()} and display the result.
+	\item \textbf{Exit} 
+\end{enumerate}
+\vspace{8mm}
+\texttt{NQueens (size:Integer, drawSolutions:Boolean)}
+\begin{enumerate}
+	\item Copy \texttt{size} and \texttt{drawSolutions} into the object data.
+	\item Initialize an integer \texttt{numberOfSolutions} to zero. 
+	\item Initialize an array of integers with length \texttt{size}. Call it \texttt{board}.
+	\item \textbf{Define} the functions:
+	\begin{enumerate}
+		\item \texttt{NQueens::countSolutions()}
+		\item \texttt{NQueens::solveNQueens(row)}
+		\item \texttt{NQueens::isThreatened(row)}
+	\end{enumerate}
+	\item \textbf{Return} the resultant object.
+\end{enumerate}
+\vspace{5mm}
+\texttt{NQueens::countSolutions ()}
+\begin{enumerate}
+	\item Call \texttt{this->solveNQueens(0)}.
+	\item \textbf{Return} 
+\end{enumerate}
+\vspace{5mm}
+\texttt{NQueens::solveNQueens (row:Integer)}
+\begin{enumerate}
+	\item If \texttt{row} is equal to \texttt{size}:
+	\begin{enumerate}
+		\item Increment \texttt{numberOfSolutions}.
+		\item If \texttt{drawSolutions} is set to \texttt{true}, display the current state of \texttt{board}.
+		\item \textbf{Return} 
+	\end{enumerate}
+	\item For each \texttt{i} $\in \{0, 1, \dots, \mathtt{size} - 1\}$:
+	\begin{enumerate}
+		\item Place a queen at row \texttt{row}, column \texttt{i}, i.e.\ set \texttt{board[row]} to \texttt{i}.
+		\item Call \texttt{this->isThreatened(row)}. If this returns \texttt{false}, call \texttt{this->solveNQueens(row + 1)}. 
+	\end{enumerate}
+	\item \textbf{Return} 
+\end{enumerate}
+\texttt{NQueens::isThreatened (row:Integer)} 
+\begin{enumerate}
+	\item For each \texttt{i} $\in \{0, 1, \dots, \mathtt{size} - 1\}$:
+	\begin{enumerate}
+		\item If there are two queens on the same column in rows \texttt{row} and \texttt{i},
+			or the columns in which those two queens are on are on the same diagonal, \textbf{return} \texttt{true}. 
+	\end{enumerate}
+	\item \textbf{Return} \texttt{false} 
+\end{enumerate}
+
+\clearpage
+\sourcecode
+\lstinputlisting{src/NQueens.java}
+
+\clearpage
+\varDescription
+\begin{longtable} {| >{\ttfamily}p{0.16\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
+\hline\multicolumn{3}{|c|}{\tt NQueens} 		\\\hline
+int 		&	size 		&	The number of rows and columns in the chessboard \\\hline
+int[] 		&	board		&	The list of positions of queens in columns, with their rows corresponding to their index. \\\hline
+int 		&	numberOfSolutions&	Counts the number of solutions found \\\hline
+boolean		&	drawSolutions	&	Stores whether to display solved boards or not \\\hline
+\hline\multicolumn{3}{|c|}{\tt NQueens::isThreatened(int)} 		\\\hline
+int 		&	row		&	The row of the queen to test \\\hline
+int 		&	i		&	Counter variable, stores the row of the queen to test against \\\hline
+\hline\multicolumn{3}{|c|}{\tt NQueens::solveNQueens(int)} 		\\\hline
+int 		&	row		&	The current row on which a queen is to be placed \\\hline
+\hline\multicolumn{3}{|c|}{\tt NQueens::drawBoard()} 		\\\hline
+int 		&	i, j		&	Counter variables, store the row and column to be currently displayed \\\hline
+\hline\multicolumn{3}{|c|}{\tt NQueens::main(String[])} 		\\\hline
+int 		&	size 		&	The number of rows and columns in the chessboard \\\hline
+boolean		&	drawSolutions	&	Stores whether to display solved boards or not \\\hline
+NQueens		&	q		&	Object capable of solving the \textit{n queens} problem \\\hline 
+\end{longtable}

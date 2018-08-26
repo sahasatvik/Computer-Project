@@ -36,6 +36,8 @@ public class RPNCalculator {
 						break;
 				case '^' :	result = Math.pow(leftOperand, rightOperand);
 						break;
+				default  :	System.out.printf("Unknown operator (%s)!\n", token);
+						System.exit(0);
 			}
 			pushOperand(result);
 		}
@@ -47,6 +49,10 @@ public class RPNCalculator {
 	}
 	
 	private static double popOperand () {
+		if (top < 0) {
+			System.out.println("Insufficient operands!");
+			System.exit(0);
+		}
 		return operandStack[top--];
 	}
 	

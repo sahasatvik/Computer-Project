@@ -1,0 +1,75 @@
+
+\chapquote{``Computers are useless. They can only give you answers."}{Pablo Picasso}
+
+\problem \textit{Reverse Polish Notation (RPN)} or \textit{postfix notation} is a mathematical notation for writing arithmetic expresssions in which
+operators follow their operands. Thus, as long as each operator has a fixed number of operands, the use of parentheses or rules of
+precedence are no longer required to write unambiguous expressions. For example, the expression \texttt{2 3 * 3 2 \^{} 2 - *} evaluates to \texttt{42}.
+
+Create a program capable of evaluating \textit{RPN} expressions which use the following operators.
+\begin{center}
+\begin{tabular}{c|l}
+	{\tt +} & Addition \\
+	{\tt -} & Subtraction \\
+	{\tt *} & Multiplication \\
+	{\tt /} & Division \\
+	{\tt \^{}} & Exponentiation
+\end{tabular}
+\end{center}
+
+\solution The nature of \textit{RPN} lends itself to a very simple implementation with a stack for pushing operands into as they appear
+in an expression. When an operator is encountered, the required number of operands are popped from the stack, the operation is carried out,
+and the result is popped back into the stack. This continued until the entire expression has been parsed, leaving only the evaluated result
+in the stack.
+
+\algorithm
+\texttt{main (expression:String)}
+\begin{enumerate}
+	\item Call \texttt{evaluateRPNExpression(expression)} and display the returned value.
+	\item \textbf{Exit} 
+\end{enumerate}
+\vspace{5mm}
+\texttt{evaluateRPNExpression (expression:String)}
+\begin{enumerate}
+	\item Split \texttt{expression} along whitespace into an array of tokens. Call it \texttt{tokens}.
+	\item Create a stack of floating points large enough to hold all elements in \texttt{tokens}. Call it \texttt{operandStack}.
+	\item For each string \texttt{token} $\in$ \texttt{tokens}:
+	\begin{enumerate}
+		\item If \texttt{token} is a floating point:  \label{rpn:loopStart}
+		\begin{enumerate}
+			\item Push \texttt{token} onto \texttt{operandStack}.
+			\item Get the next \texttt{token} from \texttt{tokens}.
+			\item Jump back to (\ref{rpn:loopStart}).
+		\end{enumerate}
+		\item Pop an operand from \texttt{operandStack} and call it \texttt{rightOperand}. 
+		\item Pop another operand from \texttt{operandStack} and call it \texttt{leftOperand}.
+		\item Depending on which operator \texttt{token} represents, evaluate the operation with \texttt{token} as the operator
+			and \texttt{leftOperand} and \texttt{rightOperand} as the respective operands. Call it \texttt{result}.
+		\item Push \texttt{result} onto \texttt{operandStack}. 
+	\end{enumerate}
+	\item Pop and operand from \texttt{operandStack} and \textbf{return} it. 
+\end{enumerate}
+
+\sourcecode
+\lstinputlisting{src/RPNCalculator.java}
+
+\clearpage
+\varDescription
+\begin{longtable} {| >{\ttfamily}p{0.16\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
+\hline\multicolumn{3}{|c|}{\tt RPNCalculator} 		\\\hline
+double[]	&	operandStack&	The stack of operands in order of appearance. \\\hline
+int 		&	top	&	The index of the topmost element of \texttt{operandStack} \\\hline 
+\hline\multicolumn{3}{|c|}{\tt RPNCalculator::main(String[])} 		\\\hline
+String		&	expression&	The expression in RPN to be evaluated \\\hline
+double		&	result	&	The evaluated form of \texttt{expression} \\\hline 
+\hline\multicolumn{3}{|c|}{\tt RPNCalculator::evaluateRPNExpression(String)} 		\\\hline
+String		&	expression&	The expression in RPN to be evaluated \\\hline
+String[]	&	tokens	&	The individual tokens in \texttt{expression}, separated by whitespace \\\hline
+String		&	token	&	An individual token from \texttt{tokens} \\\hline
+double		&	rightOperand&	The operand to be taken on the right side of the operator \\\hline
+double		&	leftOperand&	The operand to be taken on the left side of the operator \\\hline
+double		&	result	&	The result on evaluating the operator \texttt{token} on \texttt{rightOperand} and \texttt{leftOperand}  \\\hline 
+\hline\multicolumn{3}{|c|}{\tt RPNCalculator::pushOperand(double)} 		\\\hline
+double		&	n	&	The operand to be pushed into \texttt{operandStack} \\\hline 
+\hline\multicolumn{3}{|c|}{\tt RPNCalculator::isDouble(String)} 		\\\hline
+String		&	n	&	The string to be tested on whether it is a floating point or not \\\hline
+\end{longtable}

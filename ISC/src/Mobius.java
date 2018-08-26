@@ -1,7 +1,8 @@
 public class Mobius {
-	public static final String[] graph = {	"*        ",
-						"    *    ",
-						"        *" };
+	public static final String[] graph = 
+		{"*        ",
+		 "    *    ",
+		 "        *"};
 	public static void main (String[] args) {
 		try {
 			int lo = Integer.parseInt(args[0]);
@@ -14,7 +15,6 @@ public class Mobius {
 			}
 		} catch	(NumberFormatException | IndexOutOfBoundsException e) {
 			System.out.println("Enter 2 arguments (lower_limit[integer, >0], upper_limit[integer, >lower_limit])!");
-			System.out.println("The mobius function will be calculated for integers in this range.");
 		}
 	}
 

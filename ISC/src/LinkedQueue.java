@@ -1,6 +1,6 @@
 import java.util.Iterator;
 
-/* Use generics to allow arbitrary data typed queues, eith type checking 
+/* Use generics to allow arbitrary data typed queues, with type checking 
    enforced at compile-time */
 public class LinkedQueue<T> implements Iterable<T> {
 	/* Special nodes surrounding data nodes */

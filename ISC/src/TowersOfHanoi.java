@@ -10,7 +10,7 @@ public class TowersOfHanoi {
 			solveHanoi(disks, "A", "C", "B");
 		} catch (NumberFormatException | IndexOutOfBoundsException e) {
 			/* Handle missing or incorrectly formatted arguments */
-			System.out.println("Enter 1 argument (number_of_disks[integer])!");
+			System.out.println("Enter 1 argument (number_of_disks[integer, >0])!");
 		}
 	}
 	

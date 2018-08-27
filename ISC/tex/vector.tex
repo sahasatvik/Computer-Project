@@ -1,0 +1,96 @@
+
+\chapquote{``Mathematics is the art of giving the same name to different things."}{Henri Poincar\'e}
+
+\problem A \textit{vector space} is a collection of objects called \textit{vectors}, which may be added together and
+multiplied (scaled) by \textit{scalara}. One way of implementing a \textit{vector} is to describe the space $\mathbb{R}^n$,
+i.e.\ all possible ordered tuples of $n$ real numbers. For example, the vector $(1, 7, 0, 1)$ belongs to the vector space
+$\mathbb{R}^4$ -- it is a four-dimensional vector.
+
+Addition, scalar multiplication, the dot product and the magnitude of vectors is defined as follows. ($a_i, b_i, k \in \mathbb{R}$)
+\begin{align*}
+	(a_1, a_2, \dots, a_n) + (b_1, b_2, \dots, b_n) \;&=\; (a_1+b_1, a_2+b_2, \dots, a_n + b_n)  \tag{Addition} \\
+	k \;(a_1, a_2, \dots, a_n) \;&=\; (ka_1, ka_2, \dots, ka_n)		\tag{Scalar Multiplication} \\
+	(a_1, a_2, \dots, a_n) \cdot (b_1, b_2, \dots, b_n) \;&=\; a_1b_1 + a_2b_2 + \dots + a_nb_n  \tag{Dot Product} \\
+	\left\| (a_1, a_2, \dots, a_n) \right\| \;&=\; \sqrt{a_1^2 + a_2^2 + \dots + a_n^2}	\tag{Magnitude}
+\end{align*}
+
+Implement a simple model of \textit{vectors} as defined above. 
+
+\solution
+\algorithm
+\texttt{Vector (components:FloatingPoint[])}
+\begin{enumerate}
+	\item Set a constant integer \texttt{dimension} to the length of \texttt{components}.
+	\item Copy \texttt{components} into the object data as a constant.
+	\item \textbf{Define} the functions:
+	\begin{enumerate}
+		\item \texttt{Vector::getComponent(index)}
+		\item \texttt{Vector::getAbsoluteValue()}
+	\end{enumerate}
+	\item \textbf{Return} the resultant object. 
+\end{enumerate}
+\vspace{5mm}
+\texttt{Vector::getComponent (index:Integer)}
+\begin{enumerate}
+	\item \textbf{Return} \texttt{components[index - 1]}
+\end{enumerate}
+\vspace{5mm}
+\texttt{Vector::getAbsoluteValue ()}
+\begin{enumerate}
+	\item Initialize a floating point \texttt{abs} to zero. 
+	\item For each \texttt{component} in \texttt{}, add \texttt{component * component} to \texttt{abs}.
+	\item \textbf{Return} the square root of \texttt{abs}.
+\end{enumerate}
+\vspace{8mm}
+\texttt{add (a:Vector, b:Vector)}
+\begin{enumerate}
+	\item Assert that \texttt{a} and \texttt{b} have the same \texttt{dimension}. 
+	\item Create an array of floating points \texttt{sum}, with length equal to their common \texttt{dimension}.
+	\item For each \texttt{i}  $\in \{1, 2, \dots, \mathtt{dimension}\}$:
+	\begin{enumerate}
+		\item Set \texttt{sum[i-1]} to \texttt{a->getComponent(i) + b->getComponent(i)}. 
+	\end{enumerate}
+	\item Create a new \texttt{Vector}, pass it \texttt{sum} and \textbf{return} the resultant object. 
+\end{enumerate}
+\vspace{5mm}
+\texttt{multiplyByScalar (v:Vector, k:FloatingPoint)}
+\begin{enumerate}
+	\item Create an array of floating points \texttt{t}, with length equal to the \texttt{dimension} of \texttt{v}.
+	\item For each \texttt{i}  $\in \{1, 2, \dots, \mathtt{dimension}\}$:
+	\begin{enumerate}
+		\item Set \texttt{t[i-1]} to \texttt{v->getComponent(i) * k}.
+	\end{enumerate}
+	\item Create a new \texttt{Vector}, pass it \texttt{t} and \textbf{return} the resultant object. 
+\end{enumerate}
+\vspace{5mm}
+\texttt{dotProduct (a:Vector, b:Vector)}
+\begin{enumerate}
+	\item Assert that \texttt{a} and \texttt{b} have the same \texttt{dimension}. 
+	\item Initialize a floating point \texttt{dotProduct} to zero. 
+	\item For each \texttt{i}  $\in \{1, 2, \dots, \mathtt{dimension}\}$:
+	\begin{enumerate}
+		\item Add \texttt{a->getComponent(i) * b->getComponent(i)} to \texttt{dotProduct} . 
+	\end{enumerate}
+	\item \textbf{Return} \texttt{dotProduct} 
+\end{enumerate}
+
+\sourcecode
+\lstinputlisting{src/Vector.java}
+\lstinputlisting{src/VectorDemo.java}
+
+\clearpage
+\varDescription
+\begin{longtable} {| >{\ttfamily}p{0.16\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
+\hline\multicolumn{3}{|c|}{\tt Vector} 		\\\hline
+int 		&	dimension	&	The dimension of the vector \\\hline
+double[]	&	components	&	The ordered list of components of the vector \\\hline
+\hline\multicolumn{3}{|c|}{\tt Vector::Vector(double[])} 		\\\hline
+double[]	&	components	&	The ordered list of components of the vector \\\hline
+\hline\multicolumn{3}{|c|}{\tt Vector::getComponent(int)} 		\\\hline
+int 		&	index 		&	The index of the component to be retrieved \\\hline
+\hline\multicolumn{3}{|c|}{\tt Vector::getAbsoluteValue()} 		\\\hline
+double		&	abs		&	Stores the square of the magnitude of the vector \\\hline
+int 		&	i		&	Counter variable, counts through components of the vector \\\hline
+\hline\multicolumn{3}{|c|}{\tt Vector::multiplyByScalar(double)} 		\\\hline
+double		&	k		&	The scalar to multiply the vector by \\\hline
+\end{longtable}

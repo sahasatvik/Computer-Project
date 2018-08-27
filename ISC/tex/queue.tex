@@ -1,0 +1,106 @@
+
+\chapquote{``Computer Science is no more about computers than astronomy is about telescopes"}{Edsger W. Dijkstra}
+
+\problem A \textit{queue} is a linear data structure which allows storage and retrieval of elements in accordance with the
+\textit{First In First Out (FIFO)} principle. Thus, elements exit a \textit{queue} in the same order they entered it.
+
+Implement a \textit{queue} capable of holding an arbitrary number of elements of a specified type.
+
+\solution The use of \textit{linked lists\footnote{A linked list is a linear data structure where each element is a separate object,
+or \textit{node}. Each \textit{node} contains both \textit{data} and \textit{addresses} of the surrounding nodes.}} is apropriate
+here. \textit{Generics} ensure that once a queue is declared with a data type, only elements of that data type can be added
+to it, as opposed to merely storing \texttt{Objects}.
+
+\algorithm
+\texttt{Node<T> (item:T)}
+\begin{enumerate}
+	\item Copy \texttt{item} as an object variable.
+	\item Declare two variables \texttt{left} and \texttt{right}, both of type \texttt{Node<T>}.
+	\item \textbf{Return} the resultant object.
+\end{enumerate}
+\vspace{5mm}
+\texttt{link (left:Node<T>, right:Node<T>)}
+\begin{enumerate}
+	\item Set \texttt{left->right} to \texttt{right}.
+	\item Set \texttt{right->left} to \texttt{left}.
+\end{enumerate}
+\vspace{8mm}
+\texttt{LinkedQueue<T> ()}
+\begin{enumerate}
+	\item Declare two constants \texttt{HEAD} and \texttt{TAIL}, both of type \texttt{Node<T>} with
+		arbitrary data items.
+	\item Link \texttt{TAIL} and \texttt{HEAD}.
+	\item \textbf{Define} the functions:
+	\begin{enumerate}
+		\item \texttt{LinkedQueue<T>::enqueue(item)} 
+		\item \texttt{LinkedQueue<T>::dequeue()}
+		\item \texttt{LinkedQueue<T>::peek()}
+		\item \texttt{LinkedQueue<T>::clear()} 
+		\item \texttt{LinkedQueue<T>::isEmpty()}
+		\item \texttt{LinkedQueue<T>::size()}
+	\end{enumerate}
+	\item \textbf{Return} the resultant object.
+\end{enumerate}
+\vspace{5mm}
+\texttt{LinkedQueue<T>::enqueue (item:T)}
+\begin{enumerate}
+	\item Create a new \texttt{Node<T>}, pass it \texttt{item}, and call it \texttt{newNode}.
+	\item Link \texttt{HEAD->left} and \texttt{newNode}. 
+	\item Link \texttt{newNode} and \texttt{HEAD}. 
+\end{enumerate}
+\vspace{5mm}
+\texttt{LinkedQueue<T>::dequeue ()}
+\begin{enumerate}
+	\item If the queue is empty, return \texttt{null}.
+	\item Temporarily store the node \texttt{TAIL->right} as \texttt{lastNode}.
+	\item Link \texttt{TAIL} and \texttt{lastNode->right}. 
+	\item \textbf{Return} the item contained in \texttt{lastNode}. 
+\end{enumerate}
+\vspace{5mm}
+\texttt{LinkedQueue<T>::peek ()}
+\begin{enumerate}
+	\item \textbf{Return} the item in the node \texttt{TAIL->right}.
+\end{enumerate}
+\vspace{5mm}
+\texttt{LinkedQueue<T>::clear ()}
+\begin{enumerate}
+	\item Link \texttt{TAIL} and \texttt{HEAD}.
+\end{enumerate}
+\vspace{5mm}
+\texttt{LinkedQueue<T>::isEmpty ()}
+\begin{enumerate}
+	\item If the \texttt{TAIL->right} is \texttt{HEAD}, \textbf{return} \texttt{true}, otherwise \textbf{return} \texttt{false}.
+\end{enumerate}
+\vspace{5mm}
+\texttt{LinkedQueue<T>::size ()}
+\begin{enumerate}
+	\item Initialize an integer \texttt{n} to zero.
+	\item Set a variable \texttt{current} to \texttt{TAIL}.
+	\item While \texttt{current->right} is not \texttt{HEAD}, set \texttt{current} to \texttt{current->right} and increment \texttt{n}.
+	\item \textbf{Return} \texttt{n}.
+\end{enumerate}
+
+\sourcecode
+\lstinputlisting{src/Node.java}
+\lstinputlisting{src/LinkedQueue.java}
+\lstinputlisting{src/QueueDemo.java}
+
+\varDescription
+\begin{longtable} {| >{\ttfamily}p{0.16\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
+\hline\multicolumn{3}{|c|}{\tt Node<T>} 		\\\hline
+T		&	item 		&	The data stored in the node \\\hline
+Node<T>		&	left		&	Reference to the node to the left of \texttt{this} \\\hline
+Node<T>		&	right		&	Reference to the node to the right of \texttt{this} \\\hline
+\hline\multicolumn{3}{|c|}{\tt LinkedQueue<T>} 		\\\hline
+Node<T>		&	HEAD		&	Special node, marks the point of entry of new data \\\hline
+Node<T>		&	TAIL		&	Special node, marks the point of exit of data \\\hline
+\hline\multicolumn{3}{|c|}{\tt LinkedQueue<T>::enqueue(T)} 		\\\hline
+T		&	item 		&	The data to be enqueued \\\hline
+\hline\multicolumn{3}{|c|}{\tt LinkedQueue<T>::dequeue()} 		\\\hline
+Node<T>		&	lastNode	&	The node containing the data to be dequeued \\\hline
+\hline\multicolumn{3}{|c|}{\tt LinkedQueue<T>::size()} 		\\\hline
+int 		&	n		&	Stores the number of elements in the queue \\\hline
+\hline\multicolumn{3}{|c|}{\tt LinkedQueue<T>::toString()} 		\\\hline
+String[]	&	elements	&	Temporary array, stores the string representations of the data items in the queue \\\hline
+int 		&	n		&	Counter variable \\\hline
+\end{longtable}

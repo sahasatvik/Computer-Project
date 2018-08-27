@@ -1,0 +1,126 @@
+
+\chapquote{``The mathematics is not there till we put it there."}{Arthur Eddington}
+
+\problem A \textit{set} is a collection of distinct objects. Implement a simple model of \textit{sets}, capable
+of holding \textit{integers}. 
+
+\solution This implementation uses \textit{arrays} as the framework for storing elements. The set is sorted during
+insertion of elements, allowing for fast \textit{binary searching}.
+
+\algorithm
+\texttt{Set (maxSize:Integer)}
+\begin{enumerate}
+	\item Copy \texttt{maxSize} into the object data.
+	\item Initialize an array of integers \texttt{elements}, with length \texttt{maxSize}.
+	\item Initialize an integer \texttt{top} to \texttt{-1}. 
+	\item \textbf{Define} the following functions:
+	\begin{enumerate}
+		\item \texttt{Set::updateMaxSize(newMaxSize)}
+		\item \texttt{Set::contains(n)}
+		\item \texttt{Set::add(n)} 
+		\item \texttt{Set::remove(n)}
+		\item \texttt{Set::indexOfEqualOrGreater(n)}
+	\end{enumerate}
+	\item \textbf{Return} the resultant object. 
+\end{enumerate}
+\vspace{5mm}
+\texttt{Set::updateMaxSize (newMaxSize:Integer)} 
+\begin{enumerate}
+	\item Initialize an array of integers \texttt{temp}, with length \texttt{newMaxSize}.
+	\item Set \texttt{maxSize} to \texttt{newMaxSize}.
+	\item If the new size cannot accomodate the present elements of the set, discard them by setting \texttt{top}
+		to \texttt{maxSize - 1}.
+	\item Copy all integers from indices \texttt{0} to \texttt{top} from \texttt{elements} to \texttt{temp}. 
+	\item Set \texttt{elements} to \texttt{temp}.
+\end{enumerate}
+\vspace{5mm}
+\texttt{Set::contains (n:Integer)} 
+\begin{enumerate}
+	\item Call \texttt{this->indexOfEqualOrGreater(n)}. Call the returned value \texttt{i}. 
+	\item If \texttt{i} is a valid index within the set, and the element at that index is equal to \texttt{n},
+		\textbf{return} \texttt{true}, otherwise \textbf{return} \texttt{false}.
+\end{enumerate}
+\vspace{5mm}
+\texttt{Set::add (n:Integer)}
+\begin{enumerate}
+	\item Assert that the set is large enough to hold the new element.
+	\item If the set already contains \texttt{n}, \textbf{return} \texttt{false}.
+	\item Call \texttt{this->indexOfEqualOrGreater(n)}. Call the returned value \texttt{i}. 
+	\item Shift all integers in \texttt{elements} from indices \texttt{i} to \texttt{top} one place to the right.
+	\item \textbf{Return} \texttt{true} 
+\end{enumerate}
+\vspace{5mm}
+\texttt{Set::remove (n:Integer)}
+\begin{enumerate}
+	\item Assert that the set is not empty.
+	\item If the set does not already contain \texttt{n}, \textbf{return} \texttt{false}.
+	\item Call \texttt{this->indexOfEqualOrGreater(n)}. Call the returned value \texttt{i}. 
+	\item Shift all integers in \texttt{elemets} from indices \texttt{i + 1} to \texttt{top} one place to the left.
+	\item \textbf{Return} \texttt{true} 
+\end{enumerate}
+\vspace{5mm}
+\texttt{Set::indexOfEqualOrGreater (n:Integer)}
+\begin{enumerate}
+	\item Initialize an integer \texttt{hi} to \texttt{top + 1}.
+	\item Initialize an integer \texttt{lo} to \texttt{0};
+	\item While \texttt{lo < hi}:
+	\begin{enumerate}
+		\item Set a temporary integer \texttt{mid} to \texttt{(lo + hi) / 2}.
+		\item If \texttt{n} is less than the element at mid, set \texttt{hi} to \texttt{mid}. 
+		\item If \texttt{n} is greater than the element at mid, set \texttt{lo} to \texttt{mid + 1}.
+		\item If \texttt{n} is equal to the element at mid, \textbf{return} \texttt{mid}.
+	\end{enumerate}
+	\item \textbf{Return} \texttt{hi}
+\end{enumerate}
+\vspace{8mm}
+\texttt{union (a:Set, b:Set)}
+\begin{enumerate}
+	\item Create a new \texttt{Set}, capable of holding the combined elements of \texttt{a} and \texttt{b}. Call it \texttt{r}.
+	\item For each element \texttt{n} in \texttt{a}, call \texttt{r->add(n)}.
+	\item For each element \texttt{n} in \texttt{b}, call \texttt{r->add(n)}.
+	\item \textbf{Return} \texttt{r}.
+\end{enumerate}
+\vspace{5mm}
+\texttt{intersection (a:Set, b:Set)}
+\begin{enumerate}
+	\item Create a new \texttt{Set}, with its \texttt{maxSize} equal to either of the sizes of \texttt{a} or \texttt{b}.
+		Call it \texttt{r}.
+	\item For each element \texttt{n} in \texttt{a}, also contained in \texttt{n}, call \texttt{r->add(n)}.
+	\item \textbf{Return} \texttt{r} 
+\end{enumerate}
+\vspace{5mm}
+\texttt{difference (a:Set, b:Set)}
+\begin{enumerate}
+	\item Create a new \texttt{Set}, with its \texttt{maxSize} equal to either of the sizes of \texttt{a} or \texttt{b}.
+		Call it \texttt{r}.
+	\item For each element \texttt{n} in \texttt{a}, not contained in \texttt{n}, call \texttt{r->add(n)}.
+	\item \textbf{Return} \texttt{r} 
+\end{enumerate}
+
+\sourcecode
+\lstinputlisting{src/Set.java}
+\lstinputlisting{src/SetDemo.java}
+
+\varDescription
+\begin{longtable} {| >{\ttfamily}p{0.16\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
+\hline\multicolumn{3}{|c|}{\tt Set} 		\\\hline
+int 		&	maxSize		&	The maximum number of elements the set can hold \\\hline
+int[]		&	elements	&	The collection of elements contained in the set \\\hline
+int 		&	top		&	The index of the topmost element in \texttt{elements} \\\hline
+\hline\multicolumn{3}{|c|}{\tt Set::Set(int)} 		\\\hline
+int 		&	maxSize		&	The maximum number of elements the set can hold \\\hline
+\hline\multicolumn{3}{|c|}{\tt Set::updateMaxSize(int)} 		\\\hline
+int 		&	newMaxSize	&	The maximum number of elements the set is to hold \\\hline
+int[]		&	temp		&	The new copy of \texttt{elements} with the updated size	\\\hline
+\hline\multicolumn{3}{|c|}{\tt Set::add(int)} 		\\\hline
+int 		&	n		&	The element to be added to the set \\\hline
+int 		&	i		&	The index of the breakpoint from which elements have to be shifted \\\hline
+\hline\multicolumn{3}{|c|}{\tt Set::remove(int)} 		\\\hline
+int 		&	n		&	The element to be removed from the set \\\hline
+int 		&	i		&	The index of the breakpoint from which elements have to be shifted \\\hline
+\hline\multicolumn{3}{|c|}{\tt Set::indexOfEqualOrGreater(int)} 		\\\hline
+int 		&	n		&	The element to be searched for \\\hline
+int 		&	hi		&	The upper index where \texttt{n} can be \\\hline
+int 		&	lo		&	The lower index where \texttt{n} can be \\\hline
+int 		&	mid		&	The midpoint of \texttt{hi} and \texttt{lo} \\\hline
+\end{longtable}

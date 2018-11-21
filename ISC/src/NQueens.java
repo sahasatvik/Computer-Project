@@ -72,8 +72,9 @@ public class NQueens {
 		try {
 			/* Parse the first command line argument as the size of the board */
 			int size = Integer.parseInt(args[0]);
-			/* Parse the second command line argument as a boolean, indicating
-			   whether to draw the solved boards. Defaults to not showing the solutions */
+			/* Parse the second command line argument as a boolean,
+			   indicating whether to draw the solved boards.
+			   Defaults to not showing the solutions */
 			boolean drawSolutions = (args.length > 1)? Boolean.parseBoolean(args[1]) : false;
 			/* Make sure the board exists */
 			if (size < 1)

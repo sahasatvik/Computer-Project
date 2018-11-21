@@ -93,7 +93,7 @@ public class Vector {
 	/* Adds multiple vectors to return a vector */
 	public static Vector add (Vector ... vectors) {
 		Vector v = vectors[0];
-		/* Repeatedly use binary the addition method */
+		/* Repeatedly use the binary addition method */
 		for (int i = 1; i < vectors.length; i++)
 			v = Vector.add(v, vectors[i]);
 		return v;

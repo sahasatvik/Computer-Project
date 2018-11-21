@@ -1,7 +1,7 @@
 public class TowersOfHanoi {
 	public static void main (String[] args) {
 		try {
-			/* Parse the first command line argument as the number of diska */
+			/* Parse the first command line argument as the number of disks */
 			int disks = Integer.parseInt(args[0]);
 			/* Make sure there is at least one disk */
 			if (disks < 1)

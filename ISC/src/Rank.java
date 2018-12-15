@@ -1,6 +1,6 @@
 public enum Rank {
 	ACE	(1),
-	DEUCE	(2),
+	TWO	(2),
 	THREE	(3),
 	FOUR	(4),
 	FIVE	(5),

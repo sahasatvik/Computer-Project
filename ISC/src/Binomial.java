@@ -13,7 +13,7 @@ public class Binomial {
 		}
 	}
 	
-	/* Recursively calculate the binomial coeffient n choose k */
+	/* Recursively calculate the binomial coefficient n choose k */
 	public static long binomial (long n, long k) throws Exception {
 		/* Invalid case */
 		if (k > n)

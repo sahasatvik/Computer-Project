@@ -1,0 +1,105 @@
+
+\chapquote{``If brute force doesn't solve your problems, then you aren't using enough."}{Anonymous}
+
+\problem Spell out a given number in words.
+
+\solution
+In English, digits are grouped in sets of $3$, with the first digit representing the number of `hundreds', 
+the second representing the number of `tens', and the third representing the number of `ones'. Each set is given
+a suffix such as `thousand', `million', `billion', and so on.
+A special case exists for the two digit numbers `eleven' to `nineteen'.
+
+Digits following a decimal point are simply spelt out in succession.
+
+\algorithm
+\texttt{main (number:String)}
+\begin{enumerate}
+	\item Assert that \texttt{number} can be parsed as a floating point number.
+	\item Call and display \texttt{numberToWords(number)}.
+	\item \textbf{Exit} 
+\end{enumerate}
+\vspace{5mm}
+\texttt{numberToWords (number:String)}
+\begin{enumerate}
+	\item Split \texttt{number} into an \texttt{integerPart} and a \texttt{decimalPart} along
+		the decimal point (\texttt{.}).
+	\item Replace \texttt{integerPart} with \texttt{stringToWords(integerPart)}.
+	\item If there is a decimal part, replace \texttt{decimalPart} with \texttt{stringToDigits(decimalPart)}.
+		Otherwise, \textbf{return} \texttt{integerPart}.
+	\item \textbf{Return} \texttt{integerPart + "point" + "decimalPart"}
+\end{enumerate}
+\vspace{5mm}
+\texttt{stringToDigits (number:String)}
+\begin{enumerate}
+	\item Initialize an empty string \texttt{s}. 
+	\item For each character \texttt{c} in \texttt{number}:
+	\begin{enumerate}
+		\item Convert \texttt{c} to its corresponding digit \texttt{d}.
+		\item Append the English word for \texttt{d} to \texttt{s}.
+	\end{enumerate}
+	\item \textbf{Return} \texttt{s} 
+\end{enumerate}
+\vspace{5mm}
+\texttt{stringToWords (number: String)}
+\begin{enumerate}
+	\item If \texttt{number} starts with a minus sign (\texttt{-}), remove it and \textbf{return} \texttt{"minus"}
+		\newline\texttt{+} \texttt{stringToWords(number)}.
+	\item Initialize an empty string \texttt{s}.
+	\item Initialize a counter \texttt{blockNumber} to zero. 
+	\item \textbf{While} \texttt{number} is non-empty:
+	\begin{enumerate}
+		\item Remove a block of three characters from \texttt{number}, and store them as an integer \texttt{temp}.
+		\item If \texttt{temp} is non-zero, add \texttt{threeDigitsToWords(temp)} and the English word for
+			the power of thousand correspinding to \texttt{blockNumber} to the beginning of \texttt{s}.
+		\item Increment \texttt{blockNumber}.
+	\end{enumerate}
+	\item If \texttt{s} is empty, \textbf{return} \texttt{"zero"}.
+	\item \textbf{Return} \texttt{s} 
+\end{enumerate}
+\vspace{5mm}
+\texttt{threeDigitsToWords (n:Integer)}
+\begin{enumerate}
+	\item Store the first, second, and third digits of \texttt{n} as integers \texttt{h}, \texttt{t}, and \texttt{o} respectively.
+	\item Initialize an empty string \texttt{s}.
+	\item If \texttt{h} is non-zero, append its corresponding English word and the word \texttt{"hundred"} to \texttt{s}.
+	\item If \texttt{t} is \texttt{1}, append the corresponding English word for the last two digits of \texttt{n} \textit{(which are in the `teens')}
+		to \texttt{s} and \textbf{return} it.
+	\item Append the English word for the multiple of ten corresponding to \texttt{t} to \texttt{s}.
+	\item If \texttt{o} is non-zero, append its corresponding English word to \texttt{s}.
+	\item \textbf{Return} \texttt{s} 
+\end{enumerate}
+
+\sourcecode
+\lstinputlisting{src/NumberToWords.java}
+
+\clearpage
+\varDescription
+\begin{longtable} {| >{\ttfamily}p{0.15\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
+\hline\multicolumn{3}{|c|}{\tt NumberToWords} \\\hline
+String[] 	&	singleDigits	&	Map of English words corresponding to single digits \\\hline
+String[]	&	twoDigits	&	Map of English words corresponding to two digit numbers in the `teens' \\\hline
+String[]	&	tenMultiples	&	Map of English words corresponding to multiples of ten \\\hline
+String[]	&	thousand\newline
+			PowerGroups	&	Map of English words corresponding to powers of thousand \\\hline
+\hline\multicolumn{3}{|c|}{\tt NumberToWords::numberToWords(String)} \\\hline
+String		&	n		&	The number to be spelt out \\\hline
+String[]	&	parts		&	Stores the integer and fractional parts of \texttt{number} \\\hline
+String		&	integerPart	&	The integer part in words \\\hline
+String		&	decimalPart	&	The digits after the decimal in words \\\hline
+\hline\multicolumn{3}{|c|}{\tt NumberToWords::stringToDigits(String)} \\\hline
+String		&	digits		&	The string of digits to be spelt out \\\hline
+String		&	s		&	\texttt{digits} in words \\\hline
+int 		&	i		&	Counter variable \\\hline
+int 		&	d		&	The current digit to be spelt out \\\hline
+\hline\multicolumn{3}{|c|}{\tt NumberToWords::stringToWords(String)} \\\hline
+String		&	n		&	The integer to be spelt out \\\hline
+int 		&	left		&	The left index of the current block of three \\\hline
+int 		&	blockNumber	&	Counter variable, stores the current block number \\\hline
+String		&	temp		&	Stores the current block of three \\\hline
+int 		&	blockOfThree	&	Stores the current block of three as an integer \\\hline
+\hline\multicolumn{3}{|c|}{\tt NumberToWords::threeDigitsToWords(int)} \\\hline
+int 		&	n		&	The integer to be spelt out \\\hline
+int 		&	h		&	The first digit of \texttt{n} \\\hline
+int 		&	t		&	The second digit of \texttt{n} \\\hline
+int 		&	o		&	The third digit of \texttt{n} \\\hline
+\end{longtable}

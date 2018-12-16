@@ -57,26 +57,38 @@ public class NumberToWords {
 		" decillion"
 	};
 
-	/* Convert a block of three digits into words */
-	public static String threeDigitsToWords (int n) {
-		/* Extract each digit */
-		int h = n / 100;
-		int t = (n / 10) % 10;
-		int o = n % 10;
+	public static void main (String[] args) {
+		try {
+			/* Parse the first command line argument as the number
+			   to be spelt out */
+			Double.parseDouble(args[0]);
+			System.out.println(numberToWords(args[0]));
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("Enter 1 argument! ([number])");
+		} catch (NumberFormatException e) {
+			System.out.println("Invalid number!");
+		}
+	}
+
+	/* Convert a string of digits into words */
+	public static String numberToWords (String n) {
+		/* Deal with the integral and fractional parts separately */
+		String parts[] = n.split("\\.");
+		String integerPart = stringToWords(parts[0]);
+		/* Check for the fractional part */
+		if (parts.length == 1)
+			return integerPart.trim();
+		String decimalPart = stringToDigits(parts[1]);
+		return (integerPart + " point" + decimalPart).trim();
+	}
+
+	/* Convert the digits of the fractional part into words */
+	public static String stringToDigits (String digits) {
 		String s = "";
-		/* Only convert the 'hundreds' if it is non-zero */
-		if (h > 0) {
-			s += singleDigits[h] + " hundred";
-		}
-		/* Special case of 'teens' */
-		if (t == 1) {
-			s += twoDigits[o];
-			return s;
-		}
-		s += tenMultiples[t];
-		/* Only convert 'ones' if it is non-zero */
-		if (o > 0) {
-			s += singleDigits[o];
+		for (int i = 0; i < digits.length(); i++) {
+			/* Map digits to their corresponding words */
+			int d = digits.charAt(i) - '0';
+			s += singleDigits[d];
 		}
 		return s;
 	}
@@ -109,39 +121,27 @@ public class NumberToWords {
 		return s.substring(0, s.length() - 1);
 	}
 	
-	/* Convert the digits of the fractional part into words */
-	public static String stringToDigits (String digits) {
+	/* Convert a block of three digits into words */
+	public static String threeDigitsToWords (int n) {
+		/* Extract each digit */
+		int h = n / 100;
+		int t = (n / 10) % 10;
+		int o = n % 10;
 		String s = "";
-		for (int i = 0; i < digits.length(); i++) {
-			/* Map digits to their corresponding words */
-			int d = digits.charAt(i) - '0';
-			s += singleDigits[d];
+		/* Only convert the 'hundreds' if it is non-zero */
+		if (h > 0) {
+			s += singleDigits[h] + " hundred";
+		}
+		/* Special case of 'teens' */
+		if (t == 1) {
+			s += twoDigits[o];
+			return s;
+		}
+		s += tenMultiples[t];
+		/* Only convert 'ones' if it is non-zero */
+		if (o > 0) {
+			s += singleDigits[o];
 		}
 		return s;
-	}
-	
-	/* Convert a string of digits into words */
-	public static String numberToWords (String n) {
-		/* Deal with the integral and fractional parts separately */
-		String parts[] = n.split("\\.");
-		String integerPart = stringToWords(parts[0]);
-		/* Check for the fractional part */
-		if (parts.length == 1)
-			return integerPart.trim();
-		String decimalPart = stringToDigits(parts[1]);
-		return (integerPart + " point" + decimalPart).trim();
-	}
-
-	public static void main (String[] args) {
-		try {
-			/* Parse the first command line argument as the number
-			   to be spelt out */
-			Double.parseDouble(args[0]);
-			System.out.println(numberToWords(args[0]));
-		} catch (NumberFormatException | IndexOutOfBoundsException e) {
-			System.out.println("Enter 1 argument! ([number])");
-		} catch (Exception e) {
-			System.out.println("Invalid number!");
-		}
 	}
 }

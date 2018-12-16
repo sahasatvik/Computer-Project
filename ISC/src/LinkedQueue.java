@@ -4,8 +4,8 @@ import java.util.Iterator;
    enforced at compile-time */
 public class LinkedQueue<T> implements Iterable<T> {
 	/* Special nodes surrounding data nodes */
-	private final Node<T> HEAD = new Node<T>(null);
-	private final Node<T> TAIL = new Node<T>(null);
+	protected final Node<T> HEAD = new Node<T>(null);
+	protected final Node<T> TAIL = new Node<T>(null);
 	
 	public LinkedQueue () {
 		Node.<T>link(TAIL, HEAD);
@@ -54,7 +54,7 @@ public class LinkedQueue<T> implements Iterable<T> {
 		return n;
 	}
 	
-	/* Format the elements of the queue neatly */
+	/* Formats the elements of the queue neatly */
 	@Override
 	public String toString () {
 		String[] elements = new String[this.size()];

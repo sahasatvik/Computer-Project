@@ -1,0 +1,51 @@
+
+\chapquote{``A good way to have good ideas is by being unoriginal."}{Bram Cohen}
+
+\problem A \textit{double ended queue}, or \textit{DEqueue} is a linear data structure which allows the insertion
+and deletion of data items from both the front and rear.
+
+Implement a \textit{double ended queue} capable of holding an arbitrary number of elements of a specified type.
+
+\solution 
+This problem can be solved by extending the funcitonality of the \textit{queue} defined in the previous problem. The algorithms
+for insertion and deletion at one end mirror those for the other.
+
+\algorithm
+\texttt{LinkedDEQueue<T> ()}
+\begin{enumerate}
+	\item Call the constructor of the superclass \texttt{LinkedQueue}.
+	\item \textbf{Define} the functions:
+	\begin{enumerate}
+		\item \texttt{LinkedDEQueue<T>::enqueueRear(item)} 
+		\item \texttt{LinkedDEQueue<T>::dequeueFront()}
+	\end{enumerate}
+	\item \textbf{Return} the resultant object.
+\end{enumerate}
+\vspace{5mm}
+\texttt{LinkedDEQueue<T>::enqueueRear (item:T)}
+\begin{enumerate}
+	\item Create a new \texttt{Node<T>}, pass it \texttt{item}, and call it \texttt{newNode}.
+	\item Link \texttt{newNode} and \texttt{TAIL->right}. 
+	\item Link \texttt{TAIL} and \texttt{newNode}. 
+\end{enumerate}
+\vspace{5mm}
+\texttt{LinkedDEQueue<T>::dequeueFront ()}
+\begin{enumerate}
+	\item If the queue is empty, return \texttt{null}.
+	\item Temporarily store the node \texttt{HEAD->left} as \texttt{firstNode}.
+	\item Link \texttt{firstNode->left} and \texttt{HEAD} . 
+	\item \textbf{Return} the item contained in \texttt{firstNode}. 
+\end{enumerate}
+
+\clearpage
+\sourcecode
+\lstinputlisting{src/LinkedDEQueue.java}
+\lstinputlisting{src/DEQueueDemo.java}
+
+\varDescription
+\begin{longtable} {| >{\ttfamily}p{0.16\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
+\hline\multicolumn{3}{|c|}{\tt LinkedDEQueue<T>::enqueueRear(T)} 		\\\hline
+T		&	item 		&	The data to be enqueued \\\hline
+\hline\multicolumn{3}{|c|}{\tt LinkedDEQueue<T>::dequeueFront()} 		\\\hline
+Node<T>		&	firstNode	&	The node containing the data to be dequeued \\\hline
+\end{longtable}

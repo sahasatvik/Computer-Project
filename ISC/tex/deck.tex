@@ -1,12 +1,56 @@
 
 \chapquote{``One should always play fairly when one has the winning cards."}{Oscar Wilde}
 
-\problem
+\problem Simulate a deck of playing cards.
 
-\solution
+\solution A deck of cards can be simulated by a list of `Card' objects. A playing card 
+is wholly defined by its \textit{suit}, of which there are $4$, and its \textit{rank}, of which there are $12$.
+A standard deck contains $52$ cards, such that every permutation of suit and rank is present. Cards can only
+be dealt from a deck, or shuffled in the deck.
+
+There are many algorithms for shuffling a list, but the simplest is the \textit{Knuth shuffle}, also known as the
+\textit{Fisher-Yates shuffle}. It involves choosing a random card from the list, putting it aside, then repeating
+until the list is exhausted. This generates an \textit{unbiased permutation} of the list.
 
 \algorithm
+\texttt{Card (suit:Suit, rank::Rank)}
+\begin{enumerate}
+	\item Copy \texttt{suit} and \texttt{rank} as constants into the object.
+	\item \textbf{Return} the resultant object.
+\end{enumerate}
+\vspace{8mm}
+\texttt{Deck ()}
+\begin{enumerate}
+	\item Create a stack of \texttt{Card} objects of capacity $52$.
+	\item For each ordered pair $($\texttt{s}$, $\texttt{r}$) \in $\texttt{Suit->values()}$\times$\texttt{Rank->values()}:
+	\begin{enumerate}
+		\item Create a new \texttt{Card}, pass it \texttt{s} and \texttt{r}, and add it to the card stack.
+	\end{enumerate}
+	\item \textbf{Define} the functions:
+	\begin{enumerate}
+		\item \texttt{Deck::deal()} 
+		\item \texttt{Deck::shuffle()}
+	\end{enumerate}
+	\item \textbf{Return} the resultant object.
+\end{enumerate}
+\vspace{5mm}
+\texttt{Deck::deal ()}
+\begin{enumerate}
+	\item If there are no cards in the stack, \textbf{return} a \texttt{null} object.
+	\item Pop a card from the stack and \textbf{return} it.
+\end{enumerate}
+\vspace{5mm}
+\texttt{Deck::shuffle ()}
+\begin{enumerate}
+	\item Let there be $n$ cards in the stack.
+	\item For each \texttt{i} $ \in \{n-1, n-2, \dots, 1\}$:
+	\begin{enumerate}
+		\item Let \texttt{j} be a random integer such that $0 \le $\texttt{j}$ \le $\texttt{i}.
+		\item Swap the cards at indices \texttt{i} and \texttt{j} in the stack.
+	\end{enumerate}
+\end{enumerate}
 
+\clearpage
 \sourcecode
 \lstinputlisting{src/Suit.java}
 \lstinputlisting{src/Rank.java}
@@ -15,3 +59,17 @@
 \lstinputlisting{src/DeckDemo.java}
 
 \varDescription
+\begin{longtable} {| >{\ttfamily}p{0.16\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
+\hline\multicolumn{3}{|c|}{\tt Card} 		\\\hline
+Suit		&	suit	&	The suit of the playing card \\\hline
+Rank		&	rank	&	The rank of the playing card \\\hline
+\hline\multicolumn{3}{|c|}{\tt Deck} 		\\\hline
+Card[]		&	cards	&	The stack of cards making up the deck \\\hline
+int 		&	top	&	The index of the card at the top of the stack \\\hline
+Suit		&	suit	&	The suit of the playing card being added \\\hline
+Rank		&	rank	&	The rank of the playing card being added \\\hline
+\hline\multicolumn{3}{|c|}{\tt Deck::shuffle()} 		\\\hline
+int 		&	i, j	&	The indices of the cards to be swapped \\\hline
+\hline\multicolumn{3}{|c|}{\tt Deck::swap(int, int)} 		\\\hline
+int 		&	i, j	&	The indices of the cards to be swapped \\\hline
+\end{longtable}

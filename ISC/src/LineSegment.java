@@ -5,6 +5,7 @@ public class LineSegment implements Scalable<LineSegment> {
 		this.length = length;
 	}
 
+	@Override
 	public LineSegment scale (double scaleFactor) {
 		return new LineSegment(length * scaleFactor);
 	}

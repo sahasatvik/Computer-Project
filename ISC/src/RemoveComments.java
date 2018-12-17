@@ -62,8 +62,6 @@ public class RemoveComments {
 						char n = (char) s.getChar();
 						if (n == '/')
 							currentState = State.SOURCE;
-						else
-							s.putChar(n);
 					}
 					break;
 				case QUOTES:

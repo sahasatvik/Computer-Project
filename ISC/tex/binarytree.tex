@@ -1,9 +1,23 @@
 
 \chapquote{``You can't trust code that you did not totally create yourself."}{Ken Thompson}
 
-\problem
+\problem Arrange the words in a given sentence of input in alphabetical order.
 
-\solution
+\textit{(Ignore case, duplicated words.)} 
+
+\solution This problem can be solved using a data structure called a \textit{binary tree}.\\
+
+A \textit{binary tree} consists of multiples \textit{nodes}, each of which holds a data item. Ideally, 
+these items can be \textit{ordered}, i.e., there is a way to compare them, using a value called a \textit{key}.
+Each node is connected to two nodes below it --- the \textit{left child} and the \textit{right child}. The left child
+has  lower \textit{key}, while the right child has a higher \textit{key} than the parent node. The node at the top 
+of a given binary tree is called its \textit{root}.
+
+Binary trees have a nice recursive form, in that the left and right children of the root can be regarded as roots of 
+individual binary trees --- the \textit{left} and \textit{right} \textit{subtrees} of the root. This makes it easy to
+write recursive algorithms for searching, inserting, and deleting nodes from a binary tree.
+
+Searching and insertion in a binary tree containing $n$ nodes have an average time complexity $O(\log{n})$.
 
 \algorithm
 \texttt{TreeNode<T> (item:T)}
@@ -12,7 +26,57 @@
 	\item Declare two variables \texttt{left} and \texttt{right}, both of type \texttt{Node<T>}.
 	\item \textbf{Return} the resultant object.
 \end{enumerate}
+\vspace{8mm}
+\texttt{BinaryTree<T> (root:TreeNode<T>)}
+\begin{enumerate}
+	\item Copy \texttt{root} as an object variable.
+	\item \textbf{Define} the functions:
+	\begin{enumerate}
+		\item \texttt{BinaryTree<T>::contains(item)} 
+		\item \texttt{BinaryTree<T>::search(item)} 
+		\item \texttt{BinaryTree<T>::add(item)} 
+	\end{enumerate}
+	\item \textbf{Return} the resultant object.
+\end{enumerate}
 \vspace{5mm}
+\texttt{BinaryTree<T>::contains (item:T)}
+\begin{enumerate}
+	\item If \texttt{this->search(item)} returns a non-null object, \textbf{return} \texttt{true}, otherwise
+		\textbf{return} \texttt{false}.
+\end{enumerate}
+\vspace{5mm}
+\texttt{BinaryTree<T>::search (item:T)}
+\begin{enumerate}
+	\item \textbf{Return} \texttt{search(this->root, item)}
+\end{enumerate}
+\vspace{5mm}
+\texttt{BinaryTree<T>::add (item:T)}
+\begin{enumerate}
+	\item Set \texttt{this->root} to the \texttt{TreeNode} returned by \texttt{add(this->root, item)}.
+\end{enumerate}
+\vspace{5mm}
+\texttt{search (root:TreeNode<T>, item:T)} 
+\begin{enumerate}
+	\item If \texttt{item} $<$ \texttt{root->item}, \textbf{return} \texttt{search(root->left, item)}
+	\item If \texttt{item} $>$ \texttt{root->item}, \textbf{return} \texttt{search(root->right, item)}
+	\item \textbf{Return} \texttt{root}
+\end{enumerate}
+\vspace{5mm}
+\texttt{add (root:TreeNode<T>, item:T)}
+\begin{enumerate}
+	\item If \texttt{root} is \texttt{null}, set it to a new \texttt{TreeNode<T>} containing \texttt{item} and
+		\textbf{return} \texttt{root}.
+	\item If \texttt{item} $<$ \texttt{root->item}, set \texttt{root->left} to \texttt{add(root->left, item)}.
+	\item If \texttt{item} $>$ \texttt{root->item}, set \texttt{root->right} to \texttt{add(root->right, item)}.
+	\item \textbf{Return} \texttt{root}
+\end{enumerate}
+\vspace{5mm}
+\texttt{traverseInOrder (node:TreeNode<T>)}
+\begin{enumerate}
+	\item If \texttt{node} is \texttt{null}, \textbf{return} an empty string.
+	\item \textbf{Return} \texttt{traverseInOrder(node->left)} \texttt{+} \texttt{node} \texttt{+} \texttt{traverseInOrder(node->right)} 
+		\textit{(with spacing as necessary)}.
+\end{enumerate}
 
 \sourcecode
 \lstinputlisting{src/TreeNode.java}
@@ -20,3 +84,23 @@
 \lstinputlisting{src/BinaryTreeDemo.java}
 
 \varDescription
+\begin{longtable} {| >{\ttfamily}p{0.16\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
+\hline\multicolumn{3}{|c|}{\tt TreeNode<T>} 		\\\hline
+T		&	item 		&	The data stored in the node \\\hline
+TreeNode<T>	&	left		&	Reference to the left child of \texttt{this} \\\hline
+TreeNode<T>	&	right		&	Reference to the right child of \texttt{this} \\\hline
+\hline\multicolumn{3}{|c|}{\tt BinaryTree<T>} 		\\\hline
+TreeNode<T>	&	root		&	The root node of the binary tree \\\hline
+\hline\multicolumn{3}{|c|}{\tt BinaryTree<T>::contains(T)} 		\\\hline
+T		&	item 		&	The item to check for	\\\hline	
+\hline\multicolumn{3}{|c|}{\tt BinaryTree<T>::search(T)} 		\\\hline
+T		&	item 		&	The item to search for	\\\hline	
+\hline\multicolumn{3}{|c|}{\tt BinaryTree<T>::add(T)} 		\\\hline
+T		&	item 		&	The item to be added	\\\hline
+\hline\multicolumn{3}{|c|}{\tt BinaryTree<T>::search(TreeNode<T>, T)} 		\\\hline
+TreeNode<T>	&	root		&	The current node being checked \\\hline
+T		&	item 		&	The item to search for	\\\hline
+\hline\multicolumn{3}{|c|}{\tt BinaryTree<T>::add(TreeNode<T>, T)} 		\\\hline
+TreeNode	&	root		&	The current node being compared 	\\\hline
+T		&	item 		&	The item to be added	\\\hline
+\end{longtable}

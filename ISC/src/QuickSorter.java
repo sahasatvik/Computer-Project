@@ -1,8 +1,10 @@
 public class QuickSorter extends IntegerArraySorter {
+	@Override
 	public void sort (int[] a) {
 		sort(a, 0, a.length - 1);
 	}
-
+	
+	/* Recursive quicksort */
 	private void sort (int[] a, int lo, int hi) {
 		if (hi <= lo)
 			return;
@@ -11,6 +13,7 @@ public class QuickSorter extends IntegerArraySorter {
 		sort(a, pivot + 1, hi);
 	}
 
+	/* Lomuto partition scheme */
 	private int partition (int[] a, int lo, int hi) {
 		int pivotValue = a[hi];
 		int pivot = lo - 1;

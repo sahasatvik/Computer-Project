@@ -1,17 +1,125 @@
 
 \chapquote{``A program that produces incorrect results twice as fast is infinitely slower."}{John Ousterhout}
 
-\problem
+\problem Compare the runtimes of the following sorting algorithms --- \textit{bubble sort}, \textit{insertion sort} and \textit{quicksort}.
 
-\solution
+\solution \textit{Bubble sort} is a sorting algorithm which repeatedly steps through an unsorted list, compares adjacent elements and
+swaps them if they are in the wrong order. It has an average time complexity of $O(n^2)$.
+
+\textit{Insertion sort} is a sorting algorithm which builds a sorted list one element at a time by repeatedly selecting an unsorted
+element and inserting it into the correct position in the sorted portion. It too has an average time complexity of $O(n^2)$
+
+\textit{Quicksort} is a \textit{divide and conquer} sorting algorithm which splits an unsorted list along a pivot, with elements
+less than it shifted before and elements greater than it shifted after. The two halves are then sorted recursively. This algorithm has
+an average time complexity of $O(n \log{n})$.
+
+Each of these algorithms have different strengths and weaknesses. \textit{Insertion sort} and \textit{bubble sort} perform progressively slower than
+\textit{quicksort} on long lists with a large spread of randomly shuffled numbers. On the other hand, \textit{insertion sort} performs faster than
+\textit{bubble sort}, which in turn performs faster than quicksort on shorter lists with randomly shuffled numbers. Again, \textit{bubble sort} 
+performs faster than \textit{insertion sort}, which performs significantly faster on long lists with a small spread of numbers, i.e., almost sorted
+lists.\\
 
 \algorithm
+\texttt{BubbleSorter::sort (a:Integer[])} 
+\begin{enumerate}
+	\item Initialize an integer \texttt{right} to the length of \texttt{a}.
+	\item Initialize a boolean \texttt{swapped} to \texttt{true}.
+	\item \textbf{While} \texttt{swapped}:
+	\begin{enumerate}
+		\item Set \texttt{swapped} to \texttt{false}
+		\item For \texttt{i} $ \in \{1, 2, \dots, right - 1\}$:
+		\begin{enumerate}
+			\item If \texttt{a[i - 1]} $ > $ \texttt{a[i]}:
+			\begin{enumerate}
+				\item Swap the elements in \texttt{a} at indices \texttt{i-1} and \texttt{i}.
+				\item Set \texttt{swapped} to \texttt{true}.
+			\end{enumerate}
+		\end{enumerate}
+		\item Decrement \texttt{right}.
+	\end{enumerate}
+\end{enumerate}
+\vspace{8mm}
+\texttt{InsertionSorter::sort (a:Integer[])}
+\begin{enumerate}
+	\item Let $n$ be thenumber of elements in \texttt{a}.
+	\item For \texttt{i} $ \in \{1, 2, \dots, n - 1\}$:
+	\begin{enumerate}
+		\item Set an integer \texttt{k} to \texttt{a[i]}.
+		\item Set an integer \texttt{j}	to \texttt{i - 1}.
+		\item \textbf{While} (\texttt{j} $ \geq 0$) and (\texttt{a[j]} $ > $ \texttt{k}):
+		\begin{enumerate}
+			\item Set \texttt{a[j + 1]} to \texttt{a[j]}.
+			\item Decrement \texttt{j}.
+		\end{enumerate}
+		\item Set \texttt{a[j + 1]} to \texttt{k}.
+	\end{enumerate}
+\end{enumerate}
+\vspace{8mm}
+\texttt{QuickSorter::sort (a:Integer[])}
+\begin{enumerate}
+	\item Let \texttt{l} be the number of elements in \texttt{a}.
+	\item Call \texttt{this->sort(a, 0, l - 1)}
+\end{enumerate}
+\vspace{5mm}
+\texttt{QuickSorter::sort (a:Integer[], lo:Integer, hi:Integer)}
+\begin{enumerate}
+	\item If \texttt{hi} $ \leq $ \texttt{lo}, \textbf{return}.
+	\item Call \texttt{this->partition(a, lo, hi)}, and store the returned integer as \texttt{pivot}.
+	\item Call \texttt{this->sort(a, lo, pivot - 1)}
+	\item Call \texttt{this->sort(a, pivot + 1, hi)} 
+\end{enumerate}
+\vspace{5mm}
+\texttt{QuickSorter::partition (a:Integer[], lo:Integer, hi:Integer)} 
+\begin{enumerate}
+	\item Set an integer \texttt{pivotValue} to \texttt{a[hi]}.
+	\item Set an integer \texttt{pivot} to \texttt{lo - 1}.
+	\item For \texttt{i} $ \in \{$\texttt{lo}$, $\texttt{lo + 1}$, \dots, $\texttt{hi - 1} $\}$:
+	\begin{enumerate}
+		\item If \texttt{a[i]} $ \leq $ \texttt{pivotValue}:
+		\begin{enumerate}
+			\item Increment \texttt{pivot}.
+			\item Swap the elements in \texttt{a} at indices \texttt{i} and \texttt{pivot}.
+		\end{enumerate}
+	\end{enumerate}
+	\item Increment \texttt{pivot}.
+	\item Swap the elements in \texttt{a} at indices \texttt{i} and \texttt{pivot}.
+	\item \textbf{Return} \texttt{pivot}
+\end{enumerate}
 
+\clearpage
 \sourcecode
 \lstinputlisting{src/IntegerArraySorter.java}
-\lstinputlisting{src/InsertionSorter.java}
 \lstinputlisting{src/BubbleSorter.java}
+\lstinputlisting{src/InsertionSorter.java}
 \lstinputlisting{src/QuickSorter.java}
 \lstinputlisting{src/SortCompare.java}
 
+\clearpage
 \varDescription
+\begin{longtable} {| >{\ttfamily}p{0.16\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
+\hline\multicolumn{3}{|c|}{\tt IntegerArraySorter::sort(int[])} 		\\\hline
+int[]		&	a		&	The array whose elements are to be sorted \\\hline
+\hline\multicolumn{3}{|c|}{\tt IntegerArraySorter::swap(int[], int, int)} 		\\\hline
+int[]		&	a		&	The array whose elements are to be swapped \\\hline
+int 		&	i, j 		&	The indices of the elements to be swapped \\\hline
+\hline\multicolumn{3}{|c|}{\tt BubbleSorter::sort(int[])} 		\\\hline
+int[]		&	a		&	The array whose elements are to be sorted \\\hline
+int 		&	right, 	i	&	Counter variables	\\\hline
+boolean 	&	swapped		&	Keeps track of whether any swaps were performed in the current iteration \\\hline
+\hline\multicolumn{3}{|c|}{\tt InsertionSorter::sort(int[])} 		\\\hline
+int[]		&	a		&	The array whose elements are to be sorted \\\hline
+int 		&	i, j		&	Counter variables \\\hline
+int 		&	k		&	The element to be inserted \\\hline
+\hline\multicolumn{3}{|c|}{\tt QuickSorter::sort(int[])} 		\\\hline
+int[]		&	a		&	The array whose elements are to be sorted \\\hline
+\hline\multicolumn{3}{|c|}{\tt QuickSorter::sort(int[], int, int)} 		\\\hline
+int[]		&	a		&	The array whose elements are to be sorted \\\hline
+int 		&	lo, hi		&	The lower and upper indices of the unsorted list \\\hline
+int 		&	pivot		&	The index of the value about which the list is partitioned \\\hline
+\hline\multicolumn{3}{|c|}{\tt QuickSorter::partition(int[], int, int)} 		\\\hline
+int[]		&	a		&	The array whose elements are to be sorted \\\hline
+int 		&	lo, hi		&	The lower and upper indices of the unsorted list \\\hline
+int 		&	pivotValue	&	The value about which the list is partitioned \\\hline
+int 		&	pivot		&	The index of the value about which the list is partitioned \\\hline
+int 		&	i		&	Counter variable \\\hline
+\end{longtable}

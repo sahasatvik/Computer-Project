@@ -9,15 +9,18 @@ public class Triangle implements Shape2D, Scalable<Triangle> {
 		this.c = c;
 	}
 
+	@Override
 	public double getArea () {
 		double s = (a + b + c) / 2.0;
 		return Math.sqrt(s * (s - a) * (s - b) * (s - c));
 	}
 
+	@Override
 	public double getPerimeter () {
 		return a + b + c;
 	}
 
+	@Override
 	public Triangle scale (double scaleFactor) {
 		return new Triangle(a * scaleFactor, b * scaleFactor, c * scaleFactor);
 	}

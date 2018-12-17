@@ -1,3 +1,4 @@
+/* List all possible ranks, along with their equivalent numeric values */
 public enum Rank {
 	ACE	(1),
 	TWO	(2),

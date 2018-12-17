@@ -9,14 +9,17 @@ public class Cuboid implements Shape3D, Scalable<Cuboid> {
 		this.height = height;
 	}
 
+	@Override
 	public double getVolume () {
 		return length * breadth * height;
 	}
 
+	@Override
 	public double getSurfaceArea () {
 		return 2.0 * ((length * breadth) + (breadth * height) + (height * length));
 	}
 
+	@Override
 	public Cuboid scale (double scaleFactor) {
 		return new Cuboid(length * scaleFactor, breadth * scaleFactor, height * scaleFactor);
 	}

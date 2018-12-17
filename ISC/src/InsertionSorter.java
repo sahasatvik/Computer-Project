@@ -1,4 +1,5 @@
 public class InsertionSorter extends IntegerArraySorter {
+	@Override
 	public void sort (int[] a) {
 		for (int i = 1; i < a.length; i++) {
 			int k = a[i];

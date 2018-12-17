@@ -1,3 +1,4 @@
+/* Abstraction of a deck of cards */
 public class Deck {
 	/* Setup a simple stack */
 	protected Card[] cards;

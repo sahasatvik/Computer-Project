@@ -3,6 +3,7 @@ public class Square extends Rectangle {
 		super(side, side);
 	}
 
+	@Override
 	public Square scale (double scaleFactor) {
 		return new Square(length * scaleFactor);
 	}

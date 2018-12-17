@@ -36,7 +36,7 @@ public class BinaryTree<T extends Comparable<T>> {
 	public static <T extends Comparable<T>> TreeNode<T> search (TreeNode<T> root, T item) {
 		if (item.compareTo(root.item) < 0)
 			return BinaryTree.<T>search(root.left, item);
-		else if (item.compareTo(root.item) > 0)
+		if (item.compareTo(root.item) > 0)
 			return BinaryTree.<T>search(root.right, item);
 		return root;
 	}

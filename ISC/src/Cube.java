@@ -3,6 +3,7 @@ public class Cube extends Cuboid {
 		super(side, side, side);
 	}
 
+	@Override
 	public Cube scale (double scaleFactor) {
 		return new Cube(length * scaleFactor);
 	}

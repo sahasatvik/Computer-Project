@@ -1,9 +1,18 @@
 public class BubbleSorter extends IntegerArraySorter {
+	@Override
 	public void sort (int[] a) {
-		for (int right = a.length; right > 0; right--)
-			for (int i = 1; i < right; i++)
-				if (a[i - 1] > a[i])
+		int right = a.length;
+		boolean swapped = true;
+		while (swapped) {
+			swapped = false;
+			for (int i = 1; i < right; i++) {
+				if (a[i - 1] > a[i]) {
 					swap(a, i - 1, i);
+					swapped = true;
+				}
+			}
+			right -= 1;
+		}
 	}
 
 	@Override

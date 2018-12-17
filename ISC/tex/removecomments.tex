@@ -1,13 +1,107 @@
 
 \chapquote{``Code never lies, comments sometimes do."}{Ron Jeffries}
 
-\problem
+\problem Remove all comments from given source code.
 
 \solution
+Java comments can be classified into two broad types --- single line comments beginning with the sequence `\texttt{//}' and
+ending with a newline, and multiple line comment beginning with the sequence `\texttt{/*}' and ennding with the sequence `\texttt{*/}'.
+Care must be taken to ignore such sequences within quotes \textit{both single and double}, as well as within other comments.
+Escape sequences also have to be dealt with.
+
+While parsing the given source code character by character, it becomes necessary to keep track of a \textit{state variable}. This
+will store information about what is currently being parsed, and different sets of checks are executed accordingly. Java \textit{enums}, 
+or \textit{enumerated lists}, are ideal for this purpose.
 
 \algorithm
+\texttt{main (filename:String)}
+\begin{enumerate}
+	\item Create a \texttt{ReadSourceFile} object called \texttt{s}, and pass it \texttt{filename} and a buffer size of $10$.
+	\item Declare a state variable called \texttt{currentState}, and set it to \texttt{SOURCE}.
+	\item Declare a character called \texttt{matchingQuotes}, and set it to a black space.
+	\item \textbf{While} \texttt{s->hasNextChar()}: \label{rc:while}
+	\begin{enumerate}
+		\item Store the character returned by \texttt{s->getChar()} as \texttt{c}.
+		\item If \texttt{c} is a backslash, display it, get another character from \texttt{s->getChar()},
+			display that, and jump to (\ref{rc:while}).
+		\item If \texttt{currentState} is \texttt{SOURCE}:
+		\begin{enumerate}
+			\item If \texttt{c} is a quotation mark, set \texttt{currentState} to \texttt{QUOTES}, set \texttt{matchingQuotes} to
+				\texttt{c}. Display \texttt{c} and jump to (\ref{rc:while}).
+			\item If \texttt{c} is a forward slash, get another character called \texttt{n} from \texttt{s->getChar()}.
+			\begin{enumerate}
+				\item If \texttt{n} is an asterisk, set \texttt{currentState} to \texttt{MULTIPLE\_LINE\_COMMENT}.
+				\item If \texttt{n} ia another forward slash, set \texttt{currentState} to \texttt{SIMGLE\_LINE\_COMMENT}.
+				\item If none of the above, call \texttt{s->putChar(n)}, display \texttt{c} and jump to (\ref{rc:while}).
+			\end{enumerate}
+			\item If none of the above, display \texttt{c} and jump to (\ref{rc:while}).
+		\end{enumerate}
+		\item If \texttt{currentState} is \texttt{SIMGLE\_LINE\_COMMENT} and \texttt{c} is a newline, set \texttt{currentState} to
+			\texttt{SOURCE}, display \texttt{c} and jump to (\ref{rc:while}).
+		\item If \texttt{currentState} is \texttt{MULTIPLE\_LINE\_COMMENT} and \texttt{c} is an asterisk:
+		\begin{enumerate}
+			\item Get another character called \texttt{n} from \texttt{s->getChar()}.
+			\item If \texttt{n} is a forward slash, set \texttt{currentState} to \texttt{SOURCE}.
+			\item Jump to (\ref{rc:while}).
+		\end{enumerate}
+		\item If \texttt{currentState} is \texttt{QUOTES} and \texttt{c} is equal to \texttt{matchingQuotes}, set \texttt{currentState}
+			to \texttt{SOURCE}, \texttt{matchingQuotes} to an blank space. Display \texttt{c} and jump to (\ref{rc:while}).
+		\item If none of the above, display \texttt{c}.
+	\end{enumerate}
+\end{enumerate}
+\vspace{8mm}
+\texttt{ReadSourceFile (filename:String, bufferSize:integer)}
+\begin{enumerate}
+	\item Initialize a new \texttt{FileReader} \textit{unbuffered} called \texttt{fileReader} and pass it \texttt{filename}.
+	\item Create a simple \textit{buffer} of integers, implemented using a stack.
+		\textit{This will store characters, but the \texttt{char} data type cannot store special characters, such as the character
+			which indicates the end of a file.}
+	\item \textbf{Define} the functions:
+	\begin{enumerate}
+		\item \texttt{ReadSourceFile::hasNextChar()}
+		\item \texttt{ReadSourceFile::getChar()}
+		\item \texttt{ReadSourceFile::putChar(c)}
+	\end{enumerate}
+	\item \textbf{Return} the resultant object.
+\end{enumerate}
+\vspace{5mm}
+\texttt{ReadSourceFile::hasNextChar ()} 
+\begin{enumerate}
+	\item Read a new character from \texttt{fileReader}, and call it \texttt{c}.
+	\item If \texttt{c} is equal to $-1$, \textbf{return} \texttt{false}.
+	\item Call \texttt{this->putChar(c)}
+	\item \textbf{Return} \texttt{true}
+\end{enumerate}
+\vspace{5mm}
+\texttt{ReadSourceFile::getChar ()}
+\begin{enumerate}
+	\item If the buffer has some characters, pop one off and \textbf{return} it.
+	\item Read a character from \texttt{fileReader} and \textbf{return} it.
+\end{enumerate}
+\vspace{5mm}
+\texttt{ReadSourceFile::putChar (c:Integer)}
+\begin{enumerate}
+	\item If the buffer has space, push \texttt{c} onto it and \textbf{return} \texttt{true}. Otherwise, 
+		\textbf{return} \texttt{false}.
+\end{enumerate}
 
+\clearpage
 \sourcecode
+\lstinputlisting{src/State.java}
+\lstinputlisting{src/ReadSourceFile.java}
 \lstinputlisting{src/RemoveComments.java}
 
 \varDescription
+\begin{longtable} {| >{\ttfamily}p{0.16\linewidth} | >{\ttfamily}p{0.2\linewidth}| p{0.6\linewidth} |}
+\hline\multicolumn{3}{|c|}{\tt ReadSourceFile} 		\\\hline
+String		&	filename	&	The file containing the source code to be read \\\hline
+int[]		&	buffer		&	The stack of characters read from the file \\\hline
+int 		&	top		&	The index of the character at the top of the buffer \\\hline
+\hline\multicolumn{3}{|c|}{\tt RemoveComments::main(String[])} 		\\\hline
+ReadSource\newline
+	File	&	s		&	The source file reader \\\hline
+State		&	currentState	&	Indicates the type of code currently being parsed \\\hline
+char		&	matchingQuotes	&	Indicates the type of ending quote which pairs with the opening quote,
+						if currently inside a string in the source code \\\hline
+char		&	c, n		&	Stores the current and next characters in the source code being parsed \\\hline
+\end{longtable}

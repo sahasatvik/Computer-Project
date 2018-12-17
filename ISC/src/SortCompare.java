@@ -1,34 +1,40 @@
 public class SortCompare {
 	public static void main (String[] args) {
+		/* Initialize the sorters */
 		IntegerArraySorter[] sorters = {
 			new BubbleSorter(),
 			new InsertionSorter(),
 			new QuickSorter()
 		};
 		
-		int[] a = randomArray(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
-		// System.out.println(toString(a));
+		/* Parse the first command line argument as the length of the list */
+		int length = Integer.parseInt(args[0]);
+
+		/* Parse the second command line argument as the upper bound of integers in the list */
+		int range = Integer.parseInt(args[1]);
+
+		/* Create a random list */
+		int[] a = randomArray(length, range);
 		
 		long t0 = 0, t1 = 0;
 		for (IntegerArraySorter s : sorters) {
+			/* Clone the list */
 			int[] b = a.clone();
+
+			/* Start the timer */
 			t0 = System.nanoTime();
+
+			/* Sort */
 			s.sort(b);
+
+			/* Stop the timer */
 			t1 = System.nanoTime();
+
 			System.out.printf("%16s : %16d ns\n", s, t1 - t0);
-			// System.out.println(toString(b));
 		}
 	}
-
-	public static String toString (int[] a) {
-		if (a.length == 0)
-			return "[]";
-		String s = "";
-		for (int n : a)
-			s += n + ", ";
-		return "[" + s.substring(0, s.length() - 2) + "]";
-	}
-
+	
+	/* Generates a random array of given length and given upper limit of random numbers */
 	public static int[] randomArray (int length, int hi) {
 		int[] a = new int[length];
 		for (int i = 0; i < length; i++)

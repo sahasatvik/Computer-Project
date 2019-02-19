@@ -1,3 +1,3 @@
 public interface Scalable<T> {
-	public T scale (double scaleFactor);
+        public T scale (double scaleFactor);
 }

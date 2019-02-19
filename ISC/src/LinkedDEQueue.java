@@ -25,21 +25,21 @@ public class LinkedDEQueue<T> extends LinkedQueue<T> {
                         private Node<T> current = HEAD.left;
 
                         @Override
-                                public boolean hasNext () {
-                                        return current != TAIL;
-                                }
+                        public boolean hasNext () {
+                                return current != TAIL;
+                        }
 
                         @Override
-                                public T next () {
-                                        T item = current.getItem();
-                                        current = current.left;
-                                        return item;
-                                }
+                        public T next () {
+                                T item = current.getItem();
+                                current = current.left;
+                                return item;
+                        }
 
                         @Override
-                                public void remove () {
-                                        throw new UnsupportedOperationException();
-                                }
+                        public void remove () {
+                                throw new UnsupportedOperationException();
+                        }
                 };
         }
 }

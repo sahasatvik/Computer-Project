@@ -8,22 +8,22 @@ public class Rectangle implements Shape2D, Scalable<Rectangle> {
         }
 
         @Override
-                public double getArea () {
-                        return length * breadth;
-                }
+        public double getArea () {
+                return length * breadth;
+        }
 
         @Override
-                public double getPerimeter () {
-                        return 2 * (length + breadth);
-                }
+        public double getPerimeter () {
+                return 2 * (length + breadth);
+        }
 
         @Override
-                public Rectangle scale (double scaleFactor) {
-                        return new Rectangle(length * scaleFactor, breadth * scaleFactor);
-                }
+        public Rectangle scale (double scaleFactor) {
+                return new Rectangle(length * scaleFactor, breadth * scaleFactor);
+        }
 
         @Override
-                public String toString () {
-                        return String.format("Rectangle (length = %f, breadth = %f)", length, breadth);
-                }
+        public String toString () {
+                return String.format("Rectangle (length = %f, breadth = %f)", length, breadth);
+        }
 }

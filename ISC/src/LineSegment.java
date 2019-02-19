@@ -6,12 +6,12 @@ public class LineSegment implements Scalable<LineSegment> {
         }
 
         @Override
-                public LineSegment scale (double scaleFactor) {
-                        return new LineSegment(length * scaleFactor);
-                }
+        public LineSegment scale (double scaleFactor) {
+                return new LineSegment(length * scaleFactor);
+        }
 
         @Override
-                public String toString () {
-                        return String.format("LineSegment (length = %f)", length);
-                }
+        public String toString () {
+                return String.format("LineSegment (length = %f)", length);
+        }
 }

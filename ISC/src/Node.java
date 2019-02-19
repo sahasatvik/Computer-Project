@@ -18,9 +18,9 @@ public class Node<T> {
 
         /* Use the data item's 'toString()' method */
         @Override
-                public String toString () {
-                        return item.toString();
-                }
+        public String toString () {
+                return item.toString();
+        }
 
         /* Doubly link two nodes */
         public static <T> void link (Node<T> left, Node<T> right) {

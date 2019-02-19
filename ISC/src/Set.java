@@ -136,36 +136,36 @@ public class Set implements Iterable<Integer> {
 
         /* Format the set elements as a list */
         @Override
-                public String toString () {
-                        if (getSize() == 0)
-                                return "[]";
-                        String s = "";
-                        for (Integer n : this)
-                                s += n + " ";
-                        return "[" + String.join(", ", s.split("\\s+")) + "]";
-                }
+        public String toString () {
+                if (getSize() == 0)
+                        return "[]";
+                String s = "";
+                for (Integer n : this)
+                        s += n + " ";
+                return "[" + String.join(", ", s.split("\\s+")) + "]";
+        }
 
         /* Allow 'Set' to be iterable, providing easy access to elements
            without indexing */
         @Override
-                public Iterator<Integer> iterator () {
-                        return new Iterator<Integer>() {
-                                private int currentIndex = 0;
+        public Iterator<Integer> iterator () {
+                return new Iterator<Integer>() {
+                        private int currentIndex = 0;
 
-                                @Override
-                                        public boolean hasNext () {
-                                                return currentIndex <= top;
-                                        }
+                        @Override
+                        public boolean hasNext () {
+                                return currentIndex <= top;
+                        }
 
-                                @Override
-                                        public Integer next () {
-                                                return elements[currentIndex++];
-                                        }
+                        @Override
+                        public Integer next () {
+                                return elements[currentIndex++];
+                        }
 
-                                @Override
-                                        public void remove () {
-                                                throw new UnsupportedOperationException();
-                                        }
-                        };
-                }
+                        @Override
+                        public void remove () {
+                                throw new UnsupportedOperationException();
+                        }
+                };
+        }
 }

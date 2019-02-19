@@ -4,12 +4,12 @@ public class Square extends Rectangle {
         }
 
         @Override
-                public Square scale (double scaleFactor) {
-                        return new Square(length * scaleFactor);
-                }
+        public Square scale (double scaleFactor) {
+                return new Square(length * scaleFactor);
+        }
 
         @Override
-                public String toString () {
-                        return String.format("Square (side = %f)", length);
-                }
+        public String toString () {
+                return String.format("Square (side = %f)", length);
+        }
 }

@@ -10,22 +10,22 @@ public class Cuboid implements Shape3D, Scalable<Cuboid> {
         }
 
         @Override
-                public double getVolume () {
-                        return length * breadth * height;
-                }
+        public double getVolume () {
+                return length * breadth * height;
+        }
 
         @Override
-                public double getSurfaceArea () {
-                        return 2.0 * ((length * breadth) + (breadth * height) + (height * length));
-                }
+        public double getSurfaceArea () {
+                return 2.0 * ((length * breadth) + (breadth * height) + (height * length));
+        }
 
         @Override
-                public Cuboid scale (double scaleFactor) {
-                        return new Cuboid(length * scaleFactor, breadth * scaleFactor, height * scaleFactor);
-                }
+        public Cuboid scale (double scaleFactor) {
+                return new Cuboid(length * scaleFactor, breadth * scaleFactor, height * scaleFactor);
+        }
 
         @Override
-                public String toString () {
-                        return String.format("Cuboid (length = %f, breadth = %f, height = %f)", length, breadth, height);
-                }
+        public String toString () {
+                return String.format("Cuboid (length = %f, breadth = %f, height = %f)", length, breadth, height);
+        }
 }

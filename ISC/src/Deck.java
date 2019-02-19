@@ -47,15 +47,14 @@ public class Deck {
 
         /* Format the cards in the deck neatly */
         @Override
-                public String toString () {
-                        if (this.isEmpty())
-                                return "[]";
-                        String s = "[";
-                        for (int i = top; i >= 0; i--)
-                                s += cards[i].toStringShort() + ", ";
-                        return s.substring(0, s.length() - 2) + "]";
-
-                }
+        public String toString () {
+                if (this.isEmpty())
+                        return "[]";
+                String s = "[";
+                for (int i = top; i >= 0; i--)
+                        s += cards[i].toStringShort() + ", ";
+                return s.substring(0, s.length() - 2) + "]";
+        }
 
         /* Utility method for generating random integers in a given range */
         private static int random (int lo, int hi) {

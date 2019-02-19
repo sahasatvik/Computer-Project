@@ -28,9 +28,9 @@ public class BinaryTree<T extends Comparable<T>> {
 
         /* Formats the items in the tree neatly, in order */ 
         @Override
-                public String toString () {
-                        return BinaryTree.<T>traverseInOrder(this.root).trim();
-                }
+        public String toString () {
+                return BinaryTree.<T>traverseInOrder(this.root).trim();
+        }
 
         /* Recursive binary search */
         public static <T extends Comparable<T>> TreeNode<T> search (TreeNode<T> root, T item) {

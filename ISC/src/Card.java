@@ -14,9 +14,9 @@ public class Card {
 
         /* Formats the card details neatly */
         @Override
-                public String toString () {
-                        return rank + " of " + suit;
-                }
+        public String toString () {
+                return rank + " of " + suit;
+        }
 
         /* Formats the card as a 2-character string */
         public String toStringShort () {

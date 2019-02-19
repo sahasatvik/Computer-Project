@@ -1,8 +1,8 @@
 public class QuickSorter extends IntegerArraySorter {
         @Override
-                public void sort (int[] a) {
-                        sort(a, 0, a.length - 1);
-                }
+        public void sort (int[] a) {
+                sort(a, 0, a.length - 1);
+        }
 
         /* Recursive quicksort */
         private void sort (int[] a, int lo, int hi) {
@@ -25,7 +25,7 @@ public class QuickSorter extends IntegerArraySorter {
         }
 
         @Override
-                public String toString () {
-                        return "QuickSort";
-                }
+        public String toString () {
+                return "QuickSort";
+        }
 }

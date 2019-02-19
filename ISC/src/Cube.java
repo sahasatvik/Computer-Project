@@ -4,12 +4,12 @@ public class Cube extends Cuboid {
         }
 
         @Override
-                public Cube scale (double scaleFactor) {
-                        return new Cube(length * scaleFactor);
-                }
+        public Cube scale (double scaleFactor) {
+                return new Cube(length * scaleFactor);
+        }
 
         @Override
-                public String toString () {
-                        return String.format("Cube (side = %f)", length);
-                }
+        public String toString () {
+                return String.format("Cube (side = %f)", length);
+        }
 }

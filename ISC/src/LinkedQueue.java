@@ -56,37 +56,37 @@ public class LinkedQueue<T> implements Iterable<T> {
 
         /* Formats the elements of the queue neatly */
         @Override
-                public String toString () {
-                        String[] elements = new String[this.size()];
-                        Node<T> current = TAIL;
-                        int n = 0;
-                        while ((current = current.right) != HEAD)
-                                elements[n++] = current.toString();
-                        return "[" + String.join(", ", elements) + "]";
-                }
+        public String toString () {
+                String[] elements = new String[this.size()];
+                Node<T> current = TAIL;
+                int n = 0;
+                while ((current = current.right) != HEAD)
+                        elements[n++] = current.toString();
+                return "[" + String.join(", ", elements) + "]";
+        }
 
         /* Allow the elements of the queue to be iterated over simply */
         @Override
-                public Iterator<T> iterator () {
-                        return new Iterator<T>() {
-                                private Node<T> current = TAIL.right;
+        public Iterator<T> iterator () {
+                return new Iterator<T>() {
+                        private Node<T> current = TAIL.right;
 
-                                @Override
-                                        public boolean hasNext () {
-                                                return current != HEAD;
-                                        }
+                        @Override
+                        public boolean hasNext () {
+                                return current != HEAD;
+                        }
 
-                                @Override
-                                        public T next () {
-                                                T item = current.getItem();
-                                                current = current.right;
-                                                return item;
-                                        }
+                        @Override
+                        public T next () {
+                                T item = current.getItem();
+                                current = current.right;
+                                return item;
+                        }
 
-                                @Override
-                                        public void remove () {
-                                                throw new UnsupportedOperationException();
-                                        }
-                        };
-                }
+                        @Override
+                        public void remove () {
+                                throw new UnsupportedOperationException();
+                        }
+                };
+        }
 }

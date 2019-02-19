@@ -54,12 +54,12 @@ public class Vector {
 
         /* Format vector components neatly */
         @Override
-                public String toString () {
-                        String s = "(";
-                        for (double component : components)
-                                s += component + ", ";
-                        return s.replaceAll(", $", ")");
-                }
+        public String toString () {
+                String s = "(";
+                for (double component : components)
+                        s += component + ", ";
+                return s.replaceAll(", $", ")");
+        }
 
         /* Checks for equality between two vectors */
         public static boolean equals (Vector a, Vector b) {

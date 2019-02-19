@@ -20,7 +20,7 @@ public class TreeNode<T extends Comparable<T>> {
 
         /* Use the data item's 'toString()' method */
         @Override
-                public String toString () {
-                        return item.toString();
-                }
+        public String toString () {
+                return item.toString();
+        }
 }

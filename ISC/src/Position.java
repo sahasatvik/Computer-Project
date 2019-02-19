@@ -35,9 +35,9 @@ public class Position {
         }
 
         @Override
-                public String toString () {
-                        return xToString(this.x) + (this.y + 1);
-                }
+        public String toString () {
+                return xToString(this.x) + (this.y + 1);
+        }
 
         /* Convert a file number to its algebraic notation form */
         public static String xToString (int n) {
